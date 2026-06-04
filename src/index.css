@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f1fb;
+  color: #0b1559;
+}
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 245 60% 97%;
+    --foreground: 232 80% 19%;
+    --card: 0 0% 100%;
+    --card-foreground: 232 80% 19%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 232 80% 19%;
+    --primary: 234 67% 26%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 168 80% 42%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 30% 95%;
+    --muted-foreground: 232 20% 40%;
+    --accent: 168 80% 42%;
+    --accent-foreground: 232 80% 19%;
+    --destructive: 354 84% 53%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 30% 90%;
+    --input: 240 30% 90%;
+    --ring: 234 67% 26%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Marquee */
+@keyframes scroll-x {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: scroll-x 35s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: scroll-x 60s linear infinite;
+}
+
+@keyframes scroll-rev {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-rev {
+  animation: scroll-rev 50s linear infinite;
+}
+
+/* Spin */
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 30s linear infinite;
+}
+
+/* Float */
+@keyframes float-y {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+/* Pulse ring */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(19, 196, 163, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(19, 196, 163, 0);
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient text accent */
+.text-mint {
+  color: #13c4a3;
+}
+
+.bg-mint {
+  background-color: #13c4a3;
+}
+
+.bg-navy {
+  background-color: #0e1a6b;
+}
+
+.bg-navy-deep {
+  background-color: #0a1456;
+}
+
+.text-navy {
+  color: #0e1a6b;
+}
+
+.border-mint {
+  border-color: #13c4a3;
+}
+
+/* Service card glow */
+.service-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 60%, rgba(19, 196, 163, 0.08) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  background: #0b1559 !important;
+  border-color: rgba(11, 21, 89, 0.4) !important;
+  box-shadow: 0 24px 60px -20px rgba(11, 21, 89, 0.6) !important;
+}
+
+/* Decorative pattern */
+.dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Soft shadow utility */
+.soft-shadow {
+  box-shadow: 0 20px 50px -20px rgba(14, 26, 107, 0.18);
+}
+
+/* Underline link hover */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #13c4a3;
+  transition: width 0.35s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Number circle */
+.step-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.6) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Section spacing */
+.section-pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ecebf5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0e1a6b;
+  border-radius: 8px;
+}
+
+/* --- GLOBAL BUTTON CTA GREEN THEMING OVERRIDE --- */
+
+/* Target primary action buttons and anchors specifically */
+button.bg-navy.rounded-full:not(.h-1\.5),
+a.bg-navy.rounded-full:not(.h-1\.5),
+button.bg-mint.rounded-full:not(.h-1\.5),
+a.bg-mint.rounded-full:not(.h-1\.5),
+button.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5),
+a.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5),
+.bg-navy.rounded-full:not(.h-1\.5),
+.bg-mint.rounded-full:not(.h-1\.5),
+.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5) {
+  background-color: rgb(59, 122, 36) !important;
+  color: white !important;
+}
+
+button.bg-navy.rounded-full:not(.h-1\.5):hover,
+a.bg-navy.rounded-full:not(.h-1\.5):hover,
+button.bg-mint.rounded-full:not(.h-1\.5):hover,
+a.bg-mint.rounded-full:not(.h-1\.5):hover,
+button.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5):hover,
+a.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5):hover,
+.bg-navy.rounded-full:not(.h-1\.5):hover,
+.bg-mint.rounded-full:not(.h-1\.5):hover,
+.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5):hover {
+  background-color: rgb(45, 102, 27) !important;
+  color: white !important;
+  box-shadow: 0 10px 25px -5px rgba(59, 122, 36, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Force the nested spans to have a white background */
+button.bg-navy.rounded-full:not(.h-1\.5) span.rounded-full,
+a.bg-navy.rounded-full:not(.h-1\.5) span.rounded-full,
+button.bg-mint.rounded-full:not(.h-1\.5) span.rounded-full,
+a.bg-mint.rounded-full:not(.h-1\.5) span.rounded-full,
+button.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5) span.rounded-full,
+a.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5) span.rounded-full,
+.bg-navy.rounded-full:not(.h-1\.5) span.rounded-full,
+.bg-mint.rounded-full:not(.h-1\.5) span.rounded-full,
+.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5) span.rounded-full {
+  background-color: white !important;
+  color: rgb(59, 122, 36) !important;
+}
+
+/* Force the SVG arrows/icons inside the nested spans to be green */
+button.bg-navy.rounded-full:not(.h-1\.5) span.rounded-full svg,
+a.bg-navy.rounded-full:not(.h-1\.5) span.rounded-full svg,
+button.bg-mint.rounded-full:not(.h-1\.5) span.rounded-full svg,
+a.bg-mint.rounded-full:not(.h-1\.5) span.rounded-full svg,
+button.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5) span.rounded-full svg,
+a.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5) span.rounded-full svg,
+.bg-navy.rounded-full:not(.h-1\.5) span.rounded-full svg,
+.bg-mint.rounded-full:not(.h-1\.5) span.rounded-full svg,
+.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5) span.rounded-full svg {
+  color: rgb(59, 122, 36) !important;
+  stroke: rgb(59, 122, 36) !important;
+}
+
+/* Other non-nested icons (e.g. Phone, etc.) directly in the button should remain white */
+button.bg-navy.rounded-full:not(.h-1\.5)>svg,
+a.bg-navy.rounded-full:not(.h-1\.5)>svg,
+button.bg-mint.rounded-full:not(.h-1\.5)>svg,
+a.bg-mint.rounded-full:not(.h-1\.5)>svg,
+button.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5)>svg,
+a.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5)>svg,
+.bg-navy.rounded-full:not(.h-1\.5)>svg,
+.bg-mint.rounded-full:not(.h-1\.5)>svg,
+.bg-\[\#3b7a24\].rounded-full:not(.h-1\.5)>svg {
+  color: white !important;
+  stroke: white !important;
+}
