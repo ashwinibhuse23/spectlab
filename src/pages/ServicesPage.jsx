@@ -32,7 +32,7 @@ const serviceData = [
   {
     title: "THALLIUM SCAN",
     description: "Diagnosis of coronary artery disease. Prognosis of known coronary artery disease. Risk stratification in known or suspected CAD. Suspected restenosis after CABG. Evaluation of PTCA / stent, anti – angina drugs. Pre – operative cardiac risk assessment. Assessment of myocardial viability",
-    image: "/services/Thallium scan.jpg",
+    image: "/services/THALLIUM SCAN.jpg",
     link: "/services/thallium-scan"
   },
   {
@@ -56,13 +56,13 @@ const serviceData = [
   {
     title: "CAPTOPRIL RENAL SCAN",
     description: "Evaluation of reno – vascular hypertension.",
-    image: "/services/Captopril Renal Scan.jpg",
+    image: "/services/CAPTOPRIL RENAL SCAN.jpg",
     link: "/services/captopril-renal-scan"
   },
   {
     title: "COLLOID LIVER SCAN",
     description: "To assess hepatocellular dysfunction in diffuse liver disease. Suspected chronic liver disease (cirrhosis). Assess hepatic function in chronic alcoholics. Evaluation of splenomegaly.",
-    image: "/services/Colloid liver scan.jpg",
+    image: "/services/COLLOID LIVER SCAN.jpg",
     link: "/services/colloid-liver-scan"
   },
   {
