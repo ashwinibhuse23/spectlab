@@ -15,7 +15,7 @@ const navItems = [
 const Logo = () => (
   <Link to="/" className="flex items-center group transition-transform duration-300 hover:scale-105">
     <img
-      src="/SpectLab-1.svg"
+      src="/Spectlab-1.svg"
       alt="SpectLab - Nuclear Medicine Services"
       className="h-12 md:h-14 lg:h-15 w-auto object-contain transition-all duration-300"
     />
@@ -54,7 +54,7 @@ export default function Header() {
               <div key={item.label} className="relative group py-2.5">
                 <Link
                   to={item.to}
-                  className={`relative flex items-center gap-1.5 font-display font-semibold text-[11px] xl:text-[12px] tracking-wide uppercase transition-colors duration-300 py-1
+                  className={`relative flex items-center gap-1.5 font-display font-semibold text-[11px] xl:text-[12px] whitespace-nowrap tracking-wide uppercase transition-colors duration-300 py-1
                     ${isActive(item.to) ? 'text-[#3b7a24]' : 'text-navy/90 hover:text-[#3b7a24]'}
                   `}
                 >
