@@ -20,10 +20,10 @@ export default function About() {
               <span className="w-8 h-px bg-[#3b7a24]" />
               About SPECT LAB
             </div>
-            <h2 className="font-display font-extrabold text-navy text-3xl lg:text-[30px] leading-[1.2] mb-10">
-              A Legacy of Excellence in Nuclear Medicine
+            <h2 className="font-display font-extrabold text-navy text-3xl lg:text-[30px] leading-[1.45] mb-5">
+              A Legacy of Excellence in <br />Nuclear Medicine
             </h2>
-            <div className="text-navy/75 leading-relaxed space-y-4 text-sm lg:text-base mb-8 pr-0 lg:pr-6 text-justify">
+            <div className="text-navy/75 leading-relaxed space-y-4 text-xs lg:text-[13px] mb-8 pr-0 lg:pr-6 text-justify">
               <p>
                 SPECT LAB is a proprietary organization started in the year 2001 by Dr. Shrikant Solav who holds a post graduate degree in medicine and nuclear medicine. Initially, there was single equipment and a team of three technologists to support the work. In the year 2004, there was an addition of a second Gamma camera to the clinic.
               </p>

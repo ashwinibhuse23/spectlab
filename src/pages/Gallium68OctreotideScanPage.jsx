@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { CheckCircle2, AlertCircle, Clock, Activity, Timer, Download } from 'lucide-react';
+import { AlertCircle, Clock, Activity, Timer, Download } from 'lucide-react';
 import { gsap } from 'gsap';
 
-export default function MugaScanPage() {
+export default function Gallium68OctreotideScanPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
@@ -14,7 +14,7 @@ export default function MugaScanPage() {
         ease: 'power3.out'
       });
       
-      gsap.utils.toArray('li, .procedure-text, .time-text, .prerequisite-text').forEach((el) => {
+      gsap.utils.toArray('li, .procedure-text, .time-text, .prerequisite-text, .technique-text').forEach((el) => {
         gsap.from(el, {
           scrollTrigger: {
             trigger: el,
@@ -30,18 +30,14 @@ export default function MugaScanPage() {
     return () => ctx.revert();
   }, []);
 
-  const indications = [
-    "For assessing the patency of nasolacrymal duct in patients having epiphora."
-  ];
-
   return (
     <div className="bg-white min-h-screen pt-28 pb-20 lg:pt-36 lg:pb-28">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         
         {/* Title */}
         <div className="text-center mb-20">
-          <h1 className="font-display font-extrabold text-navy text-xl md:text-2xl lg:text-3xl mb-4 max-w-3xl mx-auto">
-            MUGA SCAN
+          <h1 className="font-display font-extrabold text-navy text-xl md:text-2xl lg:text-3xl mb-4 max-w-3xl mx-auto uppercase">
+            Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan
           </h1>
           <div className="w-24 h-1 bg-[#3b7a24] mx-auto rounded-full" />
         </div>
@@ -72,7 +68,7 @@ export default function MugaScanPage() {
             </div>
             <div className="ml-1 md:ml-3 time-text">
               <p className="text-navy text-[15px] leading-relaxed">
-                Scan Time 45 mins.
+                Duration of the procedure: 1 - 2hr
               </p>
             </div>
           </section>
@@ -82,32 +78,29 @@ export default function MugaScanPage() {
           {/* Technique */}
           <section>
             <div className="flex items-center gap-3 mb-6">
-              <Clock className="w-7 h-7 text-[#3b7a24]" />
-              <h2 className="font-display font-bold text-navy text-lg md:text-xl leading-tight">Technique in Vivo RBC Labeling Method</h2>
+              <Activity className="w-7 h-7 text-[#3b7a24]" />
+              <h2 className="font-display font-bold text-navy text-lg md:text-xl">Technique</h2>
             </div>
-            <div className="ml-1 md:ml-3 procedure-text">
-              <p className="text-navy text-[15px] leading-relaxed mb-4">
-                Twenty minutes after the intravenous administration of stannous pyrophosphate, 25 mCi of 99m Tc (O4-) is administered.
+            <div className="ml-1 md:ml-3 technique-text">
+              <p className="text-navy text-[15px] leading-relaxed">
+                DOTA studies are able to determine the extent of neuro endocrine tumor (NET) cancer and whether it has spread to the lymph nodes or other parts of the body, unlike traditional imaging technologies such as magnetic resonance imaging (MRI) and computed tomography (CT), which are often unable to detect the spread of NET cancer cells. Molecular imaging technologies help physicians select the most effective therapy for NET cancer, taking into account a tumor's unique molecular properties and whether the cancer is localized or diffuse, or spread out.
               </p>
             </div>
           </section>
 
           <hr className="border-slate-100" />
 
-          {/* Indications */}
+          {/* Procedure */}
           <section>
             <div className="flex items-center gap-3 mb-6">
-              <Activity className="w-7 h-7 text-[#3b7a24]" />
-              <h2 className="font-display font-bold text-navy text-lg md:text-xl">Indications</h2>
+              <Clock className="w-7 h-7 text-[#3b7a24]" />
+              <h2 className="font-display font-bold text-navy text-lg md:text-xl">Procedure</h2>
             </div>
-            <ul className="space-y-4 ml-1 md:ml-3">
-              {indications.map((item, index) => (
-                <li data-reveal key={index} className="flex items-start gap-4">
-                  <CheckCircle2 className="w-5 h-5 text-[#3b7a24] flex-shrink-0 mt-1" />
-                  <p className="text-navy text-[15px] leading-relaxed">{item}</p>
-                </li>
-              ))}
-            </ul>
+            <div className="ml-1 md:ml-3 procedure-text">
+              <p className="text-navy text-[15px] leading-relaxed">
+                The study involves a special molecule called a monoclonal antibody developed in a laboratory and designed to bind to the somastatin receptors. This antibody is paired with a radioactive material called 68-Gallium that can be detected by a PET CT camera. When injected into the patient's bloodstream, the radioactive antibody travels and attaches to cancer cells. The PET CT then produces three-dimensional images of the tumor and its location inside the body.
+              </p>
+            </div>
           </section>
           </div>
 

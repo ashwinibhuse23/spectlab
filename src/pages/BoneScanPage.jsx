@@ -7,10 +7,10 @@ export default function BoneScanPage() {
     window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
       gsap.from('h1, .w-24.h-1, section', {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
+        y: 0,
+        opacity: 1,
+        duration: 0,
+        stagger: 0,
         ease: 'power3.out'
       });
       
@@ -47,7 +47,7 @@ export default function BoneScanPage() {
         
         {/* Title */}
         <div className="text-center mb-20">
-          <h1 className="font-display font-extrabold text-navy text-2xl md:text-3xl lg:text-4xl mb-6 flex flex-col gap-3 max-w-2xl mx-auto">
+          <h1 className="font-display font-extrabold text-navy text-xl md:text-2xl lg:text-3xl mb-6 flex flex-col gap-3 max-w-2xl mx-auto">
             <span>BONE SCAN</span>
           </h1>
           <div className="w-24 h-1 bg-[#3b7a24] mx-auto rounded-full" />
@@ -60,10 +60,10 @@ export default function BoneScanPage() {
           <section>
             <div className="flex items-center gap-3 mb-6">
               <AlertCircle className="w-7 h-7 text-[#3b7a24]" />
-              <h2 className="font-display font-bold text-navy text-xl md:text-2xl">Prerequisites</h2>
+              <h2 className="font-display font-bold text-navy text-lg md:text-xl">Prerequisites</h2>
             </div>
             <div className="ml-1 md:ml-3 procedure-text">
-              <p className="text-navy text-[17px] leading-relaxed">
+              <p className="text-navy text-[15px] leading-relaxed">
                 No Prerequisite.
               </p>
             </div>
@@ -75,10 +75,10 @@ export default function BoneScanPage() {
           <section>
             <div className="flex items-center gap-3 mb-6">
               <Timer className="w-7 h-7 text-[#3b7a24]" />
-              <h2 className="font-display font-bold text-navy text-xl md:text-2xl">Time Required</h2>
+              <h2 className="font-display font-bold text-navy text-lg md:text-xl">Time Required</h2>
             </div>
             <div className="ml-1 md:ml-3 time-text">
-              <p className="text-navy text-[17px] leading-relaxed">
+              <p className="text-navy text-[15px] leading-relaxed">
                 Scan Time 2-3 hours.
               </p>
             </div>
@@ -90,10 +90,10 @@ export default function BoneScanPage() {
           <section>
             <div className="flex items-center gap-3 mb-6">
               <Clock className="w-7 h-7 text-[#3b7a24]" />
-              <h2 className="font-display font-bold text-navy text-xl md:text-2xl">Procedure</h2>
+              <h2 className="font-display font-bold text-navy text-lg md:text-xl">Procedure</h2>
             </div>
             <div className="ml-1 md:ml-3 procedure-text">
-              <p className="text-navy text-[17px] leading-relaxed">
+              <p className="text-navy text-[15px] leading-relaxed">
                 20 mCi of Tc 99m M.D.P. is administered intravenously and after 2.5 hours anterior and posterior images is acquired of the whole skeleton.
               </p>
             </div>
@@ -105,13 +105,13 @@ export default function BoneScanPage() {
           <section>
             <div className="flex items-center gap-3 mb-6">
               <Activity className="w-7 h-7 text-[#3b7a24]" />
-              <h2 className="font-display font-bold text-navy text-xl md:text-2xl">Indications</h2>
+              <h2 className="font-display font-bold text-navy text-lg md:text-xl">Indications</h2>
             </div>
             <ul className="space-y-4 ml-1 md:ml-3">
               {indications.map((item, index) => (
                 <li data-reveal key={index} className="flex items-start gap-4">
                   <CheckCircle2 className="w-5 h-5 text-[#3b7a24] flex-shrink-0 mt-1" />
-                  <p className="text-navy text-[17px] leading-relaxed">{item}</p>
+                  <p className="text-navy text-[15px] leading-relaxed">{item}</p>
                 </li>
               ))}
             </ul>
@@ -122,7 +122,7 @@ export default function BoneScanPage() {
           <div className="lg:sticky lg:top-32 lg:mt-8">
             <div className="bg-white p-3 sm:p-5 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
               <div className="flex items-center justify-between mb-4 px-2">
-                <h3 className="font-display font-bold text-navy text-xl">Related Documents</h3>
+                <h3 className="font-display font-bold text-navy text-lg">Related Documents</h3>
                 <a
                   href="/pdf/Spectlab_Services.pdf"
                   download

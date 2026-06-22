@@ -44,7 +44,7 @@ export default function AppointmentCTA() {
               <span className="w-10 h-px bg-[#3b7a24]" />
               Make an Appointment
             </div>
-            <h2 className="font-display font-extrabold text-navy text-[30px] leading-[1.4] mb-6">
+            <h2 className="font-display font-extrabold text-navy text-[27px] leading-[1.4] mb-6">
               Looking for professionals & trusted healthcare? You're in the right place.
             </h2>
             <ul className="space-y-3 mb-8">
@@ -57,7 +57,7 @@ export default function AppointmentCTA() {
                 </li>
               ))}
             </ul>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-6">
               <Link to="/appointment" className="group inline-flex items-center gap-3 bg-navy hover:bg-[#2d661b] text-white font-display font-bold pl-6 pr-2 py-2 rounded-full transition-colors">
                 Appointment
                 <span className="w-10 h-10 rounded-full bg-white text-[#3b7a24] flex items-center justify-center group-hover:rotate-45 transition-transform">

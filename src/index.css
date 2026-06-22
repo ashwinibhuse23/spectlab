@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 body {
   margin: 0;
@@ -14,11 +18,13 @@ body {
 }
 
 .font-display {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-heading);
 }
 
 @layer base {
   :root {
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
     --background: 245 60% 97%;
     --foreground: 232 80% 19%;
     --card: 0 0% 100%;
@@ -57,8 +63,44 @@ body {
   h4,
   h5,
   h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-heading);
+    font-weight: 500;
   }
+
+  /* Step down Tailwind font-weight utilities on headings & display text */
+  h1.font-extrabold, h2.font-extrabold, h3.font-extrabold,
+  h4.font-extrabold, h5.font-extrabold, h6.font-extrabold,
+  .font-display.font-extrabold {
+    font-weight: 600 !important;
+  }
+
+  h1.font-bold, h2.font-bold, h3.font-bold,
+  h4.font-bold, h5.font-bold, h6.font-bold,
+  .font-display.font-bold {
+    font-weight: 500 !important;
+  }
+
+  h1.font-semibold, h2.font-semibold, h3.font-semibold,
+  h4.font-semibold, h5.font-semibold, h6.font-semibold,
+  .font-display.font-semibold {
+    font-weight: 400 !important;
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  li, span, a, label, td, th, button {
+    font-size: inherit;
+    line-height: 1.7;
+  }
+}
+
+/* Global body text size bump — headings use explicit size classes so are unaffected */
+html {
+  font-size: 17.5px;
 }
 
 /* Marquee */
@@ -214,7 +256,7 @@ body {
 
 /* Number circle */
 .step-num {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 800;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.6) 100%);
   -webkit-background-clip: text;

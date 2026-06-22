@@ -42,7 +42,7 @@ export default function AboutPage() {
               Our Story
               <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
             </div>
-            <h2 className="font-display font-extrabold text-[#0e1a6b] text-3xl md:text-4xl lg:text-[42px] leading-[1.2] mb-12">
+            <h2 className="font-display font-extrabold text-[#0e1a6b] text-2xl md:text-3xl lg:text-[34px] leading-[1.2] mb-12">
               Trusted Excellence in Diagnostic Imaging
             </h2>
             <div className="space-y-6 text-[#0e1a6b]/80 text-[15px] md:text-[17px] leading-relaxed text-justify">

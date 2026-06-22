@@ -39,47 +39,47 @@ export const aboutFeatures = [
 
 export const services = [
   {
-    name: 'PET-CT Imaging Procedure (FDG)',
+    name: 'PET-CT Imaging\nProcedure (FDG)',
     icon: 'ScanSearch',
     desc: 'Advanced PET-CT imaging using FDG tracer for cancer detection, staging, treatment monitoring, and evaluation of metabolic disorders.'
   },
   {
-    name: 'Thallium Scan',
+    name: 'Thallium\nScan',
     icon: 'HeartPulse',
     desc: 'Nuclear cardiology study used to assess blood flow to the heart muscle and diagnose coronary artery disease.'
   },
   {
-    name: 'Bone Scans',
+    name: 'Bone\nScan',
     icon: 'Bone',
     desc: 'Sensitive skeletal imaging for detecting fractures, infections, arthritis, and bone metastases.'
   },
   {
-    name: 'DTPA Renal Scan',
+    name: 'DTPA\nRenal Scan',
     icon: 'Droplets',
     desc: 'Functional kidney imaging that evaluates renal blood flow, function, and urinary drainage.'
   },
   {
-    name: 'Thyroid Scans',
+    name: 'Thyroid\nScan',
     icon: 'Activity',
     desc: 'Diagnostic thyroid imaging used to assess gland structure, function, nodules, and thyroid disorders.'
   },
   {
-    name: 'Captopril Renal Scan',
+    name: 'Captopril\nRenal Scan',
     icon: 'Stethoscope',
     desc: 'Specialized renal study for diagnosing renovascular hypertension and evaluating renal artery stenosis.'
   },
   {
-    name: 'Colloid Liver Scan',
+    name: 'Colloid\nLiver Scan',
     icon: 'Shield',
     desc: 'Nuclear medicine imaging of the liver and spleen to evaluate organ function, size, and focal abnormalities.'
   },
   {
-    name: 'Milk Scan (GE Reflux)',
+    name: 'Milk Scan\n(GE Reflux)',
     icon: 'Baby',
     desc: 'Gastroesophageal reflux study used to detect reflux and assess gastric emptying, especially in infants and children.'
   },
   {
-    name: 'MUGA Scan',
+    name: 'MUGA\nScan',
     icon: 'Heart',
     desc: 'Multigated Acquisition Scan used to measure cardiac pumping efficiency and ventricular function with high accuracy.'
   }

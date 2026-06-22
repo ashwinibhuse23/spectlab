@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -58,37 +59,40 @@ export default function Services() {
             <h2 className="font-display font-extrabold text-[#0e1a6b] text-2xl lg:text-3xl leading-[1.2] mb-5">
               Nuclear Medicine: Advanced Functional & <br className="hidden lg:block" /> Molecular Imaging
             </h2>
-            <p className="text-[#0e1a6bbf] leading-relaxed max-w-xl text-sm lg:text-[15px]">
+            <p className="text-[#0e1a6bbf] leading-relaxed max-w-xl text-base lg:text-[17px]">
               Expert Nuclear Medicine and Molecular Imaging services focused on precision, innovation, and patient care.
             </p>
           </div>
         </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 lg:gap-y-16 mt-16 lg:mt-20"
-        >
-          {items.map((s) => {
-            const Icon = iconMap[s.icon] || HeartPulse;
-            return (
-              <motion.div variants={itemVariants} key={s.name} className="relative rounded-3xl px-5 lg:px-6 pb-6 pt-12 min-h-[220px] flex flex-col items-center text-center group bg-white border border-gray-100 shadow-xl shadow-[#0e1a6b]/5 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#3b7a24]/10 hover:bg-[#f3f9f1] transition-all duration-300">
-                {/* Overlapping Center Icon */}
-                <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#f3f9f1] text-[#3b7a24] border-4 border-white shadow-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#3b7a24] group-hover:text-white">
-                  <Icon className="w-6 h-6" strokeWidth={1.8} />
-                </div>
-                
-                <h3 className="font-display font-bold text-[#0e1a6b] text-lg mb-3">{s.name}</h3>
-                <p className="text-[#0e1a6bbf] text-[13px] leading-relaxed flex-1">{s.desc}</p>
-                <Link to="/services" className="mt-5 inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold text-sm group/link">
-                  Learn more <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={page}
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            exit={{ opacity: 0, transition: { duration: 0.15 } }}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 lg:gap-y-16 mt-16 lg:mt-20"
+          >
+            {items.map((s) => {
+              const Icon = iconMap[s.icon] || HeartPulse;
+              return (
+                <motion.div variants={itemVariants} key={s.name} className="relative rounded-3xl px-5 lg:px-6 pb-6 pt-12 min-h-[220px] flex flex-col items-center text-center group bg-white border border-gray-100 shadow-xl shadow-[#0e1a6b]/5 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#3b7a24]/10 hover:bg-[#f3f9f1] transition-all duration-300">
+                  {/* Overlapping Center Icon */}
+                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#f3f9f1] text-[#3b7a24] border-4 border-white shadow-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#3b7a24] group-hover:text-white">
+                    <Icon className="w-6 h-6" strokeWidth={1.8} />
+                  </div>
+
+                  <h3 className="font-display font-bold text-[#0e1a6b] text-xl mb-3 w-full min-h-[3.5rem] leading-snug" style={{ whiteSpace: 'pre-line' }}>{s.name}</h3>
+                  <p className="text-[#0e1a6bbf] text-[13px] leading-relaxed flex-1">{s.desc}</p>
+                  <Link to="/services" className="mt-5 inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold text-sm group/link">
+                    Learn more <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </AnimatePresence>
 
         <div className="flex justify-center gap-2 mt-8">
           {Array.from({ length: pages }).map((_, i) => (

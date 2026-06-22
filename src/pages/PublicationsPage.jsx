@@ -126,7 +126,7 @@ export default function PublicationsPage() {
               Our Research & Case Studies
               <span className="w-10 h-px bg-[#3b7a24]" />
             </div>
-            <h2 className="font-display font-extrabold text-navy text-2xl lg:text-4xl leading-tight mb-6">
+            <h2 className="font-display font-extrabold text-navy text-xl lg:text-3xl leading-tight mb-6">
               Research Publications & Scientific Contributions
             </h2>
             <p className="text-navy/70 leading-relaxed text-lg">

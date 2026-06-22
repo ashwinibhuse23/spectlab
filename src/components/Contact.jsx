@@ -44,7 +44,7 @@ export default function Contact() {
               <span className="w-8 h-px bg-[#3b7a24]" />
               <span className="text-sm">We'd love to hear from you</span>
             </div>
-            <h2 className="font-display font-extrabold text-navy text-3xl lg:text-4xl leading-[1.1] mb-8">
+            <h2 className="font-display font-extrabold text-navy text-2xl lg:text-3xl leading-[1.1] mb-8">
               Let's talk with us!
             </h2>
 

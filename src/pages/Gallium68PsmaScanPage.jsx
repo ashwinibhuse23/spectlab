@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { CheckCircle2, AlertCircle, Clock, Activity, Timer, Download } from 'lucide-react';
 import { gsap } from 'gsap';
 
-export default function MugaScanPage() {
+export default function Gallium68PsmaScanPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
@@ -30,8 +30,26 @@ export default function MugaScanPage() {
     return () => ctx.revert();
   }, []);
 
+  const prerequisites = [
+    "Fasting not required.",
+    "Please bring previous investigations."
+  ];
+
+  const procedureSteps = [
+    "IV administration of a small radioactive agent.",
+    "There are no side effects.",
+    "Waiting period of 60 – 90 Mins.",
+    "Patient cannot leave the waiting room in this period as per government regulations.",
+    "Few patients may require a delayed image at 3 Hrs.",
+    "Attendants and relatives are not allowed to accompany the patient in waiting room.",
+    "Only disabled ( bed-ridden) patients who require close monitoring and physical assistance should be accompanied by an attendant."
+  ];
+
   const indications = [
-    "For assessing the patency of nasolacrymal duct in patients having epiphora."
+    "To detect occult prostate cancer.",
+    "To determine its spread.",
+    "To assess treatment response.",
+    "Surveillance"
   ];
 
   return (
@@ -41,7 +59,7 @@ export default function MugaScanPage() {
         {/* Title */}
         <div className="text-center mb-20">
           <h1 className="font-display font-extrabold text-navy text-xl md:text-2xl lg:text-3xl mb-4 max-w-3xl mx-auto">
-            MUGA SCAN
+            GALLIUM-68 PSMA SCAN
           </h1>
           <div className="w-24 h-1 bg-[#3b7a24] mx-auto rounded-full" />
         </div>
@@ -55,11 +73,14 @@ export default function MugaScanPage() {
               <AlertCircle className="w-7 h-7 text-[#3b7a24]" />
               <h2 className="font-display font-bold text-navy text-lg md:text-xl">Prerequisites</h2>
             </div>
-            <div className="ml-1 md:ml-3 prerequisite-text">
-              <p className="text-navy text-[15px] leading-relaxed">
-                No Prerequisite.
-              </p>
-            </div>
+            <ul className="space-y-4 ml-1 md:ml-3">
+              {prerequisites.map((item, index) => (
+                <li data-reveal key={index} className="flex items-start gap-4">
+                  <div className="w-2 h-2 rounded-full bg-[#3b7a24] mt-2.5 flex-shrink-0" />
+                  <p className="text-navy text-[15px] leading-relaxed">{item}</p>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <hr className="border-slate-100" />
@@ -72,24 +93,27 @@ export default function MugaScanPage() {
             </div>
             <div className="ml-1 md:ml-3 time-text">
               <p className="text-navy text-[15px] leading-relaxed">
-                Scan Time 45 mins.
+                Duration of the procedure: 2 - 3hr
               </p>
             </div>
           </section>
 
           <hr className="border-slate-100" />
 
-          {/* Technique */}
+          {/* Procedure */}
           <section>
             <div className="flex items-center gap-3 mb-6">
               <Clock className="w-7 h-7 text-[#3b7a24]" />
-              <h2 className="font-display font-bold text-navy text-lg md:text-xl leading-tight">Technique in Vivo RBC Labeling Method</h2>
+              <h2 className="font-display font-bold text-navy text-lg md:text-xl">Procedure</h2>
             </div>
-            <div className="ml-1 md:ml-3 procedure-text">
-              <p className="text-navy text-[15px] leading-relaxed mb-4">
-                Twenty minutes after the intravenous administration of stannous pyrophosphate, 25 mCi of 99m Tc (O4-) is administered.
-              </p>
-            </div>
+            <ul className="space-y-4 ml-1 md:ml-3">
+              {procedureSteps.map((item, index) => (
+                <li data-reveal key={index} className="flex items-start gap-4">
+                  <div className="w-2 h-2 rounded-full bg-[#3b7a24] mt-2.5 flex-shrink-0" />
+                  <p className="text-navy text-[15px] leading-relaxed">{item}</p>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <hr className="border-slate-100" />

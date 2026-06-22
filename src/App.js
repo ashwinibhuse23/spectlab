@@ -24,6 +24,20 @@ import CaptoprilRenalScanPage from './pages/CaptoprilRenalScanPage';
 import ColloidLiverScanPage from './pages/ColloidLiverScanPage';
 import MilkScanPage from './pages/MilkScanPage';
 import MugaScanPage from './pages/MugaScanPage';
+import DmsaRenalScanPage from './pages/DmsaRenalScanPage';
+import MeckelsDiverticulumPage from './pages/MeckelsDiverticulumPage';
+import ParathyroidScanPage from './pages/ParathyroidScanPage';
+import MibgScanPage from './pages/MibgScanPage';
+import DirectCystogramPage from './pages/DirectCystogramPage';
+import RadioIodineTherapyPage from './pages/RadioIodineTherapyPage';
+import DacryoscintigraphyPage from './pages/DacryoscintigraphyPage';
+import BrainSpectPage from './pages/BrainSpectPage';
+import LymphoscintigraphyPage from './pages/LymphoscintigraphyPage';
+import WholeBodyScanPage from './pages/WholeBodyScanPage';
+import RbcBloodPoolScanPage from './pages/RbcBloodPoolScanPage';
+import HepatobiliaryScintigraphyPage from './pages/HepatobiliaryScintigraphyPage';
+import Gallium68PsmaScanPage from './pages/Gallium68PsmaScanPage';
+import Gallium68OctreotideScanPage from './pages/Gallium68OctreotideScanPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +65,7 @@ function App() {
       });
     });
     return () => ctx.revert();
-  });
+  }, []);
 
   return (
     <BrowserRouter>
@@ -75,6 +89,20 @@ function App() {
           <Route path="/services/colloid-liver-scan" element={<ColloidLiverScanPage />} />
           <Route path="/services/milk-scan" element={<MilkScanPage />} />
           <Route path="/services/muga-scan" element={<MugaScanPage />} />
+          <Route path="/services/dmsa-renal-scan" element={<DmsaRenalScanPage />} />
+          <Route path="/services/meckels-diverticulum" element={<MeckelsDiverticulumPage />} />
+          <Route path="/services/parathyroid-scan" element={<ParathyroidScanPage />} />
+          <Route path="/services/mibg-scan" element={<MibgScanPage />} />
+          <Route path="/services/direct-cystogram" element={<DirectCystogramPage />} />
+          <Route path="/services/radio-iodine-therapy" element={<RadioIodineTherapyPage />} />
+          <Route path="/services/dacryoscintigraphy" element={<DacryoscintigraphyPage />} />
+          <Route path="/services/brain-spect" element={<BrainSpectPage />} />
+          <Route path="/services/lymphoscintigraphy" element={<LymphoscintigraphyPage />} />
+          <Route path="/services/whole-body-scan" element={<WholeBodyScanPage />} />
+          <Route path="/services/rbc-blood-pool-scan" element={<RbcBloodPoolScanPage />} />
+          <Route path="/services/hida-scan" element={<HepatobiliaryScintigraphyPage />} />
+          <Route path="/services/gallium-68-psma-scan" element={<Gallium68PsmaScanPage />} />
+          <Route path="/services/gallium-68-octreotide-scan" element={<Gallium68OctreotideScanPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
