@@ -266,7 +266,7 @@ export default function AboutPage() {
                 style={{ boxShadow: '0 8px 40px rgba(14,26,107,0.12), 0 2px 8px rgba(59,122,36,0.08)', border: '1.5px solid rgba(14,26,107,0.08)' }}
               >
                 <video
-                  src="/aboutvideo.webm"
+                  src="/aboutVideo.webm"
                   controls
                   playsInline
                   preload="metadata"
