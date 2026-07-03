@@ -15,10 +15,10 @@ export default function AppointmentCTA() {
             transition={{ duration: 0.8 }}
             className="relative flex justify-center lg:block"
           >
-            <div className="relative rounded-[32px] overflow-hidden aspect-[4/3] w-full sm:w-[90%] lg:w-[90%] bg-slate-50 soft-shadow">
-              <img src={process.env.PUBLIC_URL + '/appointment.png'} alt="Appointment" className="w-full h-full object-cover" />
+            <div className="relative rounded-[32px] overflow-hidden aspect-[3/2] w-full sm:w-full lg:w-full bg-slate-50 soft-shadow">
+              <img src={process.env.PUBLIC_URL + '/gammasymbiaevo.png'} alt="Appointment" className="w-full h-full object-cover" />
             </div>
-            <div className="absolute -bottom-6 right-0 sm:right-4 lg:right-12 bg-white rounded-2xl px-6 py-5 soft-shadow flex items-center gap-4 z-10">
+            <div className="absolute -bottom-8 -right-2 sm:right-2 lg:right-8 bg-white rounded-2xl px-6 py-5 soft-shadow flex items-center gap-4 z-10">
               <div className="w-12 h-12 rounded-full bg-[#3b7a24] text-white flex items-center justify-center">
                 <Phone className="w-5 h-5" />
               </div>
@@ -27,7 +27,6 @@ export default function AppointmentCTA() {
                 <div className="flex flex-col gap-0.5">
                   <a href="tel:+919527070000" className="font-display font-bold text-navy hover:text-[#3b7a24] transition-colors text-sm">+91-9527070000</a>
                   <a href="tel:+918975758509" className="font-display font-bold text-navy hover:text-[#3b7a24] transition-colors text-sm">+91-8975758509</a>
-                  <a href="tel:+918975758566" className="font-display font-bold text-navy hover:text-[#3b7a24] transition-colors text-sm">+91-8975758566</a>
                 </div>
               </div>
             </div>
@@ -48,7 +47,7 @@ export default function AppointmentCTA() {
               Looking for professionals & trusted healthcare? You're in the right place.
             </h2>
             <ul className="space-y-3 mb-8">
-              {['Advanced PET-CT & SPECT-CT Imaging', 'Accurate Diagnostic & Therapy Solutions', 'Experienced Nuclear Medicine Specialists'].map((t) => (
+              {['Advanced PET-CT & SPECT-CT Imaging', 'Accurate Diagnostic & Therapeutic Solutions', 'Experienced Nuclear Medicine Specialists'].map((t) => (
                 <li key={t} className="flex items-center gap-3">
                   <span className="w-6 h-6 rounded-full bg-[#3b7a24]/15 text-[#3b7a24] flex items-center justify-center">
                     <Check className="w-3.5 h-3.5" strokeWidth={3} />

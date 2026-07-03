@@ -67,7 +67,6 @@ export default function Footer() {
                 <div className="flex flex-col gap-1">
                   <a href="tel:+919527070000" className="hover:text-[#3b7a24] transition-colors">+91-9527070000</a>
                   <a href="tel:+918975758509" className="hover:text-[#3b7a24] transition-colors">+91-8975758509</a>
-                  <a href="tel:+918975758566" className="hover:text-[#3b7a24] transition-colors">+91-8975758566</a>
                 </div>
               </li>
               <li className="flex items-start gap-3"><Mail className="w-5 h-5 mt-0.5 text-white shrink-0" /> drsolav1@gmail.com</li>
