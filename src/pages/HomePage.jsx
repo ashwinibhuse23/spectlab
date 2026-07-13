@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Stats from '../components/Stats';
 import About from '../components/About';
 import Services from '../components/Services';
+import Reviews from '../components/Reviews';
 import WhyChoose from '../components/WhyChoose';
 import Process from '../components/Process';
 import AppointmentCTA from '../components/AppointmentCTA';
@@ -19,18 +20,20 @@ export default function HomePage() {
       <Hero />
       {/* <Stats /> */}
 
-      <About />
+      {/* <About /> */}
 
       <Services />
+      <Reviews />
+
       {/* <WhyChoose />
       <Process /> */}
-      <AppointmentCTA />
+      {/* <AppointmentCTA /> */}
       {/* <Testimonials /> */}
       {/* <PartnersStrip /> */}
       {/* <Doctors /> */}
-      <Blog />
+      {/* <Blog /> */}
       {/* <Marquee /> */}
-      <Contact />
+      {/* <Contact /> */}
     </>
   );
 }

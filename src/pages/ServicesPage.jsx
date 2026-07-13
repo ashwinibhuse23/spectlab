@@ -1,165 +1,133 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
-import { ArrowRight, Activity, Zap, Phone } from 'lucide-react';
+import { ArrowRight, Activity, Zap, Phone, Heart } from 'lucide-react';
 
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
 const nuclearServices = [
-
   {
     title: 'THYROID SCAN',
     description: 'Assessment of thyroid function, nodules, and conditions like hyperthyroidism.',
     image: '/services/Thyroid Scans_result.jpg',
-    link: '/services/thyroid-scan',
+    link: '/services/scans#thyroid-scan',
   },
-
   {
     title: 'DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION)',
     description: 'Evaluation of kidney function and detects urinary obstruction or reflux.',
     image: '/services/DTPA RENAL SCAN_result.jpg',
-    link: '/services/dtpa-renal-scan',
+    link: '/services/scans#dtparenal-scan',
   },
-
   {
     title: 'DMSA RENAL SCAN (CORTICAL FUNCTION)',
     description: 'Diagnosis of acute pyelonephritis. Diagnosis of renal scarring.',
     image: '/services/DMSA RENAL SCAN_result.png',
-    link: '/services/dmsa-renal-scan',
+    link: '/services/scans#dmsarenal-scan',
   },
-
   {
     title: 'BONE SCAN',
     description: 'Detection of bone metastases, infections, fractures, and other bone abnormalities.',
     image: '/services/Bone Scans_result.jpg',
-    link: '/services/bone-scan',
+    link: '/services/scans#bone-scan',
   },
   {
     title: 'THALLIUM SCAN',
     description: 'Diagnosis of coronary artery disease. Evaluation of blood flow to the heart muscle.',
     image: '/services/THALLIUM SCAN_result.jpg',
-    link: '/services/thallium-scan',
+    link: '/services/scans#thallium-scan',
   },
-
   {
     title: "MECKEL'S DIVERTICULUM IMAGING",
     description: "Detection and localization of Meckel's diverticulum.",
     image: '/services/MECKEL\'S DIVERTICULUM IMAGING_result.png',
-    link: '/services/meckels-diverticulum',
+    link: '/services/scans#meckels-diverticulum',
   },
-
-
-    {
+  {
     title: 'MILK SCAN (GE REFLUX)',
     description: 'Detection of gastroesophageal reflux in infants.',
     image: '/services/MILK SCAN (GE REFLUX)_result.jpg',
-    link: '/services/milk-scan',
+    link: '/services/scans#milk-scan',
   },
-
-
-  
-    {
+  {
     title: 'PARATHYROID SCAN',
     description: 'Evaluation of primary or secondary hyperparathyroidism.',
     image: '/services/PARATHYROID SCAN_result.png',
-    link: '/services/parathyroid-scan',
+    link: '/services/scans#parathyroid-scan',
   },
-
-
-   {
+  {
     title: 'MUGA SCAN',
     description: 'Evaluation of heart function and ejection fraction.',
     image: '/services/MUGA SCAN_result.jpg',
-    link: '/services/muga-scan',
+    link: '/services/scans#muga-scan',
   },
-
   {
     title: 'MIBG SCAN',
     description: 'Pheochromocytoma. Neuroblastoma. Testicular Scan. Lymphoscintigraphy.',
     image: '/services/MIBG SCAN_result.png',
-    link: '/services/mibg-scan',
+    link: '/services/scans#mibg-scan',
   },
-
-
   {
     title: 'DIRECT CYSTOGRAM',
     description: 'To rule out VU (Vesico-Ureteral) Reflux.',
     image: '/services/DIRECT CYSTOGRAM_result.png',
-    link: '/services/direct-cystogram',
+    link: '/services/scans#direct-cystogram',
   },
-
   {
     title: 'RADIO IODINE THERAPY',
     description: 'Treatment for hyperthyroidism and thyroid cancer using Radioactive Iodine I-131.',
     image: '/services/RADIO IODINE THERAPY_result.png',
-    link: '/services/radio-iodine-therapy',
+    link: '/services/scans#radioiodine-therapy',
   },
-
   {
     title: 'POST CAPTOPRIL RENOGRAM',
     description: 'Evaluation of renovascular hypertension and kidney asymmetry.',
     image: '/services/CAPTOPRIL RENAL SCAN_result.jpg',
-    link: '/services/captopril-renal-scan',
+    link: '/services/scans#captoprilrenal-scan',
   },
-
-
-   {
+  {
     title: 'DACRYOSCINTIGRAPHY',
     description: 'For assessing the patency of nasolacrymal duct in patients having epiphora.',
     image: '/services/DACRYOSCINTIGRAPHY_result.png',
-    link: '/services/dacryoscintigraphy',
+    link: '/services/scans#dacryoscintigraphy',
   },
-
   {
     title: 'BRAIN SPECT (CEREBRAL PERFUSION SCAN)',
     description: "Alzheimer's disease. Differential diagnosis of various forms of dementia. Detection of epileptogenic foci.",
     image: '/services/BRAIN SPECT_result.png',
-    link: '/services/brain-spect',
+    link: '/services/scans#brain-spect',
   },
-
   {
     title: 'LYMPHOSCINTIGRAPHY',
     description: 'Interdigital with no side or after effects.',
     image: '/services/LYMPHOSCINTIGRAPHY_result.png',
-    link: '/services/lymphoscintigraphy',
+    link: '/services/scans#lymphoscintigraphy',
   },
-
-
   {
     title: 'COLLOID LIVER SCAN',
     description: 'Assessment of liver size, function, and detection of diffuse liver diseases.',
     image: '/services/COLLOID LIVER SCAN_result.jpg',
-    link: '/services/colloid-liver-scan',
+    link: '/services/scans#colloidliver-scan',
   },
-
-
   {
     title: 'I-131 WHOLE BODY SCAN',
     description: 'Detection of residual thyroid tissue and local or distant mets after total thyroidectomy for Ca thyroid.',
     image: '/services/WHOLE BODY SCAN_result.png',
-    link: '/services/whole-body-scan',
+    link: '/services/scans#wholebody-scan',
   },
-
-
-
   {
     title: 'RBC BLOOD POOL SCAN/GI BLEED SCAN',
     description: 'Liver hemangiomas. Detection and localization of gastrointestinal bleeding. ',
     image: '/services/RBC BLOOD_result.png',
-    link: '/services/rbc-blood-pool-scan',
+    link: '/services/scans#rbcbloodpool-scan',
   },
-
-
-   {
+  {
     title: 'HEPATOBILIARY SCINTIGRAPHY (HIDA SCAN)',
     description: 'Evaluation of suspected acute cholecystitis. Congenital abnormalities of biliary tract disorders.',
     image: '/services/Hepatobiliary_result.png',
-    link: '/services/hida-scan',
-  },
-
- 
+    link: '/services/scans#hepatobiliary-scintigraphy',
+  }
 ];
 
 const petServices = [
@@ -167,21 +135,35 @@ const petServices = [
     title: 'PET-CT IMAGING (FDG)',
     description: 'Detects cancer, determines spread, and evaluates treatment response.',
     image: '/services/PETCT_result.jpg',
-    link: '/services/pet-ct-imaging',
+    link: '/services/scans#petct-imaging',
   },
   {
     title: 'Gallium-68 PSMA Scan',
     description: 'To detect occult prostate cancer.To determine its spread.',
     image: '/services/Gallium_result.png',
-    link: '/services/gallium-68-psma-scan',
+    link: '/services/scans#gallium68psma-scan',
   },
   {
     title: 'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan',
     description: 'nuclear medicine imaging study used to detect and evaluate neuroendocrine tumors that express somatostatin receptors.',
     image: '/services/OCTREOTIDE_result.png',
-    link: '/services/gallium-68-octreotide-scan',
+    link: '/services/scans#gallium68octreotide-scan',
   },
-  
+];
+
+const therapyServices = [
+  {
+    title: 'TARGETED RADIONUCLIDE THERAPY',
+    description: 'Precision treatment delivering radiation directly to cancer cells while minimizing damage to healthy tissue.',
+    image: '/chemotherapy.jpg',
+    link: '#',
+  },
+  {
+    title: 'PEPTIDE RECEPTOR RADIONUCLIDE THERAPY (PRRT)',
+    description: 'A highly targeted therapy used specifically to treat neuroendocrine tumors (NETs).',
+    image: '/chemotherapy.jpg',
+    link: '#',
+  },
 ];
 
 /* ─────────────────────────────────────────────
@@ -215,6 +197,7 @@ function useFadeIn(threshold = 0.15) {
 function ServiceCard({ service, index }) {
   return (
     <div
+      id={service.title.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '')}
       className="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-100
                  group cursor-pointer overflow-hidden
                  flex flex-col will-change-transform"
@@ -322,12 +305,52 @@ function ServiceSection({ icon: Icon, title, subtitle, services }) {
 ───────────────────────────────────────────── */
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('nuclear');
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.targetTab) {
+      setActiveTab(location.state.targetTab);
+      setTimeout(() => {
+        const el = document.getElementById('services-grid');
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 150);
+    } else if (location.state?.targetScan) {
+      const targetScan = location.state.targetScan;
+      let idStr = '';
+      let isPet = false;
+      if (targetScan.includes('PET-CT')) { idStr = 'PET-CT IMAGING (FDG)'; isPet = true; }
+      else if (targetScan.includes('Thallium')) idStr = 'THALLIUM SCAN';
+      else if (targetScan.includes('Bone')) idStr = 'BONE SCAN';
+      else if (targetScan.includes('DTPA')) idStr = 'DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION)';
+      else if (targetScan.includes('Thyroid')) idStr = 'THYROID SCAN';
+      else if (targetScan.includes('Captopril')) idStr = 'POST CAPTOPRIL RENOGRAM';
+      else if (targetScan.includes('Colloid')) idStr = 'COLLOID LIVER SCAN';
+      else if (targetScan.includes('Milk')) idStr = 'MILK SCAN (GE REFLUX)';
+      else if (targetScan.includes('MUGA')) idStr = 'MUGA SCAN';
+
+      if (idStr) {
+        setActiveTab(isPet ? 'pet' : 'nuclear');
+        const targetId = idStr.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
+        setTimeout(() => {
+          const el = document.getElementById(targetId);
+          if (el) {
+            const y = el.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 150);
+      }
+    }
+  }, [location.state]);
 
   const introRef = useFadeIn(0.1);
 
   const tabs = [
     { id: 'nuclear', label: 'Nuclear Scan Services', icon: Activity },
     { id: 'pet', label: 'PET CT Scan Services', icon: Zap },
+    { id: 'therapy', label: 'Therapy Services', icon: Heart },
   ];
 
   return (
@@ -379,7 +402,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Services Grid Section ── */}
-      <section className="py-12 lg:py-16 bg-[#f3f1fb]">
+      <section id="services-grid" className="py-12 lg:py-16 bg-[#f3f1fb]">
         <div className="max-w-[1300px] mx-auto px-4 lg:px-8">
 
           {/* Header */}
@@ -390,7 +413,7 @@ export default function ServicesPage() {
               <span className="w-8 h-px bg-[#3b7a24]" />
             </div>
             <h2 className="font-display font-extrabold text-[#0b1559] text-3xl leading-tight mb-2">
-              Our Scan Services
+              Our Services
             </h2>
             <p className="text-[#0b1559]/60 text-[16px] leading-relaxed">
               Advanced imaging for accurate diagnosis and better treatment decisions.
@@ -398,13 +421,13 @@ export default function ServicesPage() {
           </div>
 
           {/* Tab Switcher */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex bg-white rounded-full p-1 shadow-sm border border-slate-200 gap-1">
+          <div className="flex justify-center mb-8 px-4 w-full">
+            <div className="inline-flex bg-white rounded-full p-1 shadow-sm border border-slate-200 gap-1 overflow-x-auto no-scrollbar max-w-full" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               {tabs.map(({ id, label, icon: Icon }) => (
                 <button
                   key={id}
                   onClick={() => setActiveTab(id)}
-                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px]
+                  className={`whitespace-nowrap inline-flex flex-shrink-0 items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-[13px]
                     font-display font-semibold transition-all duration-300 ${activeTab === id
                       ? 'bg-[#0b1559] text-white shadow-md'
                       : 'text-[#0b1559]/65 hover:text-[#0b1559] hover:bg-slate-50'
@@ -435,12 +458,19 @@ export default function ServicesPage() {
                   subtitle="Specialized imaging using radioactive tracers to evaluate organ function and detect abnormalities."
                   services={nuclearServices}
                 />
-              ) : (
+              ) : activeTab === 'pet' ? (
                 <ServiceSection
                   icon={Zap}
                   title="PET CT Scan Services"
                   subtitle="Advanced imaging using PET technology to detect cancer, monitor treatment, and assess metabolic activity."
                   services={petServices}
+                />
+              ) : (
+                <ServiceSection
+                  icon={Heart}
+                  title="Therapy Services"
+                  subtitle="Targeted radionuclide therapies delivering precision treatment directly to cellular targets with minimal side effects."
+                  services={therapyServices}
                 />
               )}
             </motion.div>

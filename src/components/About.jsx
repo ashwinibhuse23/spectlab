@@ -48,17 +48,18 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative order-1 lg:order-2"
           >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full bg-slate-900 shadow-xl">
-              <iframe 
-                className="w-full h-full absolute inset-0" 
-                src="https://www.youtube.com/embed/S1kDCbwG36s?si=HP0qNrdt7txlNWtq" 
-                title="About SPECT LAB" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" 
-                allowFullScreen
-              ></iframe>
-            </div>
+            <a 
+              href="https://www.youtube.com/watch?v=S1kDCbwG36s"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block relative rounded-2xl overflow-hidden w-full shadow-xl group transition-transform duration-300 hover:scale-[1.02]"
+            >
+              <img 
+                src={process.env.PUBLIC_URL + '/aboutthumbnail.png'} 
+                alt="About SPECT LAB"
+                className="w-full h-auto object-cover"
+              />
+            </a>
             <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#3b7a24]/20 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-navy/10 rounded-full blur-3xl pointer-events-none" />
           </motion.div>

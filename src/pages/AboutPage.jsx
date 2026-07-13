@@ -228,89 +228,8 @@ export default function AboutPage() {
       })()}
 
 
-      {/* ── Our Facility in Action (Video Section) ── */}
-      <section className="py-10 lg:py-16 bg-white overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
-
-          {/* Section header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10 lg:mb-14"
-          >
-            <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-3 text-xs uppercase tracking-wider">
-              <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
-              See Us in Action
-              <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
-            </div>
-            <h2 className="font-display font-extrabold text-[#0e1a6b] text-2xl md:text-3xl lg:text-[34px] leading-tight">
-              A Glimpse Into Our World-Class Facility
-            </h2>
-          </motion.div>
-
-          {/* Two-column layout */}
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-
-            {/* ── Video Player ── */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.8 }}
-              className="w-full lg:w-[55%] shrink-0"
-            >
-              <div
-                className="relative rounded-2xl overflow-hidden"
-                style={{ boxShadow: '0 8px 40px rgba(14,26,107,0.12), 0 2px 8px rgba(59,122,36,0.08)', border: '1.5px solid rgba(14,26,107,0.08)' }}
-              >
-                <video
-                  src="/aboutVideo.webm"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="w-full block rounded-2xl"
-                  style={{ aspectRatio: '16/9', objectFit: 'cover', display: 'block' }}
-                >
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </motion.div>
-
-            {/* ── Text Content ── */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="flex-1"
-            >
-              {/* Short paragraph */}
-              <p className="text-[#3b7a24] font-semibold text-[15px] leading-relaxed mb-5">
-                Step inside SPECT a facility built around precision diagnostics, patient comfort, and over two decades of trusted nuclear medicine care.
-              </p>
-
-              {/* Long paragraph */}
-              <p className="text-[#0e1a6b]/75 text-[15px] leading-[1.85] mb-8">
-                At SPECT LAB, our advanced PET-CT and SPECT-CT imaging systems, in-house radiopharmacy, and dedicated patient care facilities ensure accurate and reliable diagnostics. Supported by experienced nuclear medicine specialists, skilled technologists, and compassionate staff, we are committed to delivering timely results and the highest standards of patient care.
-              </p>
-
-              {/* Highlight chips */}
-              <div className="mt-8 flex flex-wrap gap-3">
-                {['PET-CT Suite', 'SPECT-CT Suite', 'Radiopharmacy', 'Patient Lounge', 'Expert Team'].map((chip) => (
-                  <span key={chip}
-                    className="px-4 py-1.5 rounded-full text-xs font-semibold"
-                    style={{ borderColor: 'rgba(59,122,36,0.25)', color: '#3b7a24', background: 'rgba(59,122,36,0.08)', border: '1px solid rgba(59,122,36,0.25)' }}>
-                    {chip}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
+     
+    
 
       {/* ── Dr. Shrikant V. Solav – About Section ── */}
       <section className="py-8 sm:py-10 lg:py-14 bg-[#f3f1fb] overflow-hidden">
@@ -340,30 +259,28 @@ export default function AboutPage() {
           {/* ── Two-column layout ── */}
           <div className="flex flex-col lg:flex-row items-start gap-6 sm:gap-8 lg:gap-12">
 
-            {/* ── LEFT: Image ── */}
+            {/* ── LEFT: Video ── */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.8 }}
-              className="w-full lg:w-[40%] shrink-0 flex justify-center lg:justify-start"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative w-full lg:w-[50%] shrink-0 flex justify-center lg:justify-start lg:mt-6"
             >
-              <div
-                className="w-full overflow-hidden"
-                style={{
-                  borderRadius: '1.5rem',
-                  border: '1.5px solid rgba(14,26,107,0.10)',
-                  boxShadow: '0 20px 50px -20px rgba(14,26,107,0.22)',
-                  background: '#dde3f2',
-                  maxWidth: 400,
-                }}
+              <a 
+                href="https://www.youtube.com/watch?v=S1kDCbwG36s"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative rounded-[1.5rem] overflow-hidden w-full max-w-[580px] shadow-[0_20px_50px_-20px_rgba(14,26,107,0.22)] border-[1.5px] border-[#0e1a6b]/10 group transition-transform duration-300 hover:scale-[1.02]"
               >
-                <img
-                  src="/drSolav.jpg"
-                  alt="Dr. Shrikant V. Solav – Nuclear Medicine Physician"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                <img 
+                  src={process.env.PUBLIC_URL + '/aboutthumbnail.png'} 
+                  alt="About SPECT LAB"
+                  className="w-full h-auto object-cover"
                 />
-              </div>
+              </a>
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#3b7a24]/20 rounded-full blur-3xl pointer-events-none z-[-1]" />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-navy/10 rounded-full blur-3xl pointer-events-none z-[-1]" />
             </motion.div>
 
             {/* ── RIGHT: Content ── */}
@@ -372,7 +289,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className="flex-1 flex flex-col"
+              className="flex-1 flex flex-col mt-2 lg:mt-6"
             >
               {/* Headline */}
               <h3 className="font-display font-extrabold text-[#0e1a6b] text-lg sm:text-xl lg:text-[22px] leading-tight mb-1.5">
@@ -496,111 +413,9 @@ export default function AboutPage() {
 
         </div>
       </section>
-      {/* ── Google Reviews Section ── */}
-      <section
-        className="pt-8 sm:pt-9 pb-11 sm:pb-12 lg:pb-16 overflow-hidden relative"
-        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,122,36,0.07) 0%, rgba(14,26,107,0.05) 45%, #fff 100%)' }}
-      >
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* ── Centred header ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
-            className="text-center mb-6 sm:mb-8 lg:mb-10"
-          >
-            {/* Label */}
-            <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-3 text-xs uppercase tracking-wider">
-              <span className="w-6 sm:w-8 h-[2px] bg-[#3b7a24]" />
-              Patient Voices
-              <span className="w-6 sm:w-8 h-[2px] bg-[#3b7a24]" />
-            </div>
-
-            {/* Headline */}
-            <h2 className="font-display font-extrabold text-[#0e1a6b] text-3xl md:text-4xl leading-tight mb-3">
-              Trusted by Hundreds of Patients
-            </h2>
-            <p className="text-[#0e1a6b]/80 text-[15px] md:text-[16px] max-w-lg mx-auto leading-relaxed">
-              Real words from real patients every review is verified directly on Google.
-            </p>
-            {/* ── Stats ribbon — responsive ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: 0.18 }}
-              className="flex w-full max-w-[660px] mx-auto mt-6 rounded-2xl overflow-hidden"
-              style={{
-                border: '1.5px solid rgba(14,26,107,0.10)',
-                boxShadow: '0 6px 30px rgba(14,26,107,0.08)',
-                background: '#fff',
-              }}
-            >
-              {/* Stat 1 — Rating */}
-              <div className="flex-1 flex items-center justify-center gap-2.5 px-7 py-5 border-r border-[#0e1a6b]/08">
-                <span className="font-display font-extrabold text-[#0e1a6b] text-[28px] leading-none">5.0</span>
-                <div className="flex flex-col gap-1">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-3.5 h-3.5 text-[#f59e0b]" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <span className="text-[#0e1a6b]/40 text-[10px] font-display leading-none tracking-wide">Rating</span>
-                </div>
-              </div>
-
-              {/* Stat 2 — Recommend */}
-              <div className="flex-1 flex items-center justify-center gap-2 px-7 py-5 border-r border-[#0e1a6b]/08">
-                <span className="font-display font-extrabold text-[#3b7a24] text-[28px] leading-none">100%</span>
-                <span className="text-[#0e1a6b]/50 text-[11px] font-display leading-snug max-w-[52px]">Would Recommend</span>
-              </div>
-
-              {/* Stat 3 — Google Verified */}
-              <div className="flex-1 flex items-center justify-center gap-2.5 px-7 py-5">
-                <svg className="w-6 h-6 shrink-0" viewBox="0 0 24 24">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
-                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
-                </svg>
-                <div className="flex flex-col gap-0.5">
-                  <span className="font-display font-bold text-[#0e1a6b] text-[13px] leading-none">Google</span>
-                  <span className="text-[#3b7a24] text-[11px] font-semibold leading-none">Verified ✓</span>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* ── Reviews Widget ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.75, delay: 0.12 }}
-          >
-            {/* Clip container — hides SociableKit watermark footer */}
-            <div
-              className="w-full overflow-hidden"
-              style={{ height: 'clamp(320px, 55vw, 460px)', background: 'transparent' }}
-            >
-              <iframe
-                src="https://widgets.sociablekit.com/google-reviews/iframe/25692053"
-                frameBorder="0"
-                width="100%"
-                style={{ display: 'block', height: 'calc(clamp(320px, 55vw, 460px) + 65px)', background: 'transparent' }}
-                title="SPECT LAB Google Reviews"
-              />
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
       {/* ── Topline Management Section ── */}
-      <section className="py-7 sm:py-9 lg:py-12 bg-[#f3f4fb] overflow-hidden">
+      <section className="pt-7 pb-4 sm:pt-9 sm:pb-6 lg:pt-12 lg:pb-8 bg-[#f0f4f8] overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* ── Section Header ── */}
@@ -644,7 +459,7 @@ export default function AboutPage() {
                   style={{ background: 'linear-gradient(160deg, #e8ecf5 0%, #d0d8ee 100%)' }}
                 >
                   <img
-                    src="/kiran.jpg"
+                    src="/kiran.png"
                     alt="Kiran Ayre"
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
@@ -692,7 +507,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, delay: 0.12 }}
-              className="bg-white rounded-2xl overflow-hidden flex flex-col sm:flex-row"
+              className="bg-white rounded-2xl overflow-hidden flex flex-col sm:flex-row mt-2 lg:mt-4"
               style={{ boxShadow: '0 4px 30px rgba(14,26,107,0.09)', border: '1.5px solid rgba(14,26,107,0.07)', minHeight: '220px' }}
             >
               {/* Doctor 2 Photo — absolutely fills the column */}
@@ -747,7 +562,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, delay: 0.24 }}
-              className="bg-white rounded-2xl overflow-hidden flex flex-col sm:flex-row"
+              className="bg-white rounded-2xl overflow-hidden flex flex-col sm:flex-row mt-2 lg:mt-4"
               style={{ boxShadow: '0 4px 30px rgba(14,26,107,0.09)', border: '1.5px solid rgba(14,26,107,0.07)', minHeight: '220px' }}
             >
               {/* Doctor 3 Photo — absolutely fills the column */}
@@ -803,7 +618,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-6"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"
           >
             {[
               {

@@ -1,0 +1,254 @@
+[
+  {
+    "id": "bone-scan",
+    "title": "BONE SCAN",
+    "prerequisites": "No Prerequisite.",
+    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Screen for bone metastases in patient with malignancy.\", \"Infection (osteomyelitis vs. cellulitis).\", \"Evaluation of suspected fracture and stress fractures.\", \"Evaluation of avascular necrosis and vascularity of bone graft.\", \"Evaluates response to chemo, or radiation treatment for cancer.\", \"Evaluation of prosthesis for loosening or infection.\", \"Evaluation of nonspecific X-ray/ MRI bone signals.\", \"Metabolic bone disease.\" ]; return ( {/* Title */} BONE SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Screen for bone metastases in patient with malignancy.\", \"Infection (osteomyelitis vs. cellulitis).\", \"Evaluation of suspected fracture and stress fractures.\", \"Evaluation of avascular necrosis and vascularity of bone graft.\", \"Evaluates response to chemo, or radiation treatment for cancer.\", \"Evaluation of prosthesis for loosening or infection.\", \"Evaluation of nonspecific X-ray/ MRI bone signals.\", \"Metabolic bone disease.\" ]; return ( {/* Title */} BONE SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "indications": [
+      "Screen for bone metastases in patient with malignancy.",
+      "Infection (osteomyelitis vs. cellulitis).",
+      "Evaluation of suspected fracture and stress fractures.",
+      "Evaluation of avascular necrosis and vascularity of bone graft.",
+      "Evaluates response to chemo, or radiation treatment for cancer.",
+      "Evaluation of prosthesis for loosening or infection.",
+      "Evaluation of nonspecific X-ray/ MRI bone signals.",
+      "Metabolic bone disease."
+    ]
+  },
+  {
+    "id": "brain-spect",
+    "title": "BRAIN SPECT (CEREBRAL PERFUSION SCAN)",
+    "prerequisites": "No PreRequisite.",
+    "timeRequired": "Scan Time 30 mins.",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Alzheimer's disease.",
+      "Differential diagnosis of various forms of dementia.",
+      "Detection of epileptogenic foci."
+    ]
+  },
+  {
+    "id": "captoprilrenal-scan",
+    "title": "POST CAPTOPRIL RENOGRAM\r\n            (SUSPECTED RENAL ART. STENOSIS)",
+    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of reno – vascular hypertension.\" ]; return ( {/* Title */} POST CAPTOPRIL RENOGRAM (SUSPECTED RENAL ART. STENOSIS) {/* Prerequisites */} Prerequisites Good Hydration. Off medications 2-3 days prior study.",
+    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of reno – vascular hypertension.\" ]; return ( {/* Title */} POST CAPTOPRIL RENOGRAM (SUSPECTED RENAL ART. STENOSIS) {/* Prerequisites */} Prerequisites Good Hydration. Off medications 2-3 days prior study.",
+    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of reno – vascular hypertension.\" ]; return ( {/* Title */} POST CAPTOPRIL RENOGRAM (SUSPECTED RENAL ART. STENOSIS) {/* Prerequisites */} Prerequisites Good Hydration. Off medications 2-3 days prior study.",
+    "indications": [
+      "Evaluation of reno – vascular hypertension."
+    ]
+  },
+  {
+    "id": "colloidliver-scan",
+    "title": "COLLOID LIVER SCAN",
+    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"To assess hepatocellular dysfunction in diffuse liver disease.\", \"Suspected chronic liver disease (cirrhosis).\", \"Assess hepatic function in chronic alcoholics.\", \"Evaluation of splenomegaly.\" ]; return ( {/* Title */} COLLOID LIVER SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"To assess hepatocellular dysfunction in diffuse liver disease.\", \"Suspected chronic liver disease (cirrhosis).\", \"Assess hepatic function in chronic alcoholics.\", \"Evaluation of splenomegaly.\" ]; return ( {/* Title */} COLLOID LIVER SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"To assess hepatocellular dysfunction in diffuse liver disease.\", \"Suspected chronic liver disease (cirrhosis).\", \"Assess hepatic function in chronic alcoholics.\", \"Evaluation of splenomegaly.\" ]; return ( {/* Title */} COLLOID LIVER SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "indications": [
+      "To assess hepatocellular dysfunction in diffuse liver disease.",
+      "Suspected chronic liver disease (cirrhosis).",
+      "Assess hepatic function in chronic alcoholics.",
+      "Evaluation of splenomegaly."
+    ]
+  },
+  {
+    "id": "direct-cystogram",
+    "title": "DIRECT CYSTOGRAM",
+    "prerequisites": "No PreRequisite.",
+    "timeRequired": "",
+    "procedure": "",
+    "indications": [
+      "To rule out VU (Vesico-Ureteral) Reflux."
+    ]
+  },
+  {
+    "id": "dmsarenal-scan",
+    "title": "DMSA RENAL SCAN\r\n            (CORTICAL FUNCTION)",
+    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "timeRequired": "Scan Time 15 mins.",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Diagnosis of acute pyelonephritis.",
+      "Diagnosis of renal scarring."
+    ]
+  },
+  {
+    "id": "dtparenal-scan",
+    "title": "DTPA RENOGRAM (GLOMERULAR FUNCTION) /\r\n            EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION)",
+    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of differential renal function.\", \"Evaluation of obstructive uropathy.\", \"Evaluation of unequal sized kidney / ? agenesis of kidney.\", \"Indirect radio nuclide cystography of VU reflux.\", \"Follow up renal transplantation.\" ]; return ( {/* Title */} DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION) {/* Prerequisites */} Prerequisites Good Hydration.",
+    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of differential renal function.\", \"Evaluation of obstructive uropathy.\", \"Evaluation of unequal sized kidney / ? agenesis of kidney.\", \"Indirect radio nuclide cystography of VU reflux.\", \"Follow up renal transplantation.\" ]; return ( {/* Title */} DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION) {/* Prerequisites */} Prerequisites Good Hydration.",
+    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of differential renal function.\", \"Evaluation of obstructive uropathy.\", \"Evaluation of unequal sized kidney / ? agenesis of kidney.\", \"Indirect radio nuclide cystography of VU reflux.\", \"Follow up renal transplantation.\" ]; return ( {/* Title */} DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION) {/* Prerequisites */} Prerequisites Good Hydration.",
+    "indications": [
+      "Evaluation of differential renal function.",
+      "Evaluation of obstructive uropathy.",
+      "Evaluation of unequal sized kidney / ? agenesis of kidney.",
+      "Indirect radio nuclide cystography of VU reflux.",
+      "Follow up renal transplantation."
+    ]
+  },
+  {
+    "id": "gallium68octreotide-scan",
+    "title": "Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan",
+    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); return ( {/* Title */} Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); return ( {/* Title */} Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); return ( {/* Title */} Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "indications": []
+  },
+  {
+    "id": "gallium68psma-scan",
+    "title": "GALLIUM-68 PSMA SCAN",
+    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const prerequisites = [ \"Fasting not required.\", \"Please bring previous investigations.\" ]; const procedureSteps = [ \"IV administration of a small radioactive agent.\", \"There are no side effects.\", \"Waiting period of 60 – 90 Mins.\", \"Patient cannot leave the waiting room in this period as per government regulations.\", \"Few patients may require a delayed image at 3 Hrs.\", \"Attendants and relatives are not allowed to accompany the patient in waiting room.\", \"Only disabled ( bed-ridden) patients who require close monitoring and physical assistance should be accompanied by an attendant.\" ]; const indications = [ \"To detect occult prostate cancer.\", \"To determine its spread.\", \"To assess treatment response.\", \"Surveillance\" ]; return ( {/* Title */} GALLIUM-68 PSMA SCAN {/* Prerequisites */} Prerequisites {prerequisites.map((item, index) => ( {item} ))}",
+    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const prerequisites = [ \"Fasting not required.\", \"Please bring previous investigations.\" ]; const procedureSteps = [ \"IV administration of a small radioactive agent.\", \"There are no side effects.\", \"Waiting period of 60 – 90 Mins.\", \"Patient cannot leave the waiting room in this period as per government regulations.\", \"Few patients may require a delayed image at 3 Hrs.\", \"Attendants and relatives are not allowed to accompany the patient in waiting room.\", \"Only disabled ( bed-ridden) patients who require close monitoring and physical assistance should be accompanied by an attendant.\" ]; const indications = [ \"To detect occult prostate cancer.\", \"To determine its spread.\", \"To assess treatment response.\", \"Surveillance\" ]; return ( {/* Title */} GALLIUM-68 PSMA SCAN {/* Prerequisites */} Prerequisites {prerequisites.map((item, index) => ( {item} ))}",
+    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const prerequisites = [ \"Fasting not required.\", \"Please bring previous investigations.\" ]; const procedureSteps = [ \"IV administration of a small radioactive agent.\", \"There are no side effects.\", \"Waiting period of 60 – 90 Mins.\", \"Patient cannot leave the waiting room in this period as per government regulations.\", \"Few patients may require a delayed image at 3 Hrs.\", \"Attendants and relatives are not allowed to accompany the patient in waiting room.\", \"Only disabled ( bed-ridden) patients who require close monitoring and physical assistance should be accompanied by an attendant.\" ]; const indications = [ \"To detect occult prostate cancer.\", \"To determine its spread.\", \"To assess treatment response.\", \"Surveillance\" ]; return ( {/* Title */} GALLIUM-68 PSMA SCAN {/* Prerequisites */} Prerequisites {prerequisites.map((item, index) => ( {item} ))}",
+    "indications": [
+      "To detect occult prostate cancer.",
+      "To determine its spread.",
+      "To assess treatment response.",
+      "Surveillance"
+    ]
+  },
+  {
+    "id": "hepatobiliary-scintigraphy",
+    "title": "HEPATOBILIARY SCINTIGRAPHY (HIDA SCAN)",
+    "prerequisites": "No Prerequisite.",
+    "timeRequired": "Scan Time 2 – 24 hours.",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Evaluation of suspected acute cholecystitis.",
+      "Congenital abnormalities of biliary tract disorders.",
+      "Evaluation of common bile duct obstruction.",
+      "Detection of bile extravasation (biliary leaks)."
+    ]
+  },
+  {
+    "id": "meckels-diverticulum",
+    "title": "MECKEL&apos;S DIVERTICULUM IMAGING",
+    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "timeRequired": "Scan Time 45 mins.",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Detection and localization of Meckel\\"
+    ]
+  },
+  {
+    "id": "mibg-scan",
+    "title": "MIBG SCAN",
+    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "timeRequired": "Scan Time 45 mins.",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Pheochromocytoma.",
+      "Neuroblastoma.",
+      "TESTICULAR SCAN — Differentiating epididymitis from torsion.",
+      "Salivary Gland Scan — Stenosis of salivary gland for dryness of mouth.",
+      "Lymphoscintigraphy — To differentiate lymphoedema from venous pathology."
+    ]
+  },
+  {
+    "id": "milk-scan",
+    "title": "MILK SCAN (GE REFLUX)",
+    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Detection of GE reflux in infants having LRTI.\" ]; return ( {/* Title */} MILK SCAN (GE REFLUX) {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Detection of GE reflux in infants having LRTI.\" ]; return ( {/* Title */} MILK SCAN (GE REFLUX) {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Detection of GE reflux in infants having LRTI.\" ]; return ( {/* Title */} MILK SCAN (GE REFLUX) {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "indications": [
+      "Detection of GE reflux in infants having LRTI."
+    ]
+  },
+  {
+    "id": "muga-scan",
+    "title": "MUGA SCAN",
+    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"For assessing the patency of nasolacrymal duct in patients having epiphora.\" ]; return ( {/* Title */} MUGA SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"For assessing the patency of nasolacrymal duct in patients having epiphora.\" ]; return ( {/* Title */} MUGA SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"For assessing the patency of nasolacrymal duct in patients having epiphora.\" ]; return ( {/* Title */} MUGA SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "indications": [
+      "For assessing the patency of nasolacrymal duct in patients having epiphora."
+    ]
+  },
+  {
+    "id": "parathyroid-scan",
+    "title": "PARATHYROID SCAN",
+    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "timeRequired": "Scan Time 30 – 45 minutes.",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Evaluation of primary or secondary hyperparathyroidism.",
+      "Parathyroid adenomas or hyperplasia prior to surgical removal."
+    ]
+  },
+  {
+    "id": "petct-imaging",
+    "title": "PET-CT IMAGING PROCEDURE (FDG)",
+    "prerequisites": "6 hours of fasting. Blood sugar level below 200mg/dl.",
+    "timeRequired": "",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Detect cancer.",
+      "Determine whether a cancer has spread in the body.",
+      "Assess the effectiveness of a treatment plan, such as cancer therapy.",
+      "Determine if a cancer has returned after treatment.",
+      "Determine blood flow to the heart muscle."
+    ]
+  },
+  {
+    "id": "radioiodine-therapy",
+    "title": "RADIO IODINE THERAPY",
+    "prerequisites": "Patient should not eat or drink after midnight on the day of the procedure. If you have been taking anti-thyroid medications, you must stop at least three days before the therapy is given. Frequently, the anti-thyroid medication is stopped for five to seven days before therapy. Radioactive Iodine I-131 (also called Radioiodine I-131) therapy is a treatment for an overactive thyroid, a condition called hyperthyroidism. Radioactive Iodine I-131 may also be used to treat thyroid cancer. Low dose of iodine is used for hyperthyroidism.{' '} High dose used for thyroid cancer patients requires admission after therapy.",
+    "timeRequired": "",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": []
+  },
+  {
+    "id": "rbcbloodpool-scan",
+    "title": "RBC BLOOD POOL SCAN / GI BLEED SCAN",
+    "prerequisites": "No PreRequisite.",
+    "timeRequired": "Scan Time 45 mins – 24 hrs.",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Liver hemangiomas.",
+      "Detection and localization of gastrointestinal bleeding."
+    ]
+  },
+  {
+    "id": "thallium-scan",
+    "title": "STRESS & REST MYOCARDIAL PERFUSION\r\n            IMAGING (THALLIUM SCAN)",
+    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "timeRequired": "Scan Time 30 – 45 minutes.",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Diagnosis of coronary artery disease.",
+      "Prognosis of known coronary artery disease.",
+      "Risk stratification in known or suspected CAD.",
+      "Suspected restenosis after CABG.",
+      "Evaluation of PTCA / stent, anti – angina drugs.",
+      "Pre – operative cardiac risk assessment.",
+      "Assessment of myocardial viability."
+    ]
+  },
+  {
+    "id": "thyroid-scan",
+    "title": "THYROID SCAN",
+    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Determination of thyroid size, function and position.\", \"Evaluation of functional status of thyroid nodules.\", \"Differentiating Thyroiditis from Grave's disease.\", \"Evaluation of Thyroid and neck masses.\", \"Quantitative thyroid uptake.\", \"Detection of ectopic thyroid eg. Lingual thyroid.\", \"To detect retrosternal extension in MNG or large goiters.\" ]; return ( {/* Title */} THYROID SCAN {/* Prerequisites */} Prerequisites 2-4 days prior to test off Antithyroid medication. Fasting not required.",
+    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Determination of thyroid size, function and position.\", \"Evaluation of functional status of thyroid nodules.\", \"Differentiating Thyroiditis from Grave's disease.\", \"Evaluation of Thyroid and neck masses.\", \"Quantitative thyroid uptake.\", \"Detection of ectopic thyroid eg. Lingual thyroid.\", \"To detect retrosternal extension in MNG or large goiters.\" ]; return ( {/* Title */} THYROID SCAN {/* Prerequisites */} Prerequisites 2-4 days prior to test off Antithyroid medication. Fasting not required.",
+    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Determination of thyroid size, function and position.\", \"Evaluation of functional status of thyroid nodules.\", \"Differentiating Thyroiditis from Grave's disease.\", \"Evaluation of Thyroid and neck masses.\", \"Quantitative thyroid uptake.\", \"Detection of ectopic thyroid eg. Lingual thyroid.\", \"To detect retrosternal extension in MNG or large goiters.\" ]; return ( {/* Title */} THYROID SCAN {/* Prerequisites */} Prerequisites 2-4 days prior to test off Antithyroid medication. Fasting not required.",
+    "indications": [
+      "Determination of thyroid size, function and position.",
+      "Evaluation of functional status of thyroid nodules.",
+      "Differentiating Thyroiditis from Grave's disease.",
+      "Evaluation of Thyroid and neck masses.",
+      "Quantitative thyroid uptake.",
+      "Detection of ectopic thyroid eg. Lingual thyroid.",
+      "To detect retrosternal extension in MNG or large goiters."
+    ]
+  },
+  {
+    "id": "wholebody-scan",
+    "title": "I-131 WHOLE BODY SCAN",
+    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "timeRequired": "Scan Time 30 – 45 minutes.",
+    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "indications": [
+      "Detection of residual tissue in thyroid bed and local or distant thyroid mets after total thyroidectomy for Ca thyroid.",
+      "Assessment of response to I-131 therapy for Ca thyroid."
+    ]
+  }
+]

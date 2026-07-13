@@ -85,9 +85,6 @@ export default function Footer() {
         </div>
       </div>
 
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-6 right-6 z-40 w-8 h-8 rounded-full bg-[#3b7a24] hover:bg-[#2d661b] text-white flex items-center justify-center shadow-2xl transition-colors">
-        <ArrowUp className="w-4 h-4" />
-      </button>
     </footer>
   );
 }

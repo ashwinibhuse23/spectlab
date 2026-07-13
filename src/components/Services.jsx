@@ -1,115 +1,94 @@
-import React, { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import {
-  ArrowRight,
-  ScanSearch,
-  HeartPulse,
-  Bone,
-  Droplets,
-  Activity,
-  Stethoscope,
-  Shield,
-  Baby,
-  Heart
-} from "lucide-react";
+import React from 'react';
 import { motion } from 'framer-motion';
-import { services } from '../mock';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
+const mainServices = [
+  {
+    name: 'PET CT Scan',
+    desc: 'Advanced functional imaging combined with detailed anatomical precision for accurate diagnosis and staging.',
+    img: '/petctscan.png',
+    link: '/services',
+    state: { targetTab: 'pet' }
+  },
+  {
+    name: 'Nuclear Scan',
+    desc: 'Comprehensive nuclear medicine studies for precise functional evaluation of various organ systems.',
+    img: '/nuclearscan.png',
+    link: '/services',
+    state: { targetTab: 'nuclear' }
+  },
+  {
+    name: 'Therapy',
+    desc: 'Targeted radionuclide therapies delivering precision treatment directly to cellular targets with minimal side effects.',
+    img: '/chemotherapy.jpg',
+    link: '/services',
+    state: { targetTab: 'therapy' }
   }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
-
-
-
-
-
-
-
-
-// dksjfkljkf
-
-const iconMap = {
-  ScanSearch,
-  HeartPulse,
-  Bone,
-  Droplets,
-  Activity,
-  Stethoscope,
-  Shield,
-  Baby,
-  Heart
-};
+];
 
 export default function Services() {
-  const [page, setPage] = useState(0);
-  const perPage = 4;
-  const pages = Math.ceil(services.length / perPage);
-  const items = services.slice(page * perPage, (page + 1) * perPage);
-
   return (
     <section id="services" className="relative py-10 lg:py-14 bg-[#f8f9fa]">
-      <div className="relative max-w-[1400px] mx-auto px-4 lg:px-8 z-10">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-8 lg:mb-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-3 text-sm uppercase tracking-wider">
-              <span className="w-8 h-px bg-[#3b7a24]" />
-              Trusted Nuclear Medicine & Diagnostic Imaging Center Since 2001
-            </div>
-            <h2 className="font-display font-extrabold text-[#0e1a6b] text-2xl lg:text-3xl leading-[1.2] mb-5">
-              Nuclear Medicine: Advanced Functional & <br className="hidden lg:block" /> Molecular Imaging
-            </h2>
-            <p className="text-[#0e1a6bbf] leading-relaxed max-w-xl text-base lg:text-[17px]">
-              Expert Nuclear Medicine and Molecular Imaging services focused on precision, innovation, and patient care.
-            </p>
+      <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
+        <div className="max-w-3xl mb-8 lg:mb-12">
+          <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-3 text-xs sm:text-sm uppercase tracking-wider">
+            <span className="w-8 h-px bg-[#3b7a24]" />
+            Our Core Specialties
           </div>
+          <h2
+            className="font-display font-extrabold text-[#0e1a6b] text-3xl lg:text-4xl mb-5"
+            style={{ lineHeight: '1.3' }}
+          >
+            Advanced Diagnostic & <br className="hidden sm:block" /> Therapeutic Services
+          </h2>
+          <p className="text-[#0e1a6bbf] leading-relaxed text-base lg:text-lg">
+            Expert Nuclear Medicine and Molecular Imaging focused on precision, innovation, and compassionate patient care.
+          </p>
         </div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={page}
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            exit={{ opacity: 0, transition: { duration: 0.15 } }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 lg:gap-y-16 mt-16 lg:mt-20"
-          >
-            {items.map((s) => {
-              const Icon = iconMap[s.icon] || HeartPulse;
-              return (
-                <motion.div variants={itemVariants} key={s.name} className="relative rounded-3xl px-5 lg:px-6 pb-6 pt-12 min-h-[220px] flex flex-col items-center text-center group bg-white border border-gray-100 shadow-xl shadow-[#0e1a6b]/5 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#3b7a24]/10 hover:bg-[#f3f9f1] transition-all duration-300">
-                  {/* Overlapping Center Icon */}
-                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#f3f9f1] text-[#3b7a24] border-4 border-white shadow-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#3b7a24] group-hover:text-white">
-                    <Icon className="w-6 h-6" strokeWidth={1.8} />
-                  </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {mainServices.map((service, i) => (
+            <motion.div
+              key={service.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className="group relative overflow-hidden rounded-[24px] h-[280px] sm:h-[320px] lg:h-[350px] shadow-lg shadow-[#0e1a6b]/5 hover:shadow-2xl hover:shadow-[#0e1a6b]/20 hover:-translate-y-1.5 transition-all duration-500"
+            >
+              {/* Full Background Image */}
+              <img
+                src={process.env.PUBLIC_URL + service.img}
+                alt={service.name}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
 
-                  <h3 className="font-display font-bold text-[#0e1a6b] text-xl mb-3 w-full min-h-[3.5rem] leading-snug" style={{ whiteSpace: 'pre-line' }}>{s.name}</h3>
-                  <p className="text-[#0e1a6bbf] text-[13px] leading-relaxed flex-1">{s.desc}</p>
-                  <Link to="/services" className="mt-5 inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold text-sm group/link">
-                    Learn more <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+              {/* Gradient Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0e1a6b]/95 via-[#0e1a6b]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-[#3b7a24]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blend-multiply" />
+
+              {/* Content Overlay */}
+              <div className="absolute inset-0 p-6 sm:p-7 flex flex-col justify-end">
+                <div className="transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
+                  <h3 className="font-display font-bold text-white text-2xl lg:text-[26px] mb-4 leading-tight drop-shadow-md">
+                    {service.name}
+                  </h3>
+
+                  {/* Button */}
+                  <Link
+                    to={service.link}
+                    state={service.state}
+                    className="inline-flex items-center gap-2.5 bg-white/20 hover:bg-[#3b7a24] backdrop-blur-sm border border-white/30 hover:border-[#3b7a24] text-white px-4 py-2 rounded-full font-display font-semibold transition-all duration-300 text-[13px] group/btn w-max shadow-sm"
+                  >
+                    Explore Services
+                    <span className="w-6 h-6 rounded-full bg-white text-navy group-hover/btn:bg-white group-hover/btn:text-[#3b7a24] flex items-center justify-center transition-colors">
+                      <ArrowRight className="w-3 h-3" />
+                    </span>
                   </Link>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </AnimatePresence>
-
-        <div className="flex justify-center gap-2 mt-8">
-          {Array.from({ length: pages }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setPage(i)}
-              className={`h-1.5 rounded-full transition-all ${i === page ? 'bg-[#3b7a24] w-8' : 'bg-gray-200 w-3'}`}
-            />
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

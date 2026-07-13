@@ -157,10 +157,23 @@ const testInstructionsMr = {
   ],
 };
 
+const testPrices = {
+  'PET-CT Imaging Procedure (FDG)': { regular: 15000, extra: 18000, skip: 25000 },
+  'Thallium Scan': { regular: 12000, extra: 15000, skip: 20000 },
+  'Bone Scan': { regular: 5000, extra: 7000, skip: 10000 },
+  'DTPA Renal Scan': { regular: 8000, extra: 10000, skip: 15000 },
+  'Thyroid Scan': { regular: 3000, extra: 4500, skip: 7000 },
+  'Captopril Renal Scan': { regular: 9000, extra: 11000, skip: 16000 },
+  'Colloid Liver Scan': { regular: 7500, extra: 9500, skip: 13000 },
+  'Milk Scan (GE Reflux)': { regular: 6000, extra: 8000, skip: 12000 },
+  'MUGA Scan': { regular: 10000, extra: 12500, skip: 18000 },
+};
+
 export default function AppointmentPage() {
   const [form, setForm] = useState({
-    name: '', email: '', phone: '', date: '', time: '', Tests: '', message: '', agree: false,
+    name: '', email: '', phone: '', date: '', time: '', Tests: '', chargeType: '', message: '', agree: false,
   });
+  const [skipPriceRevealed, setSkipPriceRevealed] = useState(false);
   const [done, setDone] = useState(false);
   const [showPolicy, setShowPolicy] = useState(false);
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
@@ -316,7 +329,8 @@ export default function AppointmentPage() {
                   required value={form.Tests}
                   onChange={(e) => {
                     const selectedTest = e.target.value;
-                    setForm({ ...form, Tests: selectedTest, time: testTimings[selectedTest] || '' });
+                    setForm({ ...form, Tests: selectedTest, time: testTimings[selectedTest] || '', chargeType: '' });
+                    setSkipPriceRevealed(false);
                   }}
                   className="appearance-none w-full bg-[#f3f1fb] rounded-full px-4 py-3 outline-none text-xs focus:ring-2 focus:ring-mint/40"
                 >
@@ -353,6 +367,46 @@ export default function AppointmentPage() {
                 />
               </div>
             </div>
+
+            {/* ── Charging Options ── */}
+            {form.Tests && testPrices[form.Tests] && (
+              <div className="mb-5">
+                <label className="font-display font-semibold text-navy text-sm mb-3 block">Select Charge Type *</label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setForm({ ...form, chargeType: 'regular' })}
+                    className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-200 ${form.chargeType === 'regular' ? 'border-[#3b7a24] bg-white ring-1 ring-[#3b7a24] shadow-sm' : 'border-slate-200 bg-[#f3f1fb] hover:border-[#3b7a24]/40 hover:bg-white'}`}
+                  >
+                    <span className={`font-display font-bold text-sm mb-1 ${form.chargeType === 'regular' ? 'text-[#0e1a6b]' : 'text-navy/70'}`}>Economy</span>
+                    <span className={`font-bold ${form.chargeType === 'regular' ? 'text-[#3b7a24]' : 'text-navy'}`}>₹{testPrices[form.Tests].regular.toLocaleString()}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setForm({ ...form, chargeType: 'extra' })}
+                    className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-200 ${form.chargeType === 'extra' ? 'border-[#3b7a24] bg-white ring-1 ring-[#3b7a24] shadow-sm' : 'border-slate-200 bg-[#f3f1fb] hover:border-[#3b7a24]/40 hover:bg-white'}`}
+                  >
+                    <span className={`font-display font-bold text-sm mb-1 ${form.chargeType === 'extra' ? 'text-[#0e1a6b]' : 'text-navy/70'}`}>Regular</span>
+                    <span className={`font-bold ${form.chargeType === 'extra' ? 'text-[#3b7a24]' : 'text-navy'}`}>₹{testPrices[form.Tests].extra.toLocaleString()}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setForm({ ...form, chargeType: 'skip' });
+                      setSkipPriceRevealed(true);
+                    }}
+                    className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-200 ${form.chargeType === 'skip' ? 'border-[#3b7a24] bg-white ring-1 ring-[#3b7a24] shadow-sm' : 'border-slate-200 bg-[#f3f1fb] hover:border-[#3b7a24]/40 hover:bg-white'}`}
+                  >
+                    <span className={`font-display font-bold text-sm mb-1 ${form.chargeType === 'skip' ? 'text-[#0e1a6b]' : 'text-navy/70'}`}>Skip the Queue</span>
+                    <span className={`font-bold transition-all ${skipPriceRevealed ? (form.chargeType === 'skip' ? 'text-[#3b7a24]' : 'text-navy') : 'text-navy/40 text-[11px] uppercase tracking-wider'}`}>
+                      {skipPriceRevealed ? `₹${testPrices[form.Tests].skip.toLocaleString()}` : 'Click to reveal'}
+                    </span>
+                  </button>
+                </div>
+              </div>
+            )}
 
             {/* ── Per-test Instructions Panel ── */}
             {form.Tests && testInstructions[form.Tests] && (

@@ -11,7 +11,7 @@ export const navLinks = [
 
 export const heroSlides = [
   {
-    title: 'Services with Care Compassion & Conviction',
+    title: 'Services with Care\nCompassion & Conviction',
     desc: 'SPECT LAB is a proprietary organization started in the year 2001 by Dr. Shrikant Solav who holds a post graduate degree in medicine and nuclear medicine.',
     image: '/hero1.jpg',
   },
