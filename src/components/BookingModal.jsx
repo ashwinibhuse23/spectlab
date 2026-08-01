@@ -7,15 +7,66 @@ import { services } from '../mock';
 
 // Auto-timing per test
 const testTimings = {
-  'PET-CT Imaging Procedure (FDG)': '10:00 AM – 07:00 PM',
-  'Thallium Scan':                  '11:00 AM – 05:00 PM',
-  'Bone Scan':                      '09:00 AM – 01:00 PM',
-  'DTPA Renal Scan':                '09:00 AM – 02:00 PM',
-  'Thyroid Scan':                   '10:00 AM – 03:00 PM',
-  'Captopril Renal Scan':           '08:00 AM – 12:00 PM',
-  'Colloid Liver Scan':             '10:00 AM – 03:00 PM',
-  'Milk Scan (GE Reflux)':          '09:00 AM – 01:00 PM',
-  'MUGA Scan':                      '10:00 AM – 04:00 PM',
+  // PET Scans (07:00 AM – 07:00 PM)
+  'PET-CT IMAGING (FDG)': '07:00 AM – 07:00 PM',
+  'PET-CT Imaging Procedure (FDG)': '07:00 AM – 07:00 PM',
+  'Gallium-68 PSMA Scan': '07:00 AM – 07:00 PM',
+  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': '07:00 AM – 07:00 PM',
+  'F-18 FDG PET CT Scan': '07:00 AM – 07:00 PM',
+  'Ga68 PSMA PET CT Scan': '07:00 AM – 07:00 PM',
+  'Ga68 DOTA PET CT Scan': '07:00 AM – 07:00 PM',
+  'Cardiac PET Scan': '07:00 AM – 07:00 PM',
+  'FAPI PET CT Scan': '07:00 AM – 07:00 PM',
+  'F-18 FDOPA PET CT Scan': '07:00 AM – 07:00 PM',
+  'Trivehexin PET CT Scan': '07:00 AM – 07:00 PM',
+  'Exendine PET CT Scan': '07:00 AM – 07:00 PM',
+  'Exendin PET CT Scan': '07:00 AM – 07:00 PM',
+  'Fusion- PET MRI': '07:00 AM – 07:00 PM',
+  'Fusion PET MRI': '07:00 AM – 07:00 PM',
+
+  // Nuclear Medicine & Other Scans
+  'THALLIUM SCAN': '11:00 AM – 05:00 PM',
+  'Thallium Scan': '11:00 AM – 05:00 PM',
+  'BONE SCAN': '09:00 AM – 01:00 PM',
+  'Bone Scan': '09:00 AM – 01:00 PM',
+  'DTPA / EC (MAG-3) RENOGRAM SCAN': '09:00 AM – 02:00 PM',
+  'DTPA Renal Scan': '09:00 AM – 02:00 PM',
+  'DMSA RENAL SCAN (CORTICAL FUNCTION)': '09:00 AM – 02:00 PM',
+  'THYROID SCAN': '10:00 AM – 03:00 PM',
+  'Thyroid Scan': '10:00 AM – 03:00 PM',
+  'POST CAPTOPRIL RENOGRAM': '08:00 AM – 12:00 PM',
+  'Captopril Renal Scan': '08:00 AM – 12:00 PM',
+  'COLLOID LIVER SCAN': '10:00 AM – 03:00 PM',
+  'Colloid Liver Scan': '10:00 AM – 03:00 PM',
+  'MILK SCAN (GE REFLUX)': '09:00 AM – 01:00 PM',
+  'Milk Scan (GE Reflux)': '09:00 AM – 01:00 PM',
+  'MUGA SCAN': '10:00 AM – 04:00 PM',
+  'MUGA Scan': '10:00 AM – 04:00 PM',
+  'PARATHYROID SCAN': '10:00 AM – 03:00 PM',
+  'MIBG SCAN': '10:00 AM – 04:00 PM',
+};
+
+// Robust timing lookup helper
+const getTestTiming = (testName) => {
+  if (!testName) return '';
+  if (testTimings[testName]) return testTimings[testName];
+  
+  const upper = testName.toUpperCase().trim();
+  for (const [key, val] of Object.entries(testTimings)) {
+    if (key.toUpperCase().trim() === upper) return val;
+  }
+
+  if (upper.includes('PET') || upper.includes('FDG') || upper.includes('PSMA') || upper.includes('DOTA') || upper.includes('FAPI') || upper.includes('FDOPA') || upper.includes('EXENDIN') || upper.includes('TRIVEHEXIN') || upper.includes('GALLIUM')) return '07:00 AM – 07:00 PM';
+  if (upper.includes('THALLIUM')) return '11:00 AM – 05:00 PM';
+  if (upper.includes('BONE')) return '09:00 AM – 01:00 PM';
+  if (upper.includes('CAPTOPRIL')) return '08:00 AM – 12:00 PM';
+  if (upper.includes('DTPA') || upper.includes('DMSA') || upper.includes('RENOGRAM') || upper.includes('RENAL')) return '09:00 AM – 02:00 PM';
+  if (upper.includes('THYROID') || upper.includes('PARATHYROID')) return '10:00 AM – 03:00 PM';
+  if (upper.includes('COLLOID') || upper.includes('LIVER')) return '10:00 AM – 03:00 PM';
+  if (upper.includes('MILK') || upper.includes('REFLUX')) return '09:00 AM – 01:00 PM';
+  if (upper.includes('MUGA') || upper.includes('MIBG')) return '10:00 AM – 04:00 PM';
+
+  return '09:00 AM – 05:00 PM';
 };
 
 // Preparation instructions
@@ -271,7 +322,7 @@ export default function BookingModal({ isOpen, onClose }) {
                     required value={form.Tests}
                     onChange={(e) => {
                       const selectedTest = e.target.value;
-                      setForm({ ...form, Tests: selectedTest, time: testTimings[selectedTest] || '' });
+                      setForm({ ...form, Tests: selectedTest, time: getTestTiming(selectedTest) });
                     }}
                     className="appearance-none w-full bg-[#f3f1fb] rounded-full px-4 py-2.5 outline-none text-xs focus:ring-2 focus:ring-[#3b7a24]/40"
                   >
@@ -291,7 +342,10 @@ export default function BookingModal({ isOpen, onClose }) {
                 <div className="relative">
                   <Calendar className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40 pointer-events-none" />
                   <input
-                    required type="date" value={form.date}
+                    required
+                    type="date"
+                    min={new Date().toLocaleDateString('en-CA')}
+                    value={form.date}
                     onChange={(e) => setForm({ ...form, date: e.target.value })}
                     className="w-full bg-[#f3f1fb] rounded-full pl-9 pr-3 py-2.5 outline-none text-xs focus:ring-2 focus:ring-[#3b7a24]/40"
                   />

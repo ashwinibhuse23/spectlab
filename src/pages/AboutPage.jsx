@@ -39,10 +39,11 @@ export default function AboutPage() {
           </>
         }
         image="/Images/aboutHero.png"
+        bgPosition="center 40%"
       />
 
       {/* Our Story Section */}
-      <section className="pt-2 pb-12 lg:pt-4 lg:pb-20 bg-white overflow-hidden">
+      <section className="pt-11 pb-16 lg:pt-20 lg:pb-24 bg-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -51,15 +52,15 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-6">
-              <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
+            <div className="inline-flex items-center gap-3 text-[#3b7a24] font-display font-semibold mb-4 text-sm sm:text-base">
+              <span className="w-8 sm:w-12 h-px bg-[#3b7a24]" />
               Our Story
-              <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
+              <span className="w-8 sm:w-12 h-px bg-[#3b7a24]" />
             </div>
-            <h2 className="font-display font-extrabold text-[#0e1a6b] text-2xl md:text-3xl lg:text-[34px] leading-[1.2] mb-12">
+            <h2 className="font-display font-extrabold text-[#0e1a6b] text-3xl md:text-4xl lg:text-[40px] leading-[1.2] mb-8 lg:mb-10">
               Trusted Excellence in Diagnostic Imaging
             </h2>
-            <div className="space-y-6 text-[#0e1a6b]/80 text-[15px] md:text-[17px] leading-relaxed text-justify">
+            <div className="space-y-6 text-[#0e1a6b]/85 text-[16px] md:text-[18px] leading-[1.8] text-center md:text-justify">
               <p>
                 SPECT LAB is a proprietary organization started in the year 2001 by Dr. Shrikant Solav who holds a post graduate degree in medicine and nuclear medicine. Initially, there was single equipment and a team of three technologists to support the work.
                 In the year 2004, there was an addition of a second Gamma camera to the clinic.
@@ -232,7 +233,7 @@ export default function AboutPage() {
     
 
       {/* ── Dr. Shrikant V. Solav – About Section ── */}
-      <section className="py-8 sm:py-10 lg:py-14 bg-[#f3f1fb] overflow-hidden">
+      <section className="pt-14 sm:pt-18 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 bg-[#f3f1fb] overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* ── Section header ── */}
@@ -241,17 +242,17 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-6 sm:mb-8"
+            className="text-center mb-8 sm:mb-10"
           >
-            <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-3 text-xs uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-2.5 text-xs sm:text-[13px] uppercase tracking-wider">
               <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
               Meet the Expert
               <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
             </div>
-            <h2 className="font-display font-extrabold text-[#0e1a6b] text-xl sm:text-2xl lg:text-[28px] leading-tight">
+            <h2 className="font-display font-extrabold text-[#0e1a6b] text-2xl sm:text-[28px] lg:text-[32px] leading-tight">
               Dr. Shrikant V. Solav
             </h2>
-            <p className="text-[#0e1a6b]/60 text-[13px] mt-1 font-display">
+            <p className="text-[#0e1a6b]/70 text-[13.5px] sm:text-[14.5px] mt-1 font-display font-medium">
               Nuclear Medicine Physician &amp; Founder, SPECT LAB
             </p>
           </motion.div>
@@ -265,13 +266,13 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full lg:w-[50%] shrink-0 flex justify-center lg:justify-start lg:mt-6"
+              className="relative w-full lg:w-[48%] shrink-0 flex justify-center lg:justify-start lg:mt-11 sm:mt-6"
             >
               <a 
                 href="https://www.youtube.com/watch?v=S1kDCbwG36s"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative rounded-[1.5rem] overflow-hidden w-full max-w-[580px] shadow-[0_20px_50px_-20px_rgba(14,26,107,0.22)] border-[1.5px] border-[#0e1a6b]/10 group transition-transform duration-300 hover:scale-[1.02]"
+                className="block relative rounded-[1.5rem] overflow-hidden w-full max-w-[560px] shadow-[0_20px_50px_-20px_rgba(14,26,107,0.22)] border-[1.5px] border-[#0e1a6b]/10 group transition-transform duration-300 hover:scale-[1.02]"
               >
                 <img 
                   src={process.env.PUBLIC_URL + '/aboutthumbnail.png'} 
@@ -289,33 +290,33 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className="flex-1 flex flex-col mt-2 lg:mt-6"
+              className="flex-1 flex flex-col lg:mt-6 sm:mt-4"
             >
               {/* Headline */}
-              <h3 className="font-display font-extrabold text-[#0e1a6b] text-lg sm:text-xl lg:text-[22px] leading-tight mb-1.5">
+              <h3 className="font-display font-extrabold text-[#0e1a6b] text-xl sm:text-[22px] lg:text-[25px] leading-tight mb-1.5">
                 Guided by Expertise, Driven by Care
               </h3>
 
               {/* Green accent line */}
               <div className="flex items-center gap-2 mb-3">
-                <div className="h-[3px] w-8 rounded-full bg-[#3b7a24]" />
+                <div className="h-[3px] w-9 rounded-full bg-[#3b7a24]" />
                 <div className="h-[3px] w-3 rounded-full bg-[#0e1a6b]/30" />
               </div>
 
               {/* Sub-headline */}
-              <p className="text-[#3b7a24] font-semibold text-[13px] leading-snug mb-2">
+              <p className="text-[#3b7a24] font-semibold text-[13.5px] sm:text-[14.5px] leading-snug mb-2">
                 Delivering Excellence in Nuclear Medicine Through Experience, Innovation, and Compassion.
               </p>
 
               {/* Body */}
-              <p className="text-[#0e1a6b]/65 text-[13px] leading-[1.7] mb-4">
+              <p className="text-[#0e1a6b]/80 text-[14px] sm:text-[14.5px] leading-relaxed mb-4">
                 Dr. Shrikant V. Solav is a highly experienced Nuclear Medicine physician with over 35 years
                 of expertise in diagnostic and molecular imaging. He is dedicated to providing accurate
                 diagnosis, advanced imaging solutions, and compassionate care to every patient.
               </p>
 
               {/* ── 4 Pillars ── */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mb-4">
                 {[
                   {
                     icon: (
@@ -351,57 +352,57 @@ export default function AboutPage() {
                       </svg>
                     ),
                     title: 'Excellence',
-                    desc: 'Pioneer in Nuclear Medicine, Pune',
+                    desc: '1st PET-CT in Pune',
                   },
                 ].map((pillar, i) => (
                   <div
                     key={i}
-                    className="bg-white rounded-xl p-3 soft-shadow border border-[#0e1a6b]/06 flex flex-col gap-2 group hover:-translate-y-1 hover:border-[#3b7a24]/20 transition-all duration-300"
+                    className="bg-white rounded-xl p-3 soft-shadow border border-[#0e1a6b]/06 flex flex-col gap-1.5 group hover:-translate-y-0.5 hover:border-[#3b7a24]/20 transition-all duration-300"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#f3f9f1] text-[#3b7a24] group-hover:bg-[#3b7a24] group-hover:text-white transition-colors duration-300 flex items-center justify-center shrink-0">
                       {pillar.icon}
                     </div>
-                    <p className="font-display font-bold text-[#0e1a6b] text-[12px]">{pillar.title}</p>
-                    <p className="text-[#0e1a6b]/50 text-[11px] leading-snug">{pillar.desc}</p>
+                    <p className="font-display font-bold text-[#0e1a6b] text-[12.5px] sm:text-[13px]">{pillar.title}</p>
+                    <p className="text-[#0e1a6b]/60 text-[11.5px] sm:text-[12px] leading-tight">{pillar.desc}</p>
                   </div>
                 ))}
               </div>
 
               {/* ── Divider ── */}
-              <div className="w-full h-px bg-[#0e1a6b]/10 mb-3" />
+              <div className="w-full h-px bg-[#0e1a6b]/10 mb-3.5" />
 
               {/* ── Qualifications & Currently ── */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-2 text-[10px] uppercase tracking-widest">
+                  <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-2 text-[11px] sm:text-[11.5px] uppercase tracking-widest">
                     <span className="w-4 h-px bg-[#3b7a24]" />
                     Qualifications
                   </div>
-                  <ul className="space-y-1">
+                  <ul className="space-y-1.5">
                     {[
                       'MD (Medicine) – Bhopal University',
                       'DRM (Nuclear Medicine) – Bombay University',
                       'FANMB – Fellow of Academy of Nuclear Medicine',
                     ].map((q, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[#0e1a6b]/70 text-[12px] leading-snug">
-                        <span className="mt-[5px] w-[5px] h-[5px] rounded-full bg-[#0e1a6b]/30 shrink-0" />
+                      <li key={i} className="flex items-start gap-2 text-[#0e1a6b]/80 text-[13px] sm:text-[13.5px] leading-snug">
+                        <span className="mt-[6px] w-[5px] h-[5px] rounded-full bg-[#0e1a6b]/40 shrink-0" />
                         {q}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-2 text-[10px] uppercase tracking-widest">
+                  <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-2 text-[11px] sm:text-[11.5px] uppercase tracking-widest">
                     <span className="w-4 h-px bg-[#3b7a24]" />
                     Currently
                   </div>
-                  <ul className="space-y-1">
+                  <ul className="space-y-1.5">
                     {[
                       'Incharge – Dedicated Nuclear Medicine Unit (SPECT LAB)',
                       'Pune',
                     ].map((c, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[#0e1a6b]/70 text-[12px] leading-snug">
-                        <span className="mt-[5px] w-[5px] h-[5px] rounded-full bg-[#3b7a24]/50 shrink-0" />
+                      <li key={i} className="flex items-start gap-2 text-[#0e1a6b]/80 text-[13px] sm:text-[13.5px] leading-snug">
+                        <span className="mt-[6px] w-[5px] h-[5px] rounded-full bg-[#3b7a24]/60 shrink-0" />
                         {c}
                       </li>
                     ))}

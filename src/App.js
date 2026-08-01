@@ -16,6 +16,7 @@ import ContactPage from './pages/ContactPage';
 import AppointmentPage from './pages/AppointmentPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WhatsAppButton from './components/WhatsAppButton';
+import NabhBadge from './components/NabhBadge';
 
 
 import ScansPage from './pages/ScansPage';
@@ -51,6 +52,7 @@ function App() {
   return (
     <BrowserRouter>
       <WhatsAppButton />
+      <NabhBadge />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />

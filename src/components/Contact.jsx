@@ -87,7 +87,7 @@ export default function Contact() {
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
               <input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} type="tel" placeholder="Your Mobile Number *" required className="bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-sm text-navy placeholder:text-navy/50 outline-none focus:border-[#3b7a24] transition-colors" />
               <div className="relative">
-                <input value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} type="date" required className="w-full bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-sm text-navy outline-none focus:border-[#3b7a24] transition-colors appearance-none" style={{ colorScheme: 'light' }} />
+                <input value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} type="date" min={new Date().toLocaleDateString('en-CA')} required className="w-full bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-sm text-navy outline-none focus:border-[#3b7a24] transition-colors appearance-none" style={{ colorScheme: 'light' }} />
               </div>
             </div>
 

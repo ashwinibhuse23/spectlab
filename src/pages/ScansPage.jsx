@@ -18,7 +18,7 @@ export default function ScansPage() {
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
-          const yOffset = -120; 
+          const yOffset = -120;
           const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: 'smooth' });
         }
@@ -67,12 +67,12 @@ export default function ScansPage() {
 
       <div className="bg-[#f3f1fb] min-h-screen py-12 lg:py-16">
         <div className="max-w-[1100px] mx-auto px-4 lg:px-8">
-          
+
           <div className="w-full space-y-8 pb-24">
             {scansData.map((scan) => (
-              <section 
-                key={scan.id} 
-                id={scan.id} 
+              <section
+                key={scan.id}
+                id={scan.id}
                 ref={el => sectionRefs.current[scan.id] = el}
                 className="scan-section bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden scroll-mt-32 w-full"
               >
@@ -84,7 +84,7 @@ export default function ScansPage() {
                 </div>
 
                 <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                  
+
                   {/* Left Column */}
                   <div className="space-y-6">
                     {scan.prerequisites && (
@@ -93,7 +93,7 @@ export default function ScansPage() {
                           <AlertCircle className="w-4 h-4 text-[#3b7a24]" />
                           <h3 className="font-display font-bold text-[#0b1559] text-[15px] uppercase tracking-wide">Prerequisites & Prep</h3>
                         </div>
-                        <p className="text-[#0b1559]/70 text-[13px] leading-relaxed pl-6">
+                        <p className="text-[#0b1559]/70 text-[13px] leading-relaxed pl-6 whitespace-pre-line">
                           {scan.prerequisites}
                         </p>
                       </div>
@@ -149,7 +149,7 @@ export default function ScansPage() {
                       <p className="text-white/70 text-[12.5px] mb-4">
                         Book your appointment for {scan.title} at Spectlabs today.
                       </p>
-                      <Link 
+                      <Link
                         to="/appointment"
                         className="inline-flex items-center justify-center gap-2 w-full bg-[#3b7a24] text-white text-[13px] font-display font-bold py-2.5 px-4 rounded-lg hover:bg-white hover:text-[#0b1559] transition-colors"
                       >

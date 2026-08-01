@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Phone, ChevronLeft, ChevronRight, Check, Search } from 'lucide-react';
+import { ArrowRight, Phone, ChevronLeft, ChevronRight, Check, Search, HelpCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { heroSlides, services } from '../mock';
 import BookingModal from './BookingModal';
@@ -16,7 +16,7 @@ export default function Hero() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const filteredScans = services.filter(s => s.name.toLowerCase().includes(searchQuery.toLowerCase()));
+  const filteredScans = services.filter(s => s.name.replace(/\n/g, ' ').toLowerCase().includes(searchQuery.toLowerCase()));
 
   useEffect(() => {
     const t = setInterval(() => setActive((a) => (a + 1) % heroSlides.length), 7000);
@@ -26,11 +26,11 @@ export default function Hero() {
   const slide = heroSlides[active];
 
   return (
-    <section id="home" className="relative pt-24 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12 overflow-hidden bg-[#f3f1fb]">
+    <section id="home" className="relative pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-10 lg:pb-12 overflow-hidden bg-[#f3f1fb]">
       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       
       <div className="max-w-[1920px] mx-auto px-3 md:px-4 lg:px-5">
-        <div className="relative rounded-[20px] sm:rounded-[32px] min-h-[500px] sm:min-h-[550px] lg:min-h-[650px] bg-white flex flex-col justify-center">
+        <div className="relative rounded-[20px] sm:rounded-[32px] min-h-[520px] sm:min-h-[580px] lg:min-h-[640px] bg-white flex flex-col justify-center">
           {/* Background image */}
           <div className="absolute inset-0 rounded-[20px] sm:rounded-[32px] overflow-hidden pointer-events-none">
             {heroSlides.map((s, i) => (
@@ -38,15 +38,15 @@ export default function Hero() {
                 key={i}
                 src={heroImages[i]}
                 alt=""
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ${i === 1 ? 'object-top' : 'object-center'} ${i === active ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ${i === 1 ? 'object-[center_55%]' : 'object-center'} ${i === active ? 'opacity-100' : 'opacity-0'}`}
               />
             ))}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#172547]/95 via-[#172547]/80 to-[#172547]/40 md:via-[#172547]/60 md:to-transparent lg:via-[#172547]/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#172547]/75 via-[#172547]/45 to-transparent md:via-[#172547]/35 lg:via-[#172547]/15" />
             <div className="absolute -bottom-6 -right-6 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-mint/10 blur-2xl" />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16 pt-12 pb-32 sm:pt-16 sm:pb-36 lg:pt-28 lg:pb-28">
+          <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16 pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-32 lg:pb-36">
             <motion.div
               key={`content-${active}`}
               initial={{ opacity: 0, y: 30 }}
@@ -55,19 +55,19 @@ export default function Hero() {
               className="max-w-[800px]"
             >
               {slide.eyebrow && (
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="inline-flex items-center gap-2 text-white/90 font-display font-semibold mb-4 sm:mb-5 text-xs sm:text-sm">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="inline-flex items-center gap-2 text-white/90 font-display font-semibold mb-3 sm:mb-4 text-xs sm:text-sm">
                   <span className="w-8 sm:w-10 h-px bg-white/90" />
                   {slide.eyebrow}
                 </motion.div>
               )}
-              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="font-display font-extrabold text-white text-[31px] sm:text-[37px] md:text-[45px] lg:text-[51px] xl:text-[55px] leading-[1.2] md:leading-[1.15] tracking-tight mb-4 sm:mb-6 whitespace-pre-line">
+              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="font-display font-extrabold text-white text-[31px] sm:text-[37px] md:text-[45px] lg:text-[51px] xl:text-[55px] leading-[1.2] md:leading-[1.15] tracking-tight mb-3 sm:mb-5 whitespace-pre-line">
                 {slide.title}
               </motion.h1>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }} className="flex flex-col items-start gap-5 sm:gap-6 mt-8 sm:mt-12">
-                <div className="flex flex-row flex-wrap items-center gap-3 sm:gap-4 mt-4 sm:mt-6">
-                  <button onClick={() => setIsModalOpen(true)} className="group inline-flex items-center gap-2.5 bg-[#3b7a24] hover:bg-[#2d661b] text-white font-display font-bold pl-5 pr-1.5 py-1.5 rounded-full transition-colors">
-                    <span className="text-sm">Book Appointment</span>
-                    <span className="w-9 h-9 rounded-full bg-white text-[#3b7a24] flex items-center justify-center group-hover:rotate-45 transition-transform shrink-0">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }} className="flex flex-col items-start gap-4 sm:gap-5 mt-6 sm:mt-8">
+                <div className="flex flex-row flex-wrap items-center gap-3 sm:gap-4 mt-2 sm:mt-4">
+                  <button onClick={() => setIsModalOpen(true)} className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#3b7a24] via-[#32691e] to-[#255417] text-white font-display font-bold pl-6 pr-2 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-[#3b7a24]/25 hover:shadow-[#3b7a24]/40 border border-white/20 active:scale-95">
+                    <span className="text-sm sm:text-base tracking-wide">Book Appointment</span>
+                    <span className="w-9 h-9 rounded-full bg-white text-[#3b7a24] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300 shrink-0 shadow-sm">
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </button>
@@ -83,43 +83,66 @@ export default function Hero() {
                           setIsDropdownOpen(true);
                         }}
                         onFocus={() => setIsDropdownOpen(true)}
-                        onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}
+                        onBlur={() => setTimeout(() => setIsDropdownOpen(false), 250)}
                         className="bg-transparent outline-none w-32 sm:w-40 placeholder:text-white/80 text-sm font-display font-bold text-white"
                       />
-                      <div className="w-9 h-9 rounded-full bg-white text-navy flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-white text-navy flex items-center justify-center shrink-0 cursor-pointer" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                         <Search className="w-4 h-4" />
                       </div>
                     </div>
                     
-                    {isDropdownOpen && searchQuery && (
-                      <div className="absolute top-full left-0 mt-2 w-[280px] bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden z-50">
-                        <ul className="max-h-60 overflow-y-auto py-2">
+                    {isDropdownOpen && (
+                      <div className="absolute top-full left-0 mt-2.5 w-[310px] sm:w-[350px] bg-white rounded-2xl shadow-2xl border border-navy/10 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="px-4 py-2 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+                          <span className="text-[11px] font-bold text-navy uppercase tracking-wider">Select or Search Scan</span>
+                          <span className="text-[10px] text-slate-500 font-bold bg-slate-200/60 px-2 py-0.5 rounded-full">{filteredScans.length} Scans</span>
+                        </div>
+                        
+                        <ul className="max-h-[145px] overflow-y-auto py-1 divide-y divide-slate-100">
                           {filteredScans.length > 0 ? (
-                            filteredScans.map((scan, i) => (
-                              <li key={i}>
-                                <Link 
-                                  to="/services"
-                                  state={{ targetScan: scan.name }} 
-                                  className="block px-5 py-2.5 text-sm font-medium text-[#0e1a6b] hover:bg-[#1a5fcd] hover:text-white transition-colors"
-                                >
-                                  {scan.name}
-                                </Link>
-                              </li>
-                            ))
+                            filteredScans.map((scan, i) => {
+                              const scanCleanName = scan.name.replace(/\n/g, ' ');
+                              return (
+                                <li key={i}>
+                                  <Link 
+                                    to="/services"
+                                    state={{ targetScan: scanCleanName }} 
+                                    className="group flex items-center justify-between px-4 py-2 text-xs sm:text-sm font-semibold text-navy hover:bg-[#3b7a24]/10 hover:text-[#3b7a24] transition-all rounded-lg mx-1 my-0.5"
+                                  >
+                                    <span>{scanCleanName}</span>
+                                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#3b7a24] shrink-0" />
+                                  </Link>
+                                </li>
+                              );
+                            })
                           ) : (
-                            <li className="px-5 py-3 text-sm text-slate-500 font-medium">No scans found</li>
+                            <li className="px-5 py-4 text-xs text-slate-500 font-semibold text-center">
+                              No matching scans found.
+                            </li>
                           )}
-                          <li className="border-t border-slate-100 mt-1 pt-1">
-                            <a 
-                              href="https://wa.me/9527070000?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="block px-5 py-2.5 text-sm font-medium text-slate-500 hover:bg-[#1a5fcd] hover:text-white transition-colors"
-                            >
-                              Don't know
-                            </a>
-                          </li>
                         </ul>
+
+                        {/* Compulsory "Don't Know" Section Pinned at Bottom */}
+                        <div className="bg-gradient-to-r from-[#f0f7ec] to-[#e6f4e1] border-t border-[#3b7a24]/25 p-3 flex items-center justify-between gap-2 shrink-0">
+                          <div className="flex items-center gap-2">
+                            <div className="w-7 h-7 rounded-full bg-[#3b7a24] text-white flex items-center justify-center shrink-0 shadow-xs">
+                              <HelpCircle className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <p className="text-[12px] font-bold text-navy leading-tight">Don't know which scan?</p>
+                              <p className="text-[10px] font-semibold text-[#3b7a24]">We will guide & help you</p>
+                            </div>
+                          </div>
+                          <a
+                            href="https://wa.me/9527070000?text=Hello%2C%20I%20don%27t%20know%20which%20scan%20I%20need.%20Please%20guide%20me."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#3b7a24] hover:bg-[#2d661b] text-white text-[11px] font-bold tracking-wide uppercase px-3 py-1.5 rounded-full transition-all shadow-xs shrink-0 flex items-center gap-1"
+                          >
+                            <span>Need Help?</span>
+                            <ArrowRight className="w-3 h-3" />
+                          </a>
+                        </div>
                       </div>
                     )}
                   </div>

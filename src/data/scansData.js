@@ -1,5 +1,190 @@
 export const scansData = [
   {
+    "id": "petct-imaging",
+    "title": "PET-CT IMAGING (FDG)",
+    "prerequisites": "6 hours of fasting required. Blood sugar level should be below 200mg/dl. Water is encouraged.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "A small dosage of F-18 FDG is injected in your vein. After a resting uptake period of approximately 45–60 minutes, a whole-body PET CT scan is performed. The scan itself usually takes 20–30 minutes.",
+    "indications": [
+      "Detect cancer.",
+      "Determine whether a cancer has spread in the body.",
+      "Assess the effectiveness of a treatment plan, such as cancer therapy.",
+      "Determine if a cancer has returned after treatment.",
+      "Determine blood flow to the heart muscle."
+    ]
+  },
+  {
+    "id": "gallium68psma-scan",
+    "title": "GALLIUM-68 PSMA SCAN",
+    "prerequisites": "Fasting is generally not required. Please bring previous investigations (PSA reports, biopsy reports, imaging).",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "IV administration of a small radioactive Ga-68 PSMA agent. Waiting period of 60–90 minutes post injection, after which whole-body PET CT imaging is performed.",
+    "indications": [
+      "To detect occult prostate cancer.",
+      "To determine its spread.",
+      "To assess treatment response.",
+      "Surveillance"
+    ]
+  },
+  {
+    "id": "gallium68octreotide-scan",
+    "title": "GALLIUM-68 OCTREOTIDE / DOTA / SOMATOSTATIN SCAN",
+    "prerequisites": "Fasting is usually not required. Please bring previous PET/CT, MRI, CT, and pathology reports.",
+    "timeRequired": "Duration: 1–2 Hours",
+    "procedure": "Special molecule designed to bind to somatostatin receptors paired with 68-Gallium is injected into the bloodstream. The PET CT produces 3D images of the tumor and its location.",
+    "indications": [
+      "Detect neuroendocrine tumors (NETs) expressing somatostatin receptors.",
+      "Determine disease spread and tumor staging.",
+      "Assess candidacy for PRRT therapy.",
+      "Monitor treatment response."
+    ]
+  },
+  {
+    "id": "f18-fdg-petct",
+    "title": "F-18 FDG PET CT SCAN",
+    "prerequisites": "Fasting required for 4–6 hours before the scan.\nWater is encouraged.\nDiabetic patients should follow specific instructions provided by the doctor.\nBring previous reports and imaging studies.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "A small amount of F-18 FDG radioactive tracer is injected through a vein. After a resting uptake period of approximately 45–60 minutes, a whole-body PET CT scan is performed. The scan itself usually takes 20–30 minutes. Patients should remain still during imaging.",
+    "indications": [
+      "Detect and stage various cancers.",
+      "Evaluate treatment response.",
+      "Identify cancer recurrence.",
+      "Assess infection and inflammatory diseases."
+    ]
+  },
+  {
+    "id": "ga68-psma-petct",
+    "title": "GA68 PSMA PET CT SCAN",
+    "prerequisites": "Fasting is generally not required.\nDrink plenty of water.\nBring previous PSA reports, biopsy reports, and imaging.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "Ga68 PSMA tracer is injected intravenously. Imaging is performed approximately 45–60 minutes after injection. Additional delayed images may be required in selected cases.",
+    "indications": [
+      "Detect prostate cancer.",
+      "Stage newly diagnosed disease.",
+      "Detect recurrence after treatment.",
+      "Evaluate metastatic spread."
+    ]
+  },
+  {
+    "id": "ga68-dota-petct",
+    "title": "GA68 DOTA PET CT SCAN",
+    "prerequisites": "Fasting is usually not required.\nBring previous PET/CT, MRI, CT, and pathology reports.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "The Ga68 DOTA tracer is administered intravenously. Imaging begins after an uptake period of approximately 45–60 minutes. The scan covers the whole body.",
+    "indications": [
+      "Detect neuroendocrine tumors (NETs).",
+      "Stage disease.",
+      "Assess suitability for PRRT therapy.",
+      "Monitor treatment response."
+    ]
+  },
+  {
+    "id": "cardiac-pet",
+    "title": "CARDIAC PET SCAN",
+    "prerequisites": "Fast for 6–8 hours.\nAvoid caffeine for 24 hours.\nCertain heart medications may require temporary adjustment.\nFollow physician instructions.",
+    "timeRequired": "Duration: 2–4 Hours",
+    "procedure": "A radioactive tracer is injected to evaluate blood flow and heart muscle viability. Stress imaging may be performed using medication or exercise depending on clinical indication.",
+    "indications": [
+      "Evaluate coronary artery disease.",
+      "Assess myocardial viability.",
+      "Measure cardiac blood flow.",
+      "Diagnose ischemia."
+    ]
+  },
+  {
+    "id": "fapi-pet",
+    "title": "FAPI PET CT SCAN",
+    "prerequisites": "Usually no fasting required.\nStay well hydrated.\nBring previous imaging and pathology reports.",
+    "timeRequired": "Duration: 2 Hours",
+    "procedure": "FAPI tracer is injected intravenously. Whole-body imaging is generally performed within 30–60 minutes after injection.",
+    "indications": [
+      "Detect various solid tumors.",
+      "Stage advanced cancers.",
+      "Evaluate recurrent disease.",
+      "Monitor treatment response."
+    ]
+  },
+  {
+    "id": "f18-fdopa-petct",
+    "title": "F-18 FDOPA PET CT SCAN",
+    "prerequisites": "Fast for at least 4 hours.\nCertain medications may need adjustment.\nBring previous neurological or oncology reports.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "After intravenous injection of F-18 FDOPA, imaging is performed following an uptake period of approximately 60 minutes.",
+    "indications": [
+      "Diagnose Parkinsonian disorders.",
+      "Evaluate brain tumors.",
+      "Detect neuroendocrine tumors.",
+      "Assess recurrent disease."
+    ]
+  },
+  {
+    "id": "fdopa-pet",
+    "title": "F-18 FDOPA PET CT SCAN",
+    "prerequisites": "Fast for at least 4 hours.\nCertain medications may need adjustment.\nBring previous neurological or oncology reports.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "After intravenous injection of F-18 FDOPA, imaging is performed following an uptake period of approximately 60 minutes.",
+    "indications": [
+      "Diagnose Parkinsonian disorders.",
+      "Evaluate brain tumors.",
+      "Detect neuroendocrine tumors.",
+      "Assess recurrent disease."
+    ]
+  },
+  {
+    "id": "trivehexin-pet",
+    "title": "TRIVEHEXIN PET CT SCAN",
+    "prerequisites": "Follow physician-specific preparation.\nStay hydrated.\nBring previous medical records and imaging.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "The tracer is injected intravenously. Imaging is performed after the recommended uptake period according to clinical protocol.",
+    "indications": [
+      "Evaluate selected cancers.",
+      "Detect recurrent disease.",
+      "Assess metastatic lesions.",
+      "Support treatment planning."
+    ]
+  },
+  {
+    "id": "exendin-pet",
+    "title": "EXENDIN PET CT SCAN",
+    "prerequisites": "Fast for 4–6 hours.\nBlood sugar levels may be checked before the scan.\nBring previous endocrine investigations.",
+    "timeRequired": "Duration: 3–4 Hours",
+    "procedure": "Exendin tracer is injected intravenously. Imaging is performed after an appropriate uptake period. Delayed imaging may occasionally be required.",
+    "indications": [
+      "Localize insulinoma.",
+      "Detect pancreatic neuroendocrine tumors.",
+      "Evaluate recurrent disease.",
+      "Assist surgical planning."
+    ]
+  },
+  {
+    "id": "exendine-pet",
+    "title": "EXENDIN PET CT SCAN",
+    "prerequisites": "Fast for 4–6 hours.\nBlood sugar levels may be checked before the scan.\nBring previous endocrine investigations.",
+    "timeRequired": "Duration: 3–4 Hours",
+    "procedure": "Exendin tracer is injected intravenously. Imaging is performed after an appropriate uptake period. Delayed imaging may occasionally be required.",
+    "indications": [
+      "Localize insulinoma.",
+      "Detect pancreatic neuroendocrine tumors.",
+      "Evaluate recurrent disease.",
+      "Assist surgical planning."
+    ]
+  },
+  {
+    "id": "fusion-pet-mri",
+    "title": "FUSION PET MRI",
+    "prerequisites": "Fast for 4–6 hours (depending on tracer).\nRemove all metallic objects.\nInform your doctor about implants, pacemakers, or claustrophobia.\nBring previous MRI, CT, PET, and laboratory reports.",
+    "timeRequired": "Duration: 60–120 Minutes",
+    "procedure": "A PET tracer is injected intravenously, followed by simultaneous PET and MRI imaging. This provides detailed anatomical and metabolic information with reduced radiation exposure compared to PET CT.",
+    "indications": [
+      "Brain tumor evaluation.",
+      "Pediatric oncology.",
+      "Head and neck cancers.",
+      "Prostate and pelvic cancers.",
+      "Liver lesions.",
+      "Neurological disorders."
+    ]
+  },
+  {
     "id": "bone-scan",
     "title": "BONE SCAN",
     "prerequisites": "No Prerequisite.",
@@ -30,7 +215,7 @@ export const scansData = [
   },
   {
     "id": "captoprilrenal-scan",
-    "title": "POST CAPTOPRIL RENOGRAM\r\n            (SUSPECTED RENAL ART. STENOSIS)",
+    "title": "POST CAPTOPRIL RENOGRAM (SUSPECTED RENAL ART. STENOSIS)",
     "prerequisites": "Good Hydration. Off medications 2-3 days prior study.",
     "timeRequired": "Scan Time 45mins for each scan.",
     "procedure": "A) Baseline 4 mCi of Tc DTPA is injected intravenously after ensuring good hydration of the patient. Dynamic images are obtained for 31 minutes. B) Post Captopril Patient is given Tab. Enalapril & similar imaging protocol is followed 2 hours after the Baseline study.",
@@ -63,7 +248,7 @@ export const scansData = [
   },
   {
     "id": "dmsarenal-scan",
-    "title": "DMSA RENAL SCAN\r\n            (CORTICAL FUNCTION)",
+    "title": "DMSA RENAL SCAN (CORTICAL FUNCTION)",
     "prerequisites": "Good Hydration.",
     "timeRequired": "Scan Time 15 mins.",
     "procedure": "Tc99m DMSA is injected intravenously after ensuring good hydration of the patient. Static images in posterior, LPO & RPO views are acquired at 2.5 hrs post injection.",
@@ -74,7 +259,7 @@ export const scansData = [
   },
   {
     "id": "dtparenal-scan",
-    "title": "DTPA RENOGRAM (GLOMERULAR FUNCTION) /\r\n            EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION)",
+    "title": "DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION)",
     "prerequisites": "Good Hydration.",
     "timeRequired": "Scan Time 45mins – 2 hours.",
     "procedure": "Tc99m DTPA is injected IV after ensuring good hydration of the patient. I.V. lasix is given after 10 mins of tracer injection. Sequential dynamic images are obtained for 31 minutes followed by post void and 1hour delayed image.",
@@ -84,27 +269,6 @@ export const scansData = [
       "Evaluation of unequal sized kidney / ? agenesis of kidney.",
       "Indirect radio nuclide cystography of VU reflux.",
       "Follow up renal transplantation."
-    ]
-  },
-  {
-    "id": "gallium68octreotide-scan",
-    "title": "Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan",
-    "prerequisites": "No Prerequisite.",
-    "timeRequired": "Duration of the procedure: 1 - 2hr",
-    "procedure": "The study involves a special molecule called a monoclonal antibody developed in a laboratory and designed to bind to the somastatin receptors. This antibody is paired with a radioactive material called 68-Gallium that can be detected by a PET CT camera. When injected into the patient's bloodstream, the radioactive antibody travels and attaches to cancer cells. The PET CT then produces three-dimensional images of the tumor and its location inside the body.",
-    "indications": []
-  },
-  {
-    "id": "gallium68psma-scan",
-    "title": "GALLIUM-68 PSMA SCAN",
-    "prerequisites": "Fasting not required. Please bring previous investigations.",
-    "timeRequired": "Duration of the procedure: 2 - 3hr",
-    "procedure": "IV administration of a small radioactive agent. There are no side effects. Waiting period of 60 – 90 Mins. Patient cannot leave the waiting room in this period as per government regulations. Few patients may require a delayed image at 3 Hrs. Attendants and relatives are not allowed to accompany the patient in waiting room. Only disabled ( bed-ridden) patients who require close monitoring and physical assistance should be accompanied by an attendant.",
-    "indications": [
-      "To detect occult prostate cancer.",
-      "To determine its spread.",
-      "To assess treatment response.",
-      "Surveillance"
     ]
   },
   {
@@ -122,12 +286,12 @@ export const scansData = [
   },
   {
     "id": "meckels-diverticulum",
-    "title": "MECKEL&apos;S DIVERTICULUM IMAGING",
+    "title": "MECKEL'S DIVERTICULUM IMAGING",
     "prerequisites": "2–4 hrs fasting.",
     "timeRequired": "Scan Time 45 mins.",
     "procedure": "99mTc is injected intravenously under the camera. Dynamic images are acquired for 30 minutes immediately thereafter of the anterior abdomen. Followed by static images of the LAO & RAO views. Post void static image of the abdomen is also acquired.",
     "indications": [
-      "Detection and localization of Meckel\\"
+      "Detection and localization of Meckel's Diverticulum."
     ]
   },
   {
@@ -159,9 +323,10 @@ export const scansData = [
     "title": "MUGA SCAN",
     "prerequisites": "No Prerequisite.",
     "timeRequired": "Scan Time 45 mins.",
-    "procedure": "",
+    "procedure": "Evaluation of cardiac ventricular function and ejection fraction.",
     "indications": [
-      "For assessing the patency of nasolacrymal duct in patients having epiphora."
+      "Evaluation of ejection fraction.",
+      "Assessment of cardiotoxicity from chemotherapy."
     ]
   },
   {
@@ -176,26 +341,15 @@ export const scansData = [
     ]
   },
   {
-    "id": "petct-imaging",
-    "title": "PET-CT IMAGING PROCEDURE (FDG)",
-    "prerequisites": "6 hours of fasting. Blood sugar level below 200mg/dl.",
-    "timeRequired": "",
-    "procedure": "You would be then directed to a room where a small dosage of 18 F – FDG / Sodium Fluoride will be injected in your vein. After injection, you would be asked to quietly relax and rest in a separate room at our Centre for about an hour before you are taken up for the scan. During this resting period, unless recommended by our staff, no attendants or relatives would be permitted to stay with you in this separate waiting room. You are advised to stay calm, restrict physical movements and avoid talking to others while present in the room. In case you feel any vomiting sensation or giddiness, inform the staff immediately by pressing the call bell. You may be given oral contrast to drink. You will have to finish drinking it in around 30 minutes. This helps to get a better image quality. However, don't force yourself to drink it in case you are feeling nauseatic. You would be required to drink plenty of water after the injection and till you are in the waiting room. You will be asked to void (pass urine) before starting the scanning procedure. Take care to ensure that you don't spill urine on any of your body parts. You would be asked to lie down flat on your back on the bed of the PET-CT scanner and are expected to remain still during the entire scanning period of 15-20 minutes. Your body would pass through a dough-nut like structure for obtaining the scan. Please let us know if you are claustrophobic or anxious. You would be informed about the beginning and end of the scanning procedure by our staff. After the completion of the scanning, you will be asked to sit in another room for some time. The Nuclear staff in the mean time will evaluate your PET-CT images and if needed may repeat your whole body scan. Your PET-CT scan would be finally evaluated by our experienced Nuclear Medicine Physician.",
-    "indications": [
-      "Detect cancer.",
-      "Determine whether a cancer has spread in the body.",
-      "Assess the effectiveness of a treatment plan, such as cancer therapy.",
-      "Determine if a cancer has returned after treatment.",
-      "Determine blood flow to the heart muscle."
-    ]
-  },
-  {
     "id": "radioiodine-therapy",
     "title": "RADIO IODINE THERAPY",
-    "prerequisites": "Patient should not eat or drink after midnight on the day of the procedure. If you have been taking anti-thyroid medications, you must stop at least three days before the therapy is given. Frequently, the anti-thyroid medication is stopped for five to seven days before therapy. Radioactive Iodine I-131 (also called Radioiodine I-131) therapy is a treatment for an overactive thyroid, a condition called hyperthyroidism. Radioactive Iodine I-131 may also be used to treat thyroid cancer. Low dose of iodine is used for hyperthyroidism. High dose used for thyroid cancer patients requires admission after therapy.",
-    "timeRequired": "",
-    "procedure": "Registration and billing for the PET/CT. After registration you would be directed to a room where a small dosage of 18 F – FDG / Sodium Fluoride will be injected in your vein. You should avoid children and pregnant women accompanying you. After injection, you would be asked to quietly relax and rest in a separate room at our Centre for about an hour before you are taken up for the scan. During this resting period, unless recommended by our staff, no attendants or relatives would be permitted to stay with you in this separate waiting room. You are advised to stay calm, restrict physical movements and avoid talking to others while present in the room. You may be given oral contrast to drink. You will have to finish drinking it in around 30 minutes. This helps to get a better image quality. However, don\\ ,\r\n     ,\r\n     t spill urine on any of your body parts. You would be asked to lie down flat on your back on the bed of the PET-CT scanner and are expected to remain still during the entire scanning period of 15–20 minutes. Your body would pass through a dough-nut like structure for obtaining the scan. Please let us know if you are claustrophobic or anxious. You would be informed about the beginning and end of the scanning procedure by our staff. After the completion of the scanning, you will be asked to sit in another room for some time. The Nuclear staff in the mean time will evaluate your PET-CT images and if needed may repeat your whole body scan. Your PET-CT scan would be finally evaluated by our experienced Nuclear Medicine Physician.",
-    "indications": []
+    "prerequisites": "Patient should not eat or drink after midnight on the day of the procedure. If you have been taking anti-thyroid medications, you must stop at least three days before the therapy is given.",
+    "timeRequired": "Varies by dosage",
+    "procedure": "Radioactive Iodine I-131 therapy is administered for hyperthyroidism or thyroid cancer.",
+    "indications": [
+      "Hyperthyroidism treatment.",
+      "Thyroid cancer post-surgical ablation."
+    ]
   },
   {
     "id": "rbcbloodpool-scan",
@@ -210,7 +364,7 @@ export const scansData = [
   },
   {
     "id": "thallium-scan",
-    "title": "STRESS & REST MYOCARDIAL PERFUSION\r\n            IMAGING (THALLIUM SCAN)",
+    "title": "STRESS & REST MYOCARDIAL PERFUSION IMAGING (THALLIUM SCAN)",
     "prerequisites": "Off beta blockers 48 prior the study. 4hrs fasting. No medication on the day of scan.",
     "timeRequired": "Scan Time 30 – 45 minutes.",
     "procedure": "Patient has to undergo physiological / pharmacological stress. 99mTc Sestamibi is injected when patient achieves 85% THR. 45 mins post injection scan is performed. Almost after 1hour 99mTc Sestamibi is again injected to the patient in the resting position (SOS post nitrate). 45 mins post injection scan is performed.",

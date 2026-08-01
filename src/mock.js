@@ -37,52 +37,53 @@ export const aboutFeatures = [
   'Fast Health Services',
 ];
 
+export const petServicesList = [
+  'PET-CT IMAGING (FDG)',
+  'Gallium-68 PSMA Scan',
+  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan',
+  'F-18 FDG PET CT Scan',
+  'Ga68 PSMA PET CT Scan',
+  'Ga68 DOTA PET CT Scan',
+  'Cardiac PET Scan',
+  'FAPI PET CT Scan',
+  'F-18 FDOPA PET CT Scan',
+  'Trivehexin PET CT Scan',
+  'Exendin PET CT Scan',
+  'Fusion PET MRI'
+];
+
+export const nuclearServicesList = [
+  'THYROID SCAN',
+  'DTPA / EC (MAG-3) RENOGRAM SCAN',
+  'DMSA RENAL SCAN (CORTICAL FUNCTION)',
+  'BONE SCAN',
+  'THALLIUM SCAN',
+  "MECKEL'S DIVERTICULUM IMAGING",
+  'MILK SCAN (GE REFLUX)',
+  'PARATHYROID SCAN',
+  'MUGA SCAN',
+  'MIBG SCAN',
+  'DIRECT CYSTOGRAM',
+  'RADIO IODINE THERAPY',
+  'POST CAPTOPRIL RENOGRAM',
+  'DACRYOSCINTIGRAPHY',
+  'BRAIN SPECT (CEREBRAL PERFUSION SCAN)',
+  'LYMPHOSCINTIGRAPHY',
+  'COLLOID LIVER SCAN',
+  'I-131 WHOLE BODY SCAN',
+  'RBC BLOOD POOL SCAN/GI BLEED SCAN',
+  'HEPATOBILIARY SCINTIGRAPHY (HIDA SCAN)'
+];
+
+export const therapyServicesList = [
+  'TARGETED RADIONUCLIDE THERAPY',
+  'PEPTIDE RECEPTOR RADIONUCLIDE THERAPY (PRRT)'
+];
+
 export const services = [
-  {
-    name: 'PET-CT Imaging\nProcedure (FDG)',
-    icon: 'ScanSearch',
-    desc: 'Advanced PET-CT imaging using FDG tracer for cancer detection, staging, treatment monitoring, and evaluation of metabolic disorders.'
-  },
-  {
-    name: 'Thallium\nScan',
-    icon: 'HeartPulse',
-    desc: 'Nuclear cardiology study used to assess blood flow to the heart muscle and diagnose coronary artery disease.'
-  },
-  {
-    name: 'Bone\nScan',
-    icon: 'Bone',
-    desc: 'Sensitive skeletal imaging for detecting fractures, infections, arthritis, and bone metastases.'
-  },
-  {
-    name: 'DTPA\nRenal Scan',
-    icon: 'Droplets',
-    desc: 'Functional kidney imaging that evaluates renal blood flow, function, and urinary drainage.'
-  },
-  {
-    name: 'Thyroid\nScan',
-    icon: 'Activity',
-    desc: 'Diagnostic thyroid imaging used to assess gland structure, function, nodules, and thyroid disorders.'
-  },
-  {
-    name: 'Captopril\nRenal Scan',
-    icon: 'Stethoscope',
-    desc: 'Specialized renal study for diagnosing renovascular hypertension and evaluating renal artery stenosis.'
-  },
-  {
-    name: 'Colloid\nLiver Scan',
-    icon: 'Shield',
-    desc: 'Nuclear medicine imaging of the liver and spleen to evaluate organ function, size, and focal abnormalities.'
-  },
-  {
-    name: 'Milk Scan\n(GE Reflux)',
-    icon: 'Baby',
-    desc: 'Gastroesophageal reflux study used to detect reflux and assess gastric emptying, especially in infants and children.'
-  },
-  {
-    name: 'MUGA\nScan',
-    icon: 'Heart',
-    desc: 'Multigated Acquisition Scan used to measure cardiac pumping efficiency and ventricular function with high accuracy.'
-  }
+  ...petServicesList.map(name => ({ name, icon: 'ScanSearch', desc: 'PET-CT Molecular Imaging' })),
+  ...nuclearServicesList.map(name => ({ name, icon: 'Activity', desc: 'Nuclear Medicine Scan' })),
+  ...therapyServicesList.map(name => ({ name, icon: 'Zap', desc: 'Targeted Radionuclide Therapy' }))
 ];
 
 export const whyChooseTabs = [

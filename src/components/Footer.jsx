@@ -8,25 +8,64 @@ export default function Footer() {
       <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
       <div className="relative max-w-[1400px] mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
-          <div className="lg:col-span-4">
-            <Link to="/" className="inline-block mb-2">
-              <img src="/Spectlab-2.svg" alt="SPECT LAB" className="h-20 md:h-24 w-auto object-contain" />
+          <div className="lg:col-span-4 space-y-4">
+            <Link to="/" className="inline-block">
+              <img src="/Spectlab-2.svg" alt="SPECT LAB" className="h-16 md:h-20 w-auto object-contain" />
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-sm">
+            
+            <p className="text-white/70 text-sm leading-relaxed max-w-sm">
               SPECT LAB is a proprietary organization started in the year 2001 by Dr. Shrikant Solav who holds a post graduate degree in medicine and nuclear medicine.
             </p>
-            <div className="flex items-center gap-3">
-              <a href="https://www.facebook.com/people/SPECT-LAB-Nuclear-Medicine-Service-and-Diagnostic-Center/100068087030012/#" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white hover:bg-[#3b7a24] text-[#3b7a24] hover:text-white flex items-center justify-center transition-colors">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="https://x.com/Spectlab" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white hover:bg-[#3b7a24] text-[#3b7a24] hover:text-white flex items-center justify-center transition-colors">
-                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.975H5.03z" />
-                </svg>
-              </a>
-              <a href="https://www.linkedin.com/company/spect-lab-nuclear-medicine-service-and-diagnostic-center/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white hover:bg-[#3b7a24] text-[#3b7a24] hover:text-white flex items-center justify-center transition-colors">
-                <Linkedin className="w-4 h-4" />
-              </a>
+
+            {/* NABH Accredited Badge Card */}
+            <div className="inline-flex items-center gap-3.5 bg-white/15 hover:bg-white/20 backdrop-blur-md px-5 py-3.5 rounded-2xl border border-white/25 shadow-lg transition-all duration-300 group max-w-full sm:max-w-md">
+              <div className="w-13 h-13 max-w-[52px] max-h-[52px] bg-white p-1 rounded-full flex items-center justify-center shrink-0 shadow-md border border-white/40">
+                <img src="/nabh.png" alt="NABH Accredited" className="w-full h-full object-contain rounded-full" />
+              </div>
+              <div className="flex flex-col justify-center">
+                <p className="text-sm sm:text-[15px] font-extrabold tracking-wider text-white uppercase leading-tight">
+                  NABH ACCREDITED
+                </p>
+                <p className="text-[12px] sm:text-[13px] text-white/90 font-medium leading-normal mt-0.5 whitespace-nowrap">
+                  Patient Safety & Quality of Care
+                </p>
+              </div>
+            </div>
+
+            {/* Social Media Links Line */}
+            <div className="pt-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/60 mb-2.5">Connect With Us</p>
+              <div className="flex items-center gap-3">
+                <a 
+                  href="https://www.facebook.com/people/SPECT-LAB-Nuclear-Medicine-Service-and-Diagnostic-Center/100068087030012/#" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#3b7a24] text-white border border-white/15 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-4.5 h-4.5" />
+                </a>
+                <a 
+                  href="https://x.com/Spectlab" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#3b7a24] text-white border border-white/15 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                  aria-label="Twitter / X"
+                >
+                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.975H5.03z" />
+                  </svg>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/company/spect-lab-nuclear-medicine-service-and-diagnostic-center/?originalSubdomain=in" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#3b7a24] text-white border border-white/15 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-4.5 h-4.5" />
+                </a>
+              </div>
             </div>
           </div>
 

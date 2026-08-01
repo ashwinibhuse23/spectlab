@@ -4,23 +4,85 @@ import {
   ArrowRight, ChevronDown, Calendar, Clock, User, Mail,
   Phone as PhoneIcon, Check, Stethoscope, Building2, BadgeCheck, ScanLine, Info,
 } from 'lucide-react';
-import { services } from '../mock';
+import { services, petServicesList, nuclearServicesList, therapyServicesList } from '../mock';
 
 // Auto-timing per test — displayed automatically when test is selected
+// Auto-timing per test — displayed automatically when test is selected
 const testTimings = {
-  'PET-CT Imaging Procedure (FDG)': '10:00 AM – 07:00 PM',
-  'Thallium Scan':                  '11:00 AM – 05:00 PM',
-  'Bone Scan':                      '09:00 AM – 01:00 PM',
-  'DTPA Renal Scan':                '09:00 AM – 02:00 PM',
-  'Thyroid Scan':                   '10:00 AM – 03:00 PM',
-  'Captopril Renal Scan':           '08:00 AM – 12:00 PM',
-  'Colloid Liver Scan':             '10:00 AM – 03:00 PM',
-  'Milk Scan (GE Reflux)':          '09:00 AM – 01:00 PM',
-  'MUGA Scan':                      '10:00 AM – 04:00 PM',
+  // PET Scans (07:00 AM – 07:00 PM)
+  'PET-CT IMAGING (FDG)': '07:00 AM – 07:00 PM',
+  'PET-CT Imaging Procedure (FDG)': '07:00 AM – 07:00 PM',
+  'Gallium-68 PSMA Scan': '07:00 AM – 07:00 PM',
+  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': '07:00 AM – 07:00 PM',
+  'F-18 FDG PET CT Scan': '07:00 AM – 07:00 PM',
+  'Ga68 PSMA PET CT Scan': '07:00 AM – 07:00 PM',
+  'Ga68 DOTA PET CT Scan': '07:00 AM – 07:00 PM',
+  'Cardiac PET Scan': '07:00 AM – 07:00 PM',
+  'FAPI PET CT Scan': '07:00 AM – 07:00 PM',
+  'F-18 FDOPA PET CT Scan': '07:00 AM – 07:00 PM',
+  'Trivehexin PET CT Scan': '07:00 AM – 07:00 PM',
+  'Exendine PET CT Scan': '07:00 AM – 07:00 PM',
+  'Exendin PET CT Scan': '07:00 AM – 07:00 PM',
+  'Fusion- PET MRI': '07:00 AM – 07:00 PM',
+  'Fusion PET MRI': '07:00 AM – 07:00 PM',
+
+  // Nuclear Medicine & Other Scans
+  'THALLIUM SCAN': '11:00 AM – 05:00 PM',
+  'Thallium Scan': '11:00 AM – 05:00 PM',
+  'BONE SCAN': '09:00 AM – 01:00 PM',
+  'Bone Scan': '09:00 AM – 01:00 PM',
+  'DTPA / EC (MAG-3) RENOGRAM SCAN': '09:00 AM – 02:00 PM',
+  'DTPA Renal Scan': '09:00 AM – 02:00 PM',
+  'DMSA RENAL SCAN (CORTICAL FUNCTION)': '09:00 AM – 02:00 PM',
+  'THYROID SCAN': '10:00 AM – 03:00 PM',
+  'Thyroid Scan': '10:00 AM – 03:00 PM',
+  'POST CAPTOPRIL RENOGRAM': '08:00 AM – 12:00 PM',
+  'Captopril Renal Scan': '08:00 AM – 12:00 PM',
+  'COLLOID LIVER SCAN': '10:00 AM – 03:00 PM',
+  'Colloid Liver Scan': '10:00 AM – 03:00 PM',
+  'MILK SCAN (GE REFLUX)': '09:00 AM – 01:00 PM',
+  'Milk Scan (GE Reflux)': '09:00 AM – 01:00 PM',
+  'MUGA SCAN': '10:00 AM – 04:00 PM',
+  'MUGA Scan': '10:00 AM – 04:00 PM',
+  'PARATHYROID SCAN': '10:00 AM – 03:00 PM',
+  'MIBG SCAN': '10:00 AM – 04:00 PM',
+};
+
+// Robust timing lookup helper
+const getTestTiming = (testName) => {
+  if (!testName) return '';
+  if (testTimings[testName]) return testTimings[testName];
+
+  const upper = testName.toUpperCase().trim();
+  for (const [key, val] of Object.entries(testTimings)) {
+    if (key.toUpperCase().trim() === upper) return val;
+  }
+
+  if (upper.includes('PET') || upper.includes('FDG') || upper.includes('PSMA') || upper.includes('DOTA') || upper.includes('FAPI') || upper.includes('FDOPA') || upper.includes('EXENDIN') || upper.includes('TRIVEHEXIN') || upper.includes('GALLIUM')) return '07:00 AM – 07:00 PM';
+  if (upper.includes('THALLIUM')) return '11:00 AM – 05:00 PM';
+  if (upper.includes('BONE')) return '09:00 AM – 01:00 PM';
+  if (upper.includes('CAPTOPRIL')) return '08:00 AM – 12:00 PM';
+  if (upper.includes('DTPA') || upper.includes('DMSA') || upper.includes('RENOGRAM') || upper.includes('RENAL')) return '09:00 AM – 02:00 PM';
+  if (upper.includes('THYROID') || upper.includes('PARATHYROID')) return '10:00 AM – 03:00 PM';
+  if (upper.includes('COLLOID') || upper.includes('LIVER')) return '10:00 AM – 03:00 PM';
+  if (upper.includes('MILK') || upper.includes('REFLUX')) return '09:00 AM – 01:00 PM';
+  if (upper.includes('MUGA') || upper.includes('MIBG')) return '10:00 AM – 04:00 PM';
+
+  return '09:00 AM – 05:00 PM';
 };
 
 // Preparation instructions per test
 const testInstructions = {
+  'PET-CT IMAGING (FDG)': [
+    'Compulsory 6 hrs fasting (No tea, coffee). No IV fluid after midnight for hospital patients — only plain water allowed.',
+    'Bring all previous reports: Previous PET Report & CD, MRI, CT, USG, Blood, Biopsy, Chemo, Radiation card, Operation details etc.',
+    'Sugar level should be below 200 mg/dL.',
+    'Please come between 7:00 AM to 9:00 AM.',
+    'Referring doctor’s note is compulsory.',
+    'Se. Creatinine Blood Test is compulsory.',
+    'Patient should be accompanied by one relative only.',
+    'Patient should not wear any Jewellery or Ornaments.',
+  ],
   'PET-CT Imaging Procedure (FDG)': [
     'Compulsory 6 hrs fasting (No tea, coffee). No IV fluid after midnight for hospital patients — only plain water allowed.',
     'Bring all previous reports: Previous PET Report & CD, MRI, CT, USG, Blood, Biopsy, Chemo, Radiation card, Operation details etc.',
@@ -31,12 +93,86 @@ const testInstructions = {
     'Patient should be accompanied by one relative only.',
     'Patient should not wear any Jewellery or Ornaments.',
   ],
+  'F-18 FDG PET CT Scan': [
+    'Compulsory 6 hrs fasting (No tea, coffee). Water is encouraged.',
+    'Diabetic patients should follow specific instructions provided by the doctor.',
+    'Bring all previous reports and imaging studies.',
+    'Patient should not wear any Jewellery or Ornaments.',
+  ],
+  'Gallium-68 PSMA Scan': [
+    'Fasting is generally not required.',
+    'Drink plenty of water before and after the scan.',
+    'Bring previous PSA reports, biopsy reports, and imaging.',
+  ],
+  'Ga68 PSMA PET CT Scan': [
+    'Fasting is generally not required.',
+    'Drink plenty of water before and after the scan.',
+    'Bring previous PSA reports, biopsy reports, and imaging.',
+  ],
+  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': [
+    'Fasting is usually not required.',
+    'Bring previous PET/CT, MRI, CT, and pathology reports.',
+  ],
+  'Ga68 DOTA PET CT Scan': [
+    'Fasting is usually not required.',
+    'Bring previous PET/CT, MRI, CT, and pathology reports.',
+  ],
+  'Cardiac PET Scan': [
+    'Fast for 6–8 hours.',
+    'Avoid caffeine for 24 hours.',
+    'Certain heart medications may require temporary adjustment.',
+  ],
+  'FAPI PET CT Scan': [
+    'Usually no fasting required.',
+    'Stay well hydrated.',
+    'Bring previous imaging and pathology reports.',
+  ],
+  'F-18 FDOPA PET CT Scan': [
+    'Fast for at least 4 hours.',
+    'Certain medications may need adjustment.',
+    'Bring previous neurological or oncology reports.',
+  ],
+  'Trivehexin PET CT Scan': [
+    'Follow physician-specific preparation.',
+    'Stay hydrated.',
+    'Bring previous medical records and imaging.',
+  ],
+  'Exendine PET CT Scan': [
+    'Fast for 4–6 hours.',
+    'Blood sugar levels may be checked before the scan.',
+    'Bring previous endocrine investigations.',
+  ],
+  'Exendin PET CT Scan': [
+    'Fast for 4–6 hours.',
+    'Blood sugar levels may be checked before the scan.',
+    'Bring previous endocrine investigations.',
+  ],
+  'Fusion PET MRI': [
+    'Fast for 4–6 hours (depending on tracer).',
+    'Remove all metallic objects.',
+    'Inform your doctor about implants, pacemakers, or claustrophobia.',
+    'Bring previous MRI, CT, PET, and laboratory reports.',
+  ],
+  'THALLIUM SCAN': [
+    'Fast for 4–6 hours before the test.',
+    'Avoid caffeine, tobacco, and alcohol for 24 hours prior.',
+    'Inform us of any heart medications you are currently taking.',
+    'Wear comfortable clothing suitable for a treadmill stress test.',
+    'Bring your referral letter and previous cardiac reports.',
+  ],
   'Thallium Scan': [
     'Fast for 4–6 hours before the test.',
     'Avoid caffeine, tobacco, and alcohol for 24 hours prior.',
     'Inform us of any heart medications you are currently taking.',
     'Wear comfortable clothing suitable for a treadmill stress test.',
     'Bring your referral letter and previous cardiac reports.',
+  ],
+  'BONE SCAN': [
+    'No special fasting required unless instructed otherwise.',
+    'Drink plenty of water before and after the scan to flush the tracer.',
+    'Remove all jewelry and metal accessories before the scan.',
+    'The scan takes approximately 3–4 hours — plan your day accordingly.',
+    'Inform us if you are pregnant or breastfeeding.',
   ],
   'Bone Scan': [
     'No special fasting required unless instructed otherwise.',
@@ -45,12 +181,26 @@ const testInstructions = {
     'The scan takes approximately 3–4 hours — plan your day accordingly.',
     'Inform us if you are pregnant or breastfeeding.',
   ],
+  'DTPA / EC (MAG-3) RENOGRAM SCAN': [
+    'Drink 2–3 glasses of water 30 minutes before the scan.',
+    'Empty your bladder just before the test begins.',
+    'Continue taking your regular medications unless advised otherwise.',
+    'Bring your referral letter and previous kidney function reports.',
+    'Inform us about any known allergies.',
+  ],
   'DTPA Renal Scan': [
     'Drink 2–3 glasses of water 30 minutes before the scan.',
     'Empty your bladder just before the test begins.',
     'Continue taking your regular medications unless advised otherwise.',
     'Bring your referral letter and previous kidney function reports.',
     'Inform us about any known allergies.',
+  ],
+  'THYROID SCAN': [
+    'Stop thyroid medications 4–6 weeks before the scan if instructed.',
+    'Avoid iodine-rich foods (seafood, iodized salt) for 2 weeks prior.',
+    'Fasting is not required for this scan.',
+    'Bring all previous thyroid reports and blood test results.',
+    'Inform us if you have had any contrast CT scans recently.',
   ],
   'Thyroid Scan': [
     'Stop thyroid medications 4–6 weeks before the scan if instructed.',
@@ -59,12 +209,26 @@ const testInstructions = {
     'Bring all previous thyroid reports and blood test results.',
     'Inform us if you have had any contrast CT scans recently.',
   ],
+  'POST CAPTOPRIL RENOGRAM': [
+    'Take the Captopril tablet as directed 1 hour before the scan.',
+    'Drink 2–3 glasses of water before arriving.',
+    'Stop ACE inhibitor medications 5 days before if instructed.',
+    'Bring a list of all current blood pressure medications.',
+    'Monitor your blood pressure on the day of the scan.',
+  ],
   'Captopril Renal Scan': [
     'Take the Captopril tablet as directed 1 hour before the scan.',
     'Drink 2–3 glasses of water before arriving.',
     'Stop ACE inhibitor medications 5 days before if instructed.',
     'Bring a list of all current blood pressure medications.',
     'Monitor your blood pressure on the day of the scan.',
+  ],
+  'COLLOID LIVER SCAN': [
+    'No fasting required for this scan.',
+    'Inform us of any recent abdominal surgeries or procedures.',
+    'Bring all previous liver ultrasound or CT reports.',
+    'Remove metal objects and jewelry before the scan.',
+    'The scan typically takes 30–60 minutes.',
   ],
   'Colloid Liver Scan': [
     'No fasting required for this scan.',
@@ -73,12 +237,26 @@ const testInstructions = {
     'Remove metal objects and jewelry before the scan.',
     'The scan typically takes 30–60 minutes.',
   ],
+  'MILK SCAN (GE REFLUX)': [
+    'The patient (usually a child) should fast for 4 hours before.',
+    'A parent or guardian must accompany the patient.',
+    'Bring the feeding bottle with formula or breast milk.',
+    'Wear comfortable and loose-fitting clothing.',
+    'Inform us about any gastrointestinal symptoms or medications.',
+  ],
   'Milk Scan (GE Reflux)': [
     'The patient (usually a child) should fast for 4 hours before.',
     'A parent or guardian must accompany the patient.',
     'Bring the feeding bottle with formula or breast milk.',
     'Wear comfortable and loose-fitting clothing.',
     'Inform us about any gastrointestinal symptoms or medications.',
+  ],
+  'MUGA SCAN': [
+    'No special fasting required unless advised by your doctor.',
+    'Inform us of all current heart medications.',
+    'Bring previous ECG and echocardiography reports.',
+    'The scan involves two phases and may take 2–3 hours.',
+    'Avoid strenuous activity on the day of the scan.',
   ],
   'MUGA Scan': [
     'No special fasting required unless advised by your doctor.',
@@ -89,84 +267,93 @@ const testInstructions = {
   ],
 };
 
+const getTestInstructions = (testName, language = 'en') => {
+  if (!testName) return [];
+  const instructionsObj = language === 'mr' ? testInstructionsMr : testInstructions;
+  if (instructionsObj[testName]) return instructionsObj[testName];
+
+  const upper = testName.toUpperCase().trim();
+  for (const [key, val] of Object.entries(instructionsObj)) {
+    if (key.toUpperCase().trim() === upper) return val;
+  }
+
+  return instructionsObj['PET-CT Imaging Procedure (FDG)'] || instructionsObj['Bone Scan'] || [];
+};
+
 // Marathi translations
 const testInstructionsMr = {
-  'PET-CT Imaging Procedure (FDG)': [
+  'PET-CT IMAGING (FDG)': [
     '६ तास उपवास अनिवार्य (चहा-कॉफी घ्यायचा नाही), रुग्णालयातील रुग्णांसाठी मध्यरात्री नंतर IV fluid बंद असावा, फक्त साधे पाणी पिण्याची परवानगी आहे.',
-    'आपले सर्व मागील रिपोर्ट (मागील पेटसिटी रिपोर्ट आणि सीडी, एमआरआय स्कॅन, सीटी स्कॅन, सोनोग्राफी, रक्त तपासण्या, बायोप्सी (हिस्टोपॅथोलॉजी), केमो व रेडिएशन कार्ड, ऑपरेशन डिस्चार्ज कार्ड, इत्यादी) सोबत आणा.',
+    'आपले सर्व मागील रिपोर्ट सोबत आणा.',
     'शुगर लेवल २०० च्या खाली असावी.',
     'कृपया सकाळी ७ ते ९ च्या दरम्यान या.',
-    'डॉक्टरांची प्रिस्क्रिप्शन (चिठ्ठी) अनिवार्य आहे.',
-    'पेशंट सोबत फक्त एक नातेवाईक असावा.',
   ],
-  'Thallium Scan': [
-    'चाचणीच्या ४–६ तास आधी उपवास करा.',
-    'आधी २४ तास कॅफीन, तंबाखू आणि दारू टाळा.',
-    'तुम्ही सध्या घेत असलेल्या हृदय औषधांबद्दल आम्हाला सांगा.',
-    'ट्रेडमिल स्ट्रेस टेस्टसाठी योग्य आरामदायक कपडे घाला.',
-    'रेफरल पत्र आणि मागील हृदय अहवाल आणा.',
+  'PET-CT Imaging Procedure (FDG)': [
+    '६ तास उपवास अनिवार्य (चहा-कॉफी घ्यायचा नाही), रुग्णालयातील रुग्णांसाठी मध्यरात्री नंतर IV fluid बंद असावा, फक्त साधे पाणी पिण्याची परवानगी आहे.',
+    'आपले सर्व मागील रिपोर्ट सोबत आणा.',
+    'शुगर लेवल २०० च्या खाली असावी.',
+    'कृपया सकाळी ७ ते ९ च्या दरम्यान या.',
+  ],
+  'BONE SCAN': [
+    'विशेष उपवासाची आवश्यकता नाही जोपर्यंत सांगितले जात नाही.',
+    'स्कॅनपूर्वी आणि नंतर भरपूर पाणी प्या.',
+    'स्कॅनपूर्वी सर्व दागिने आणि धातूचे सामान काढा.',
+    'स्कॅनला साधारण ३–४ तास लागतात — त्यानुसार नियोजन करा.',
   ],
   'Bone Scan': [
     'विशेष उपवासाची आवश्यकता नाही जोपर्यंत सांगितले जात नाही.',
     'स्कॅनपूर्वी आणि नंतर भरपूर पाणी प्या.',
     'स्कॅनपूर्वी सर्व दागिने आणि धातूचे सामान काढा.',
     'स्कॅनला साधारण ३–४ तास लागतात — त्यानुसार नियोजन करा.',
-    'गर्भवती किंवा स्तनपान करणाऱ्या असल्यास आम्हाला सांगा.',
-  ],
-  'DTPA Renal Scan': [
-    'स्कॅनच्या ३० मिनिटे आधी २–३ ग्लास पाणी प्या.',
-    'चाचणी सुरू होण्यापूर्वी लघवी करा.',
-    'अन्यथा सल्ला दिला नसल्यास नियमित औषधे घेत राहा.',
-    'रेफरल पत्र आणि मागील मूत्रपिंड कार्य अहवाल आणा.',
-    'कोणत्याही ज्ञात ऍलर्जींबद्दल आम्हाला सांगा.',
-  ],
-  'Thyroid Scan': [
-    'सांगितले असल्यास स्कॅनच्या ४–६ आठवडे आधी थायरॉइड औषधे थांबवा.',
-    '२ आठवडे आधी आयोडीनयुक्त अन्न (सीफूड, आयोडीनयुक्त मीठ) टाळा.',
-    'या स्कॅनसाठी उपवासाची आवश्यकता नाही.',
-    'सर्व मागील थायरॉइड अहवाल आणि रक्त तपासणी निकाल आणा.',
-    'अलीकडे कॉन्ट्रास्ट CT स्कॅन केला असल्यास आम्हाला सांगा.',
-  ],
-  'Captopril Renal Scan': [
-    'सांगितल्याप्रमाणे स्कॅनच्या १ तास आधी Captopril गोळी घ्या.',
-    'येण्यापूर्वी २–३ ग्लास पाणी प्या.',
-    'सांगितले असल्यास ५ दिवस आधी ACE इनहिबिटर औषधे थांबवा.',
-    'सर्व सध्याच्या रक्तदाब औषधांची यादी आणा.',
-    'स्कॅनच्या दिवशी रक्तदाब तपासा.',
-  ],
-  'Colloid Liver Scan': [
-    'या स्कॅनसाठी उपवासाची आवश्यकता नाही.',
-    'कोणत्याही अलीकडील ओटीपोटाच्या शस्त्रक्रियांबद्दल आम्हाला सांगा.',
-    'सर्व मागील यकृत अल्ट्रासाऊंड किंवा CT अहवाल आणा.',
-    'स्कॅनपूर्वी धातूचे सामान आणि दागिने काढा.',
-    'स्कॅन साधारण ३०–६० मिनिटे चालतो.',
-  ],
-  'Milk Scan (GE Reflux)': [
-    'रुग्ण (सहसा मूल) स्कॅनच्या ४ तास आधी उपवास करावा.',
-    'पालक किंवा पालकाने रुग्णासोबत असणे आवश्यक आहे.',
-    'फॉर्म्युला किंवा आईचे दूध असलेली फीडिंग बाटली आणा.',
-    'आरामदायक आणि सैल कपडे घाला.',
-    'कोणत्याही पोटाच्या लक्षणांबद्दल किंवा औषधांबद्दल आम्हाला सांगा.',
-  ],
-  'MUGA Scan': [
-    'डॉक्टरांनी सांगितल्याशिवाय विशेष उपवासाची आवश्यकता नाही.',
-    'सर्व सध्याच्या हृदय औषधांबद्दल आम्हाला सांगा.',
-    'मागील ECG आणि इकोकार्डियोग्राफी अहवाल आणा.',
-    'स्कॅनचे दोन टप्पे असतात आणि त्याला २–३ तास लागू शकतात.',
-    'स्कॅनच्या दिवशी कठोर व्यायाम टाळा.',
   ],
 };
 
+const defaultPrice = { regular: 15000, extra: 18000, skip: 25000 };
+
 const testPrices = {
+  'PET-CT IMAGING (FDG)': { regular: 14000, extra: 16000, skip: 21000 },
   'PET-CT Imaging Procedure (FDG)': { regular: 15000, extra: 18000, skip: 25000 },
+  'Gallium-68 PSMA Scan': { regular: 18000, extra: 21000, skip: 28000 },
+  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': { regular: 18000, extra: 21000, skip: 28000 },
+  'F-18 FDG PET CT Scan': { regular: 15000, extra: 18000, skip: 25000 },
+  'Ga68 PSMA PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
+  'Ga68 DOTA PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
+  'Cardiac PET Scan': { regular: 16000, extra: 19000, skip: 26000 },
+  'FAPI PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
+  'F-18 FDOPA PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
+  'Trivehexin PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
+  'Exendine PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
+  'Exendin PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
+  'Fusion- PET MRI': { regular: 22000, extra: 25000, skip: 32000 },
+  'Fusion PET MRI': { regular: 22000, extra: 25000, skip: 32000 },
+  'THALLIUM SCAN': { regular: 12000, extra: 15000, skip: 20000 },
   'Thallium Scan': { regular: 12000, extra: 15000, skip: 20000 },
+  'BONE SCAN': { regular: 5000, extra: 7000, skip: 10000 },
   'Bone Scan': { regular: 5000, extra: 7000, skip: 10000 },
+  'DTPA / EC (MAG-3) RENOGRAM SCAN': { regular: 8000, extra: 10000, skip: 15000 },
   'DTPA Renal Scan': { regular: 8000, extra: 10000, skip: 15000 },
+  'THYROID SCAN': { regular: 3000, extra: 4500, skip: 7000 },
   'Thyroid Scan': { regular: 3000, extra: 4500, skip: 7000 },
+  'POST CAPTOPRIL RENOGRAM': { regular: 9000, extra: 11000, skip: 16000 },
   'Captopril Renal Scan': { regular: 9000, extra: 11000, skip: 16000 },
+  'COLLOID LIVER SCAN': { regular: 7500, extra: 9500, skip: 13000 },
   'Colloid Liver Scan': { regular: 7500, extra: 9500, skip: 13000 },
+  'MILK SCAN (GE REFLUX)': { regular: 6000, extra: 8000, skip: 12000 },
   'Milk Scan (GE Reflux)': { regular: 6000, extra: 8000, skip: 12000 },
+  'MUGA SCAN': { regular: 10000, extra: 12500, skip: 18000 },
   'MUGA Scan': { regular: 10000, extra: 12500, skip: 18000 },
+};
+
+const getTestPrice = (testName) => {
+  if (!testName) return defaultPrice;
+  if (testPrices[testName]) return testPrices[testName];
+
+  const upper = testName.toUpperCase().trim();
+  for (const [key, val] of Object.entries(testPrices)) {
+    if (key.toUpperCase().trim() === upper) return val;
+  }
+
+  return defaultPrice;
 };
 
 export default function AppointmentPage() {
@@ -174,12 +361,85 @@ export default function AppointmentPage() {
     name: '', email: '', phone: '', date: '', time: '', Tests: '', chargeType: '', message: '', agree: false,
   });
   const [skipPriceRevealed, setSkipPriceRevealed] = useState(false);
+  const [chargeType, setChargeType] = useState('');
   const [done, setDone] = useState(false);
   const [showPolicy, setShowPolicy] = useState(false);
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
   const [innerAgree, setInnerAgree] = useState(false);
   const [lang, setLang] = useState('en'); // 'en' | 'mr'
   const scrollRef = useRef(null);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [tests, setTests] = useState("");
+  const [date, setDate] = useState("");
+  const [testTime, setTestTime] = useState("");
+  const [textMessage, setTextMessage] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validateField = (field, val) => {
+    let err = '';
+    if (field === 'name') {
+      if (!val || !val.trim()) err = 'Full name is required.';
+      else if (val.trim().length < 2) err = 'Name must be at least 2 characters.';
+    } else if (field === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!val || !val.trim()) err = 'Email address is required.';
+      else if (!emailRegex.test(val.trim())) err = 'Please enter a valid email address (e.g. name@domain.com).';
+    } else if (field === 'phone') {
+      const digits = val ? val.replace(/\D/g, '') : '';
+      const mobileDigits = digits.length === 12 && digits.startsWith('91') ? digits.slice(2) : digits;
+      if (!val || !val.trim()) err = 'Phone number is required.';
+      else if (mobileDigits.length !== 10) err = 'Please enter a valid 10-digit mobile number.';
+      else if (!/^[6-9]\d{9}$/.test(mobileDigits)) err = 'Mobile number must start with 6, 7, 8, or 9.';
+    } else if (field === 'tests') {
+      if (!val) err = 'Please select a test.';
+    } else if (field === 'date') {
+      if (!val) err = 'Please select an appointment date.';
+    }
+    return err;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const nameErr = validateField('name', name);
+    const emailErr = validateField('email', email);
+    const phoneErr = validateField('phone', phone);
+    const testsErr = validateField('tests', tests || form.Tests);
+    const dateErr = validateField('date', date);
+
+    let agreeErr = '';
+    if (!form.agree) {
+      agreeErr = 'Please accept the privacy policy before booking.';
+    }
+
+    const newErrors = {};
+    if (nameErr) newErrors.name = nameErr;
+    if (emailErr) newErrors.email = emailErr;
+    if (phoneErr) newErrors.phone = phoneErr;
+    if (testsErr) newErrors.tests = testsErr;
+    if (dateErr) newErrors.date = dateErr;
+    if (agreeErr) newErrors.agree = agreeErr;
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
+
+    setDone(true);
+    setTimeout(() => setDone(false), 3000);
+
+    const phoneNumber = "9527070000"; // Optimized for wa.me
+    const message = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nTests: ${tests || form.Tests}\nDate: ${date}\nTime: ${testTime || form.time}\nMessage: ${textMessage}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappUrl, '_blank');
+  };
+
+
 
   /* Track scroll inside the policy box */
   const handleScroll = useCallback(() => {
@@ -237,21 +497,21 @@ export default function AppointmentPage() {
               <h3 className="font-display font-extrabold text-xl mb-4 text-navy">
                 Why book with SPECT LAB?
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3.5">
                 {[
-                  { icon: Stethoscope, t: 'Board-Certified Specialists', d: 'Access top doctors across 20+ specialties.' },
-                  { icon: Clock, t: 'Same-Day Diagnostics', d: 'Imaging and lab work scheduled in one visit.' },
-                  { icon: Building2, t: 'Standalone Diagnostic Center', d: 'Advanced diagnostic and imaging services under one roof.' },
-                  { icon: BadgeCheck, t: 'National Accreditation Board for Hospitals & Healthcare Providers', d: 'NABH accredited for quality, safety, and patient-centered care.' },
-                  { icon: ScanLine, t: 'Fusion PET MRI', d: 'Combines PET and MRI technologies for precise and comprehensive diagnosis.' },
-                ].map(({ icon: Icon, t, d }) => (
-                  <li key={t} className="flex gap-4">
-                    <span className="w-11 h-11 shrink-0 rounded-2xl bg-blue-100 text-navy flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
+                  { img: '/Board.png', t: 'Board-Certified Specialists', d: 'Access top doctors across 20+ specialties.' },
+                  { img: '/SameDay.png', t: 'Same-Day Diagnostics', d: 'Imaging and lab work scheduled in one visit.' },
+                  { img: '/Standalone.png', t: 'Standalone Diagnostic Center', d: 'Advanced diagnostic and imaging services under one roof.' },
+                  { img: '/nabhlogo.png', t: 'National Accreditation Board for Hospitals & Healthcare Providers (NABH)', d: 'NABH accredited for quality, safety, and patient-centered care.' },
+                  { img: '/fusion.png', t: 'Fusion PET MRI', d: 'Combines PET and MRI technologies for precise and comprehensive diagnosis.' },
+                ].map(({ img, t, d }) => (
+                  <li key={t} className="flex gap-4 items-center bg-[#f8f7fd] p-3.5 rounded-2xl border border-slate-100 hover:border-[#3b7a24]/30 hover:shadow-md transition-all duration-300 group">
+                    <span className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl bg-white flex items-center justify-center p-2 border border-slate-200/60 shadow-xs group-hover:scale-105 transition-transform duration-300">
+                      <img src={process.env.PUBLIC_URL + img} alt={t} className="w-full h-full object-contain" />
                     </span>
-                    <div>
-                      <div className="font-display font-bold text-sm">{t}</div>
-                      <div className="text-navy/70 text-xs">{d}</div>
+                    <div className="flex-1">
+                      <div className="font-display font-extrabold text-[15px] text-[#0e1a6b] leading-snug group-hover:text-[#3b7a24] transition-colors">{t}</div>
+                      <div className="text-[#0e1a6b]/70 text-[12.5px] mt-1 leading-relaxed">{d}</div>
                     </div>
                   </li>
                 ))}
@@ -278,7 +538,7 @@ export default function AppointmentPage() {
           </div>
 
           {/* ── Booking form ── */}
-          <form onSubmit={submit} className="col-span-1 lg:col-span-3 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-10 soft-shadow flex flex-col">
+          <form onSubmit={handleSubmit} noValidate className="col-span-1 lg:col-span-3 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-10 soft-shadow flex flex-col">
             <h2 className="font-display font-extrabold text-navy text-xl sm:text-2xl lg:text-3xl mb-1">
               Patient information
             </h2>
@@ -288,88 +548,157 @@ export default function AppointmentPage() {
 
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-              <div className="relative">
-                <User className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40" />
-                <input
-                  required value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="Full Name *"
-                  className="w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs focus:ring-2 focus:ring-mint/40"
-                />
+              <div>
+                <div className="relative">
+                  <User className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40" />
+                  <input
+                    value={name}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setName(val);
+                      if (errors.name) setErrors(prev => ({ ...prev, name: validateField('name', val) }));
+                    }}
+                    onBlur={() => setErrors(prev => ({ ...prev, name: validateField('name', name) }))}
+                    placeholder="Full Name *"
+                    className={`w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs transition-all ${
+                      errors.name ? 'border border-red-500 ring-1 ring-red-500/30' : 'focus:ring-2 focus:ring-mint/40'
+                    }`}
+                  />
+                </div>
+                {errors.name && <span className="text-red-500 text-[11px] ml-4 mt-1 block font-medium">{errors.name}</span>}
               </div>
-              <div className="relative">
-                <Mail className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40" />
-                <input
-                  required
-                  type="email"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder="Email Address *"
-                  aria-required="true"
-                  className="w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs focus:ring-2 focus:ring-mint/40"
-                  onInvalid={(e) => e.target.setCustomValidity('Please enter your email address.')}
-                  onInput={(e) => e.target.setCustomValidity('')}
-                />
+
+              <div>
+                <div className="relative">
+                  <Mail className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40" />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setEmail(val);
+                      if (errors.email) setErrors(prev => ({ ...prev, email: validateField('email', val) }));
+                    }}
+                    onBlur={() => setErrors(prev => ({ ...prev, email: validateField('email', email) }))}
+                    placeholder="Email Address *"
+                    aria-required="true"
+                    className={`w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs transition-all ${
+                      errors.email ? 'border border-red-500 ring-1 ring-red-500/30' : 'focus:ring-2 focus:ring-mint/40'
+                    }`}
+                  />
+                </div>
+                {errors.email && <span className="text-red-500 text-[11px] ml-4 mt-1 block font-medium">{errors.email}</span>}
               </div>
             </div>
 
             {/* Row 2 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-              <div className="relative">
-                <PhoneIcon className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40" />
-                <input
-                  required value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  placeholder="Phone *"
-                  className="w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs focus:ring-2 focus:ring-mint/40"
-                />
+              <div>
+                <div className="relative">
+                  <PhoneIcon className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40" />
+                  <input
+                    type="tel"
+                    value={phone}
+                    maxLength={14}
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/[^0-9\s+-]/g, '');
+                      setPhone(val);
+                      if (errors.phone) setErrors(prev => ({ ...prev, phone: validateField('phone', val) }));
+                    }}
+                    onBlur={() => setErrors(prev => ({ ...prev, phone: validateField('phone', phone) }))}
+                    placeholder="Phone (10-digit mobile) *"
+                    className={`w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs transition-all ${
+                      errors.phone ? 'border border-red-500 ring-1 ring-red-500/30' : 'focus:ring-2 focus:ring-mint/40'
+                    }`}
+                  />
+                </div>
+                {errors.phone && <span className="text-red-500 text-[11px] ml-4 mt-1 block font-medium">{errors.phone}</span>}
               </div>
-              <div className="relative">
-                <select
-                  required value={form.Tests}
-                  onChange={(e) => {
-                    const selectedTest = e.target.value;
-                    setForm({ ...form, Tests: selectedTest, time: testTimings[selectedTest] || '', chargeType: '' });
-                    setSkipPriceRevealed(false);
-                  }}
-                  className="appearance-none w-full bg-[#f3f1fb] rounded-full px-4 py-3 outline-none text-xs focus:ring-2 focus:ring-mint/40"
-                >
-                  <option value="">Tests *</option>
-                  {services.map((s) => (
-                    <option key={s.name} value={s.name.replace(/\n/g, ' ')}>
-                      {s.name.replace(/\n/g, ' ')}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown className="w-3.5 h-3.5 absolute right-4 top-1/2 -translate-y-1/2 text-navy/40 pointer-events-none" />
+
+              <div>
+                <div className="relative">
+                  <select
+                    value={tests || form.Tests}
+                    onChange={(e) => {
+                      const selectedTest = e.target.value;
+                      const timing = getTestTiming(selectedTest);
+                      setForm({ ...form, Tests: selectedTest, time: timing, chargeType: '' });
+                      setTests(selectedTest);
+                      setTestTime(timing);
+                      setSkipPriceRevealed(false);
+                      if (errors.tests) setErrors(prev => ({ ...prev, tests: validateField('tests', selectedTest) }));
+                    }}
+                    onBlur={() => setErrors(prev => ({ ...prev, tests: validateField('tests', tests || form.Tests) }))}
+                    className={`appearance-none w-full bg-[#f3f1fb] rounded-full px-4 py-3 outline-none text-xs text-[#0e1a6b] font-medium transition-all ${
+                      errors.tests ? 'border border-red-500 ring-1 ring-red-500/30' : 'focus:ring-2 focus:ring-mint/40'
+                    }`}
+                  >
+                    <option value="">Select Test *</option>
+                    <optgroup label="PET-CT SCANS">
+                      {petServicesList.map((name) => (
+                        <option key={name} value={name}>
+                          {name}
+                        </option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="NUCLEAR MEDICINE SCANS">
+                      {nuclearServicesList.map((name) => (
+                        <option key={name} value={name}>
+                          {name}
+                        </option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="RADIONUCLIDE THERAPY">
+                      {therapyServicesList.map((name) => (
+                        <option key={name} value={name}>
+                          {name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  </select>
+                  <ChevronDown className="w-3.5 h-3.5 absolute right-4 top-1/2 -translate-y-1/2 text-navy/40 pointer-events-none" />
+                </div>
+                {errors.tests && <span className="text-red-500 text-[11px] ml-4 mt-1 block font-medium">{errors.tests}</span>}
               </div>
             </div>
 
             {/* Row 3 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-              <div className="relative">
-                <Calendar className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40 pointer-events-none" />
-                <input
-                  required type="date" value={form.date}
-                  onChange={(e) => setForm({ ...form, date: e.target.value })}
-                  className="w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs focus:ring-2 focus:ring-mint/40"
-                />
+              <div>
+                <div className="relative">
+                  <Calendar className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40 pointer-events-none" />
+                  <input
+                    type="date"
+                    min={new Date().toLocaleDateString('en-CA')}
+                    value={date}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setDate(val);
+                      if (errors.date) setErrors(prev => ({ ...prev, date: validateField('date', val) }));
+                    }}
+                    onBlur={() => setErrors(prev => ({ ...prev, date: validateField('date', date) }))}
+                    className={`w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs transition-all ${
+                      errors.date ? 'border border-red-500 ring-1 ring-red-500/30' : 'focus:ring-2 focus:ring-mint/40'
+                    }`}
+                  />
+                </div>
+                {errors.date && <span className="text-red-500 text-[11px] ml-4 mt-1 block font-medium">{errors.date}</span>}
               </div>
+
               <div className="relative">
                 <Clock className="w-3.5 h-3.5 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40" />
                 <input
                   readOnly
-                  value={form.time}
-                  placeholder={form.Tests ? 'Timing auto-filled' : 'Select a Test first'}
-                  className={`w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs cursor-default ${
-                    form.time ? 'text-navy font-medium' : 'text-navy/40'
-                  }`}
+                  value={testTime || form.time || ''}
+                  placeholder={(tests || form.Tests) ? 'Timing auto-filled' : 'Select a Test first'}
+                  className={`w-full bg-[#f3f1fb] rounded-full pl-10 pr-4 py-3 outline-none text-xs cursor-default ${(testTime || form.time) ? 'text-navy font-medium' : 'text-navy/40'
+                    }`}
                 />
               </div>
             </div>
 
             {/* ── Charging Options ── */}
-            {form.Tests && testPrices[form.Tests] && (
+            {(form.Tests || tests) && (
               <div className="mb-5">
                 <label className="font-display font-semibold text-navy text-sm mb-3 block">Select Charge Type *</label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -379,7 +708,7 @@ export default function AppointmentPage() {
                     className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-200 ${form.chargeType === 'regular' ? 'border-[#3b7a24] bg-white ring-1 ring-[#3b7a24] shadow-sm' : 'border-slate-200 bg-[#f3f1fb] hover:border-[#3b7a24]/40 hover:bg-white'}`}
                   >
                     <span className={`font-display font-bold text-sm mb-1 ${form.chargeType === 'regular' ? 'text-[#0e1a6b]' : 'text-navy/70'}`}>Economy</span>
-                    <span className={`font-bold ${form.chargeType === 'regular' ? 'text-[#3b7a24]' : 'text-navy'}`}>₹{testPrices[form.Tests].regular.toLocaleString()}</span>
+                    <span className={`font-bold ${form.chargeType === 'regular' ? 'text-[#3b7a24]' : 'text-navy'}`}>₹{getTestPrice(form.Tests || tests).regular.toLocaleString()}</span>
                   </button>
 
                   <button
@@ -388,28 +717,98 @@ export default function AppointmentPage() {
                     className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-200 ${form.chargeType === 'extra' ? 'border-[#3b7a24] bg-white ring-1 ring-[#3b7a24] shadow-sm' : 'border-slate-200 bg-[#f3f1fb] hover:border-[#3b7a24]/40 hover:bg-white'}`}
                   >
                     <span className={`font-display font-bold text-sm mb-1 ${form.chargeType === 'extra' ? 'text-[#0e1a6b]' : 'text-navy/70'}`}>Regular</span>
-                    <span className={`font-bold ${form.chargeType === 'extra' ? 'text-[#3b7a24]' : 'text-navy'}`}>₹{testPrices[form.Tests].extra.toLocaleString()}</span>
+                    <span className={`font-bold ${form.chargeType === 'extra' ? 'text-[#3b7a24]' : 'text-navy'}`}>₹{getTestPrice(form.Tests || tests).extra.toLocaleString()}</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => {
+                      setChargeType('skip');
                       setForm({ ...form, chargeType: 'skip' });
                       setSkipPriceRevealed(true);
                     }}
-                    className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-200 ${form.chargeType === 'skip' ? 'border-[#3b7a24] bg-white ring-1 ring-[#3b7a24] shadow-sm' : 'border-slate-200 bg-[#f3f1fb] hover:border-[#3b7a24]/40 hover:bg-white'}`}
+                    className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-200 ${chargeType === 'skip' || form.chargeType === 'skip' ? 'border-[#3b7a24] bg-white ring-1 ring-[#3b7a24] shadow-sm' : 'border-slate-200 bg-[#f3f1fb] hover:border-[#3b7a24]/40 hover:bg-white'}`}
                   >
-                    <span className={`font-display font-bold text-sm mb-1 ${form.chargeType === 'skip' ? 'text-[#0e1a6b]' : 'text-navy/70'}`}>Skip the Queue</span>
-                    <span className={`font-bold transition-all ${skipPriceRevealed ? (form.chargeType === 'skip' ? 'text-[#3b7a24]' : 'text-navy') : 'text-navy/40 text-[11px] uppercase tracking-wider'}`}>
-                      {skipPriceRevealed ? `₹${testPrices[form.Tests].skip.toLocaleString()}` : 'Click to reveal'}
+                    <span className={`font-display font-bold text-sm mb-1 ${chargeType === 'skip' || form.chargeType === 'skip' ? 'text-[#0e1a6b]' : 'text-navy/70'}`}>Skip the Queue</span>
+                    <span className={`font-bold transition-all ${skipPriceRevealed ? (form.chargeType === 'skip' || chargeType === 'skip' ? 'text-[#3b7a24]' : 'text-navy') : 'text-navy/40 text-[11px] uppercase tracking-wider'}`}>
+                      {skipPriceRevealed ? `₹${getTestPrice(form.Tests || tests).skip.toLocaleString()}` : 'Click to reveal'}
                     </span>
                   </button>
                 </div>
               </div>
             )}
+            {form.chargeType && (
+              <div className="mt-3 flex items-center gap-3 rounded-xl border border-[#dbe7ff] bg-[#f8fbff] px-4 py-3 shadow-sm transition-all">
+
+                {/* Icon */}
+                <div
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0
+      ${form.chargeType === "skip"
+                      ? "bg-green-100 text-green-600"
+                      : form.chargeType === "extra"
+                        ? "bg-blue-100 text-blue-600"
+                        : "bg-orange-100 text-orange-600"
+                    }`}
+                >
+                  <span className="text-lg">
+                    {form.chargeType === "skip"
+                      ? "⚡"
+                      : form.chargeType === "extra"
+                        ? "🕕"
+                        : "📅"}
+                  </span>
+                </div>
+
+                {/* Text */}
+                <div className="flex-1 leading-tight">
+                  <h4 className="text-[15px] font-semibold text-[#0e1a6b]">
+                    {form.chargeType === "skip"
+                      ? "Skip the Queue"
+                      : form.chargeType === "extra"
+                        ? "Regular"
+                        : "Economy"}
+                  </h4>
+
+                  <p className="mt-1 text-[13px] text-gray-600">
+                    {form.chargeType === "skip" && (
+                      <>
+                        <span className="font-semibold text-gray-800">
+                          Scan Report:
+                        </span>{" "}
+                        Available immediately after the scan.
+                      </>
+                    )}
+
+                    {form.chargeType === "extra" && (
+                      <>
+                        <span className="font-semibold text-gray-800">
+                          Report Delivery:
+                        </span>{" "}
+                        Same day between
+                        <span className="font-semibold text-[#0e1a6b]">
+                          {" "}6:00 PM – 7:00 PM
+                        </span>.
+                      </>
+                    )}
+
+                    {form.chargeType === "regular" && (
+                      <>
+                        <span className="font-semibold text-gray-800">
+                          Report Delivery:
+                        </span>{" "}
+                        Available on the
+                        <span className="font-semibold text-[#0e1a6b]">
+                          {" "}next day
+                        </span>.
+                      </>
+                    )}
+                  </p>
+                </div>
+              </div>
+            )}
 
             {/* ── Per-test Instructions Panel ── */}
-            {form.Tests && testInstructions[form.Tests] && (
+            {(form.Tests || tests) && (
               <div className="mb-4 rounded-xl border border-slate-200 bg-white overflow-hidden">
                 {/* Header row */}
                 <div className="flex items-center gap-2 px-4 py-2 bg-slate-50 border-b border-slate-200">
@@ -422,22 +821,20 @@ export default function AppointmentPage() {
                     <button
                       type="button"
                       onClick={() => setLang('en')}
-                      className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold transition-all ${
-                        lang === 'en' ? 'bg-white text-slate-700 shadow-sm' : 'text-slate-400 hover:text-slate-600'
-                      }`}
+                      className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold transition-all ${lang === 'en' ? 'bg-white text-slate-700 shadow-sm' : 'text-slate-400 hover:text-slate-600'
+                        }`}
                     >EN</button>
                     <button
                       type="button"
                       onClick={() => setLang('mr')}
-                      className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold transition-all ${
-                        lang === 'mr' ? 'bg-white text-slate-700 shadow-sm' : 'text-slate-400 hover:text-slate-600'
-                      }`}
+                      className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold transition-all ${lang === 'mr' ? 'bg-white text-slate-700 shadow-sm' : 'text-slate-400 hover:text-slate-600'
+                        }`}
                     >मराठी</button>
                   </div>
                 </div>
                 {/* Steps */}
                 <ul className="px-4 py-3 space-y-2.5">
-                  {(lang === 'en' ? testInstructions[form.Tests] : testInstructionsMr[form.Tests]).map((step, i) => (
+                  {getTestInstructions(form.Tests || tests, lang).map((step, i) => (
                     <li key={i} className="flex items-start gap-3 text-slate-600 text-xs leading-relaxed">
                       <span className="mt-0.5 w-4 h-4 rounded-full border border-slate-300 bg-slate-100 text-slate-500 flex items-center justify-center text-[9px] font-semibold shrink-0">
                         {i + 1}
@@ -451,30 +848,33 @@ export default function AppointmentPage() {
 
             {/* Message */}
             <textarea
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              value={textMessage}
+              onChange={(e) => setTextMessage(e.target.value)}
               placeholder="Describe your concern (optional)"
               rows={3}
               className="w-full bg-[#f3f1fb] rounded-2xl sm:rounded-3xl px-4 py-3 outline-none text-xs focus:ring-2 focus:ring-mint/40 mb-5 resize-none"
             />
 
             {/* ── Privacy checkbox trigger ── */}
-            <label
-              className="flex items-start gap-3 text-navy/70 text-xs cursor-pointer select-none mb-0"
-              onClick={handleCheckboxClick}
-            >
-              <span
-                className={`w-5 h-5 mt-0.5 rounded border-2 flex items-center justify-center shrink-0 transition-all duration-200 ${form.agree ? 'bg-[#0e1a6b] border-[#0e1a6b]' : 'border-slate-400 bg-white'
-                  }`}
+            <div>
+              <label
+                className="flex items-start gap-3 text-navy/70 text-xs cursor-pointer select-none mb-0"
+                onClick={handleCheckboxClick}
               >
-                {form.agree && <Check className="w-3 h-3 text-white" />}
-              </span>
-              <span className="leading-relaxed">
-                I agree to the{' '}
-                <span className="text-[#0e1a6b] font-semibold underline underline-offset-2 whitespace-nowrap">privacy policy</span>
-                {' '}and consent to be contacted.
-              </span>
-            </label>
+                <span
+                  className={`w-5 h-5 mt-0.5 rounded border-2 flex items-center justify-center shrink-0 transition-all duration-200 ${form.agree ? 'bg-[#0e1a6b] border-[#0e1a6b]' : 'border-slate-400 bg-white'
+                    }`}
+                >
+                  {form.agree && <Check className="w-3 h-3 text-white" />}
+                </span>
+                <span className="leading-relaxed">
+                  I agree to the{' '}
+                  <span className="text-[#0e1a6b] font-semibold underline underline-offset-2 whitespace-nowrap">privacy policy</span>
+                  {' '}and consent to be contacted.
+                </span>
+              </label>
+              {errors.agree && <span className="text-red-500 text-[11px] ml-8 mt-1 block font-medium">{errors.agree}</span>}
+            </div>
 
 
             {/* ── Inline Privacy Policy panel (expands below checkbox) ── */}
@@ -586,22 +986,16 @@ export default function AppointmentPage() {
             <div className="flex justify-start mt-auto pt-4">
               <button
                 type="submit"
-                disabled={!form.agree}
-                className={`group inline-flex items-center gap-3 font-display font-bold pl-6 pr-2 py-2 rounded-full transition-all duration-200 ${form.agree
-                  ? 'bg-navy hover:bg-navy-deep text-white'
-                  : 'bg-slate-200 text-slate-400 cursor-not-allowed'
-                  }`}
+                aria-label="Book Appointment"
+                className="group inline-flex items-center gap-3 font-display font-bold pl-6 pr-2 py-2 rounded-full bg-[#3b7a24] hover:bg-[#2e621c] text-white shadow-md shadow-[#3b7a24]/25 transition-all duration-200 cursor-pointer active:scale-95"
               >
                 {done ? (
-                  <><Check className="w-4 h-4" /> Request Sent!</>
+                  <><Check className="w-4 h-4 text-white" /> Request Sent!</>
                 ) : (
                   <>Book Appointment</>
                 )}
                 <span
-                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-transform ${form.agree
-                    ? 'bg-mint text-white group-hover:rotate-45'
-                    : 'bg-slate-300 text-slate-400'
-                    }`}
+                  className="w-10 h-10 rounded-full flex items-center justify-center transition-transform bg-white text-[#3b7a24] group-hover:rotate-45 shadow-xs"
                 >
                   <ArrowRight className="w-4 h-4" />
                 </span>

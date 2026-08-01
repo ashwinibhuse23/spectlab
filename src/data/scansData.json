@@ -1,10 +1,195 @@
 [
   {
+    "id": "petct-imaging",
+    "title": "PET-CT IMAGING (FDG)",
+    "prerequisites": "6 hours of fasting required. Blood sugar level should be below 200mg/dl. Water is encouraged.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "A small dosage of F-18 FDG is injected in your vein. After a resting uptake period of approximately 45–60 minutes, a whole-body PET CT scan is performed. The scan itself usually takes 20–30 minutes.",
+    "indications": [
+      "Detect cancer.",
+      "Determine whether a cancer has spread in the body.",
+      "Assess the effectiveness of a treatment plan, such as cancer therapy.",
+      "Determine if a cancer has returned after treatment.",
+      "Determine blood flow to the heart muscle."
+    ]
+  },
+  {
+    "id": "gallium68psma-scan",
+    "title": "GALLIUM-68 PSMA SCAN",
+    "prerequisites": "Fasting is generally not required. Please bring previous investigations (PSA reports, biopsy reports, imaging).",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "IV administration of a small radioactive Ga-68 PSMA agent. Waiting period of 60–90 minutes post injection, after which whole-body PET CT imaging is performed.",
+    "indications": [
+      "To detect occult prostate cancer.",
+      "To determine its spread.",
+      "To assess treatment response.",
+      "Surveillance"
+    ]
+  },
+  {
+    "id": "gallium68octreotide-scan",
+    "title": "GALLIUM-68 OCTREOTIDE / DOTA / SOMATOSTATIN SCAN",
+    "prerequisites": "Fasting is usually not required. Please bring previous PET/CT, MRI, CT, and pathology reports.",
+    "timeRequired": "Duration: 1–2 Hours",
+    "procedure": "Special molecule designed to bind to somatostatin receptors paired with 68-Gallium is injected into the bloodstream. The PET CT produces 3D images of the tumor and its location.",
+    "indications": [
+      "Detect neuroendocrine tumors (NETs) expressing somatostatin receptors.",
+      "Determine disease spread and tumor staging.",
+      "Assess candidacy for PRRT therapy.",
+      "Monitor treatment response."
+    ]
+  },
+  {
+    "id": "f18-fdg-petct",
+    "title": "F-18 FDG PET CT SCAN",
+    "prerequisites": "Fasting required for 4–6 hours before the scan.\nWater is encouraged.\nDiabetic patients should follow specific instructions provided by the doctor.\nBring previous reports and imaging studies.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "A small amount of F-18 FDG radioactive tracer is injected through a vein. After a resting uptake period of approximately 45–60 minutes, a whole-body PET CT scan is performed. The scan itself usually takes 20–30 minutes. Patients should remain still during imaging.",
+    "indications": [
+      "Detect and stage various cancers.",
+      "Evaluate treatment response.",
+      "Identify cancer recurrence.",
+      "Assess infection and inflammatory diseases."
+    ]
+  },
+  {
+    "id": "ga68-psma-petct",
+    "title": "GA68 PSMA PET CT SCAN",
+    "prerequisites": "Fasting is generally not required.\nDrink plenty of water.\nBring previous PSA reports, biopsy reports, and imaging.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "Ga68 PSMA tracer is injected intravenously. Imaging is performed approximately 45–60 minutes after injection. Additional delayed images may be required in selected cases.",
+    "indications": [
+      "Detect prostate cancer.",
+      "Stage newly diagnosed disease.",
+      "Detect recurrence after treatment.",
+      "Evaluate metastatic spread."
+    ]
+  },
+  {
+    "id": "ga68-dota-petct",
+    "title": "GA68 DOTA PET CT SCAN",
+    "prerequisites": "Fasting is usually not required.\nBring previous PET/CT, MRI, CT, and pathology reports.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "The Ga68 DOTA tracer is administered intravenously. Imaging begins after an uptake period of approximately 45–60 minutes. The scan covers the whole body.",
+    "indications": [
+      "Detect neuroendocrine tumors (NETs).",
+      "Stage disease.",
+      "Assess suitability for PRRT therapy.",
+      "Monitor treatment response."
+    ]
+  },
+  {
+    "id": "cardiac-pet",
+    "title": "CARDIAC PET SCAN",
+    "prerequisites": "Fast for 6–8 hours.\nAvoid caffeine for 24 hours.\nCertain heart medications may require temporary adjustment.\nFollow physician instructions.",
+    "timeRequired": "Duration: 2–4 Hours",
+    "procedure": "A radioactive tracer is injected to evaluate blood flow and heart muscle viability. Stress imaging may be performed using medication or exercise depending on clinical indication.",
+    "indications": [
+      "Evaluate coronary artery disease.",
+      "Assess myocardial viability.",
+      "Measure cardiac blood flow.",
+      "Diagnose ischemia."
+    ]
+  },
+  {
+    "id": "fapi-pet",
+    "title": "FAPI PET CT SCAN",
+    "prerequisites": "Usually no fasting required.\nStay well hydrated.\nBring previous imaging and pathology reports.",
+    "timeRequired": "Duration: 2 Hours",
+    "procedure": "FAPI tracer is injected intravenously. Whole-body imaging is generally performed within 30–60 minutes after injection.",
+    "indications": [
+      "Detect various solid tumors.",
+      "Stage advanced cancers.",
+      "Evaluate recurrent disease.",
+      "Monitor treatment response."
+    ]
+  },
+  {
+    "id": "f18-fdopa-petct",
+    "title": "F-18 FDOPA PET CT SCAN",
+    "prerequisites": "Fast for at least 4 hours.\nCertain medications may need adjustment.\nBring previous neurological or oncology reports.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "After intravenous injection of F-18 FDOPA, imaging is performed following an uptake period of approximately 60 minutes.",
+    "indications": [
+      "Diagnose Parkinsonian disorders.",
+      "Evaluate brain tumors.",
+      "Detect neuroendocrine tumors.",
+      "Assess recurrent disease."
+    ]
+  },
+  {
+    "id": "fdopa-pet",
+    "title": "F-18 FDOPA PET CT SCAN",
+    "prerequisites": "Fast for at least 4 hours.\nCertain medications may need adjustment.\nBring previous neurological or oncology reports.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "After intravenous injection of F-18 FDOPA, imaging is performed following an uptake period of approximately 60 minutes.",
+    "indications": [
+      "Diagnose Parkinsonian disorders.",
+      "Evaluate brain tumors.",
+      "Detect neuroendocrine tumors.",
+      "Assess recurrent disease."
+    ]
+  },
+  {
+    "id": "trivehexin-pet",
+    "title": "TRIVEHEXIN PET CT SCAN",
+    "prerequisites": "Follow physician-specific preparation.\nStay hydrated.\nBring previous medical records and imaging.",
+    "timeRequired": "Duration: 2–3 Hours",
+    "procedure": "The tracer is injected intravenously. Imaging is performed after the recommended uptake period according to clinical protocol.",
+    "indications": [
+      "Evaluate selected cancers.",
+      "Detect recurrent disease.",
+      "Assess metastatic lesions.",
+      "Support treatment planning."
+    ]
+  },
+  {
+    "id": "exendin-pet",
+    "title": "EXENDIN PET CT SCAN",
+    "prerequisites": "Fast for 4–6 hours.\nBlood sugar levels may be checked before the scan.\nBring previous endocrine investigations.",
+    "timeRequired": "Duration: 3–4 Hours",
+    "procedure": "Exendin tracer is injected intravenously. Imaging is performed after an appropriate uptake period. Delayed imaging may occasionally be required.",
+    "indications": [
+      "Localize insulinoma.",
+      "Detect pancreatic neuroendocrine tumors.",
+      "Evaluate recurrent disease.",
+      "Assist surgical planning."
+    ]
+  },
+  {
+    "id": "exendine-pet",
+    "title": "EXENDIN PET CT SCAN",
+    "prerequisites": "Fast for 4–6 hours.\nBlood sugar levels may be checked before the scan.\nBring previous endocrine investigations.",
+    "timeRequired": "Duration: 3–4 Hours",
+    "procedure": "Exendin tracer is injected intravenously. Imaging is performed after an appropriate uptake period. Delayed imaging may occasionally be required.",
+    "indications": [
+      "Localize insulinoma.",
+      "Detect pancreatic neuroendocrine tumors.",
+      "Evaluate recurrent disease.",
+      "Assist surgical planning."
+    ]
+  },
+  {
+    "id": "fusion-pet-mri",
+    "title": "FUSION PET MRI",
+    "prerequisites": "Fast for 4–6 hours (depending on tracer).\nRemove all metallic objects.\nInform your doctor about implants, pacemakers, or claustrophobia.\nBring previous MRI, CT, PET, and laboratory reports.",
+    "timeRequired": "Duration: 60–120 Minutes",
+    "procedure": "A PET tracer is injected intravenously, followed by simultaneous PET and MRI imaging. This provides detailed anatomical and metabolic information with reduced radiation exposure compared to PET CT.",
+    "indications": [
+      "Brain tumor evaluation.",
+      "Pediatric oncology.",
+      "Head and neck cancers.",
+      "Prostate and pelvic cancers.",
+      "Liver lesions.",
+      "Neurological disorders."
+    ]
+  },
+  {
     "id": "bone-scan",
     "title": "BONE SCAN",
     "prerequisites": "No Prerequisite.",
-    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Screen for bone metastases in patient with malignancy.\", \"Infection (osteomyelitis vs. cellulitis).\", \"Evaluation of suspected fracture and stress fractures.\", \"Evaluation of avascular necrosis and vascularity of bone graft.\", \"Evaluates response to chemo, or radiation treatment for cancer.\", \"Evaluation of prosthesis for loosening or infection.\", \"Evaluation of nonspecific X-ray/ MRI bone signals.\", \"Metabolic bone disease.\" ]; return ( {/* Title */} BONE SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Screen for bone metastases in patient with malignancy.\", \"Infection (osteomyelitis vs. cellulitis).\", \"Evaluation of suspected fracture and stress fractures.\", \"Evaluation of avascular necrosis and vascularity of bone graft.\", \"Evaluates response to chemo, or radiation treatment for cancer.\", \"Evaluation of prosthesis for loosening or infection.\", \"Evaluation of nonspecific X-ray/ MRI bone signals.\", \"Metabolic bone disease.\" ]; return ( {/* Title */} BONE SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "timeRequired": "Scan Time 2-3 hours.",
+    "procedure": "20 mCi of Tc 99m M.D.P. is administered intravenously and after 2.5 hours anterior and posterior images is acquired of the whole skeleton.",
     "indications": [
       "Screen for bone metastases in patient with malignancy.",
       "Infection (osteomyelitis vs. cellulitis).",
@@ -21,7 +206,7 @@
     "title": "BRAIN SPECT (CEREBRAL PERFUSION SCAN)",
     "prerequisites": "No PreRequisite.",
     "timeRequired": "Scan Time 30 mins.",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "procedure": "Tc99m ECD is injected intravenously. Immediate SPECT images of the skull are acquired.",
     "indications": [
       "Alzheimer's disease.",
       "Differential diagnosis of various forms of dementia.",
@@ -30,10 +215,10 @@
   },
   {
     "id": "captoprilrenal-scan",
-    "title": "POST CAPTOPRIL RENOGRAM\r\n            (SUSPECTED RENAL ART. STENOSIS)",
-    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of reno – vascular hypertension.\" ]; return ( {/* Title */} POST CAPTOPRIL RENOGRAM (SUSPECTED RENAL ART. STENOSIS) {/* Prerequisites */} Prerequisites Good Hydration. Off medications 2-3 days prior study.",
-    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of reno – vascular hypertension.\" ]; return ( {/* Title */} POST CAPTOPRIL RENOGRAM (SUSPECTED RENAL ART. STENOSIS) {/* Prerequisites */} Prerequisites Good Hydration. Off medications 2-3 days prior study.",
-    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of reno – vascular hypertension.\" ]; return ( {/* Title */} POST CAPTOPRIL RENOGRAM (SUSPECTED RENAL ART. STENOSIS) {/* Prerequisites */} Prerequisites Good Hydration. Off medications 2-3 days prior study.",
+    "title": "POST CAPTOPRIL RENOGRAM (SUSPECTED RENAL ART. STENOSIS)",
+    "prerequisites": "Good Hydration. Off medications 2-3 days prior study.",
+    "timeRequired": "Scan Time 45mins for each scan.",
+    "procedure": "A) Baseline 4 mCi of Tc DTPA is injected intravenously after ensuring good hydration of the patient. Dynamic images are obtained for 31 minutes. B) Post Captopril Patient is given Tab. Enalapril & similar imaging protocol is followed 2 hours after the Baseline study.",
     "indications": [
       "Evaluation of reno – vascular hypertension."
     ]
@@ -41,9 +226,9 @@
   {
     "id": "colloidliver-scan",
     "title": "COLLOID LIVER SCAN",
-    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"To assess hepatocellular dysfunction in diffuse liver disease.\", \"Suspected chronic liver disease (cirrhosis).\", \"Assess hepatic function in chronic alcoholics.\", \"Evaluation of splenomegaly.\" ]; return ( {/* Title */} COLLOID LIVER SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"To assess hepatocellular dysfunction in diffuse liver disease.\", \"Suspected chronic liver disease (cirrhosis).\", \"Assess hepatic function in chronic alcoholics.\", \"Evaluation of splenomegaly.\" ]; return ( {/* Title */} COLLOID LIVER SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"To assess hepatocellular dysfunction in diffuse liver disease.\", \"Suspected chronic liver disease (cirrhosis).\", \"Assess hepatic function in chronic alcoholics.\", \"Evaluation of splenomegaly.\" ]; return ( {/* Title */} COLLOID LIVER SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "prerequisites": "No Prerequisite.",
+    "timeRequired": "Scan Time 30 – 45 minutes.",
+    "procedure": "Tc 99m Phytate is injected intravenously and following that images in multiple projections (anterior, anterior with costal marker, posterior, right and left laterals and right and left oblique) are acquired of the abdomen.",
     "indications": [
       "To assess hepatocellular dysfunction in diffuse liver disease.",
       "Suspected chronic liver disease (cirrhosis).",
@@ -63,10 +248,10 @@
   },
   {
     "id": "dmsarenal-scan",
-    "title": "DMSA RENAL SCAN\r\n            (CORTICAL FUNCTION)",
-    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "title": "DMSA RENAL SCAN (CORTICAL FUNCTION)",
+    "prerequisites": "Good Hydration.",
     "timeRequired": "Scan Time 15 mins.",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "procedure": "Tc99m DMSA is injected intravenously after ensuring good hydration of the patient. Static images in posterior, LPO & RPO views are acquired at 2.5 hrs post injection.",
     "indications": [
       "Diagnosis of acute pyelonephritis.",
       "Diagnosis of renal scarring."
@@ -74,10 +259,10 @@
   },
   {
     "id": "dtparenal-scan",
-    "title": "DTPA RENOGRAM (GLOMERULAR FUNCTION) /\r\n            EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION)",
-    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of differential renal function.\", \"Evaluation of obstructive uropathy.\", \"Evaluation of unequal sized kidney / ? agenesis of kidney.\", \"Indirect radio nuclide cystography of VU reflux.\", \"Follow up renal transplantation.\" ]; return ( {/* Title */} DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION) {/* Prerequisites */} Prerequisites Good Hydration.",
-    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of differential renal function.\", \"Evaluation of obstructive uropathy.\", \"Evaluation of unequal sized kidney / ? agenesis of kidney.\", \"Indirect radio nuclide cystography of VU reflux.\", \"Follow up renal transplantation.\" ]; return ( {/* Title */} DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION) {/* Prerequisites */} Prerequisites Good Hydration.",
-    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Evaluation of differential renal function.\", \"Evaluation of obstructive uropathy.\", \"Evaluation of unequal sized kidney / ? agenesis of kidney.\", \"Indirect radio nuclide cystography of VU reflux.\", \"Follow up renal transplantation.\" ]; return ( {/* Title */} DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION) {/* Prerequisites */} Prerequisites Good Hydration.",
+    "title": "DTPA RENOGRAM (GLOMERULAR FUNCTION) / EC (MAG-3) RENOGRAM (GLOM+ TUBULAR FUNCTION)",
+    "prerequisites": "Good Hydration.",
+    "timeRequired": "Scan Time 45mins – 2 hours.",
+    "procedure": "Tc99m DTPA is injected IV after ensuring good hydration of the patient. I.V. lasix is given after 10 mins of tracer injection. Sequential dynamic images are obtained for 31 minutes followed by post void and 1hour delayed image.",
     "indications": [
       "Evaluation of differential renal function.",
       "Evaluation of obstructive uropathy.",
@@ -87,32 +272,11 @@
     ]
   },
   {
-    "id": "gallium68octreotide-scan",
-    "title": "Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan",
-    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); return ( {/* Title */} Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); return ( {/* Title */} Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); return ( {/* Title */} Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "indications": []
-  },
-  {
-    "id": "gallium68psma-scan",
-    "title": "GALLIUM-68 PSMA SCAN",
-    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const prerequisites = [ \"Fasting not required.\", \"Please bring previous investigations.\" ]; const procedureSteps = [ \"IV administration of a small radioactive agent.\", \"There are no side effects.\", \"Waiting period of 60 – 90 Mins.\", \"Patient cannot leave the waiting room in this period as per government regulations.\", \"Few patients may require a delayed image at 3 Hrs.\", \"Attendants and relatives are not allowed to accompany the patient in waiting room.\", \"Only disabled ( bed-ridden) patients who require close monitoring and physical assistance should be accompanied by an attendant.\" ]; const indications = [ \"To detect occult prostate cancer.\", \"To determine its spread.\", \"To assess treatment response.\", \"Surveillance\" ]; return ( {/* Title */} GALLIUM-68 PSMA SCAN {/* Prerequisites */} Prerequisites {prerequisites.map((item, index) => ( {item} ))}",
-    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const prerequisites = [ \"Fasting not required.\", \"Please bring previous investigations.\" ]; const procedureSteps = [ \"IV administration of a small radioactive agent.\", \"There are no side effects.\", \"Waiting period of 60 – 90 Mins.\", \"Patient cannot leave the waiting room in this period as per government regulations.\", \"Few patients may require a delayed image at 3 Hrs.\", \"Attendants and relatives are not allowed to accompany the patient in waiting room.\", \"Only disabled ( bed-ridden) patients who require close monitoring and physical assistance should be accompanied by an attendant.\" ]; const indications = [ \"To detect occult prostate cancer.\", \"To determine its spread.\", \"To assess treatment response.\", \"Surveillance\" ]; return ( {/* Title */} GALLIUM-68 PSMA SCAN {/* Prerequisites */} Prerequisites {prerequisites.map((item, index) => ( {item} ))}",
-    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const prerequisites = [ \"Fasting not required.\", \"Please bring previous investigations.\" ]; const procedureSteps = [ \"IV administration of a small radioactive agent.\", \"There are no side effects.\", \"Waiting period of 60 – 90 Mins.\", \"Patient cannot leave the waiting room in this period as per government regulations.\", \"Few patients may require a delayed image at 3 Hrs.\", \"Attendants and relatives are not allowed to accompany the patient in waiting room.\", \"Only disabled ( bed-ridden) patients who require close monitoring and physical assistance should be accompanied by an attendant.\" ]; const indications = [ \"To detect occult prostate cancer.\", \"To determine its spread.\", \"To assess treatment response.\", \"Surveillance\" ]; return ( {/* Title */} GALLIUM-68 PSMA SCAN {/* Prerequisites */} Prerequisites {prerequisites.map((item, index) => ( {item} ))}",
-    "indications": [
-      "To detect occult prostate cancer.",
-      "To determine its spread.",
-      "To assess treatment response.",
-      "Surveillance"
-    ]
-  },
-  {
     "id": "hepatobiliary-scintigraphy",
     "title": "HEPATOBILIARY SCINTIGRAPHY (HIDA SCAN)",
     "prerequisites": "No Prerequisite.",
     "timeRequired": "Scan Time 2 – 24 hours.",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "procedure": "2 mCi 99m Tc Mebrofenin is injected intravenously after skipping one normal feed. Dynamic images are obtained for 20 minutes. Second set of dynamic images are obtained post feed for 20 minutes. Delayed static images may be acquired till 24 hours if required.",
     "indications": [
       "Evaluation of suspected acute cholecystitis.",
       "Congenital abnormalities of biliary tract disorders.",
@@ -122,20 +286,20 @@
   },
   {
     "id": "meckels-diverticulum",
-    "title": "MECKEL&apos;S DIVERTICULUM IMAGING",
-    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "title": "MECKEL'S DIVERTICULUM IMAGING",
+    "prerequisites": "2–4 hrs fasting.",
     "timeRequired": "Scan Time 45 mins.",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "procedure": "99mTc is injected intravenously under the camera. Dynamic images are acquired for 30 minutes immediately thereafter of the anterior abdomen. Followed by static images of the LAO & RAO views. Post void static image of the abdomen is also acquired.",
     "indications": [
-      "Detection and localization of Meckel\\"
+      "Detection and localization of Meckel's Diverticulum."
     ]
   },
   {
     "id": "mibg-scan",
     "title": "MIBG SCAN",
-    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "prerequisites": "No PreRequisite.",
     "timeRequired": "Scan Time 45 mins.",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "procedure": "Orally one tea spoon twice a day of Colloidal Iodine solution is started 2 days prior to injection and continued throughout the study. 131 I MIBG (Meta Iodo Benzyl Guanidine) is injected intravenously. Whole body views of the upper torso (Anterior and Posterior) are acquired at 24 & 48, 72 hours (5 mins each).",
     "indications": [
       "Pheochromocytoma.",
       "Neuroblastoma.",
@@ -147,9 +311,9 @@
   {
     "id": "milk-scan",
     "title": "MILK SCAN (GE REFLUX)",
-    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Detection of GE reflux in infants having LRTI.\" ]; return ( {/* Title */} MILK SCAN (GE REFLUX) {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Detection of GE reflux in infants having LRTI.\" ]; return ( {/* Title */} MILK SCAN (GE REFLUX) {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Detection of GE reflux in infants having LRTI.\" ]; return ( {/* Title */} MILK SCAN (GE REFLUX) {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "prerequisites": "No Prerequisite.",
+    "timeRequired": "Scan Time 45 mins.",
+    "procedure": "99mTc-DTPA is fed orally to the patient mixed in 5 ml milk. & then unlabelled 50 ml milk is given to wash the esophagus and sequential dynamic images are acquired for 30 minutes (10sec/frame) immediately thereafter. Static anterior & posterior abdomen image was taken after 1 hour.",
     "indications": [
       "Detection of GE reflux in infants having LRTI."
     ]
@@ -157,52 +321,42 @@
   {
     "id": "muga-scan",
     "title": "MUGA SCAN",
-    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"For assessing the patency of nasolacrymal duct in patients having epiphora.\" ]; return ( {/* Title */} MUGA SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"For assessing the patency of nasolacrymal duct in patients having epiphora.\" ]; return ( {/* Title */} MUGA SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
-    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"For assessing the patency of nasolacrymal duct in patients having epiphora.\" ]; return ( {/* Title */} MUGA SCAN {/* Prerequisites */} Prerequisites No Prerequisite.",
+    "prerequisites": "No Prerequisite.",
+    "timeRequired": "Scan Time 45 mins.",
+    "procedure": "Evaluation of cardiac ventricular function and ejection fraction.",
     "indications": [
-      "For assessing the patency of nasolacrymal duct in patients having epiphora."
+      "Evaluation of ejection fraction.",
+      "Assessment of cardiotoxicity from chemotherapy."
     ]
   },
   {
     "id": "parathyroid-scan",
     "title": "PARATHYROID SCAN",
-    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "prerequisites": "No Prerequisite.",
     "timeRequired": "Scan Time 30 – 45 minutes.",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "procedure": "4 mCi of 99mTc(O4-) is injected intravenously. Sequential dynamic images and static blood pool at the 20th minute are acquired for the anterior neck. Without moving the patient, 20 mCi of 99mTc Sestamibi is injected intravenously. Static images at the 20th minute (Early) and 45 mins (Delayed) are acquired for the anterior neck.",
     "indications": [
       "Evaluation of primary or secondary hyperparathyroidism.",
       "Parathyroid adenomas or hyperplasia prior to surgical removal."
     ]
   },
   {
-    "id": "petct-imaging",
-    "title": "PET-CT IMAGING PROCEDURE (FDG)",
-    "prerequisites": "6 hours of fasting. Blood sugar level below 200mg/dl.",
-    "timeRequired": "",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
-    "indications": [
-      "Detect cancer.",
-      "Determine whether a cancer has spread in the body.",
-      "Assess the effectiveness of a treatment plan, such as cancer therapy.",
-      "Determine if a cancer has returned after treatment.",
-      "Determine blood flow to the heart muscle."
-    ]
-  },
-  {
     "id": "radioiodine-therapy",
     "title": "RADIO IODINE THERAPY",
-    "prerequisites": "Patient should not eat or drink after midnight on the day of the procedure. If you have been taking anti-thyroid medications, you must stop at least three days before the therapy is given. Frequently, the anti-thyroid medication is stopped for five to seven days before therapy. Radioactive Iodine I-131 (also called Radioiodine I-131) therapy is a treatment for an overactive thyroid, a condition called hyperthyroidism. Radioactive Iodine I-131 may also be used to treat thyroid cancer. Low dose of iodine is used for hyperthyroidism.{' '} High dose used for thyroid cancer patients requires admission after therapy.",
-    "timeRequired": "",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
-    "indications": []
+    "prerequisites": "Patient should not eat or drink after midnight on the day of the procedure. If you have been taking anti-thyroid medications, you must stop at least three days before the therapy is given.",
+    "timeRequired": "Varies by dosage",
+    "procedure": "Radioactive Iodine I-131 therapy is administered for hyperthyroidism or thyroid cancer.",
+    "indications": [
+      "Hyperthyroidism treatment.",
+      "Thyroid cancer post-surgical ablation."
+    ]
   },
   {
     "id": "rbcbloodpool-scan",
     "title": "RBC BLOOD POOL SCAN / GI BLEED SCAN",
     "prerequisites": "No PreRequisite.",
     "timeRequired": "Scan Time 45 mins – 24 hrs.",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "procedure": "Invivo RBC Labeling Method: 20 minutes after the intravenous administration of stannous pyrophosphate (cold Kit), 10 mCi of 99m Tc (O4-) is injected intravenously. The patient is positioned supine covering the anterior abdomen. Perfusion images (2 sec/fr × 60 frames) are acquired, followed by dynamic images (1 min/fr × 60 frames). Thereafter, delayed static images are acquired. If required, TOMO (tomographic) images may also be acquired.",
     "indications": [
       "Liver hemangiomas.",
       "Detection and localization of gastrointestinal bleeding."
@@ -210,10 +364,10 @@
   },
   {
     "id": "thallium-scan",
-    "title": "STRESS & REST MYOCARDIAL PERFUSION\r\n            IMAGING (THALLIUM SCAN)",
-    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "title": "STRESS & REST MYOCARDIAL PERFUSION IMAGING (THALLIUM SCAN)",
+    "prerequisites": "Off beta blockers 48 prior the study. 4hrs fasting. No medication on the day of scan.",
     "timeRequired": "Scan Time 30 – 45 minutes.",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "procedure": "Patient has to undergo physiological / pharmacological stress. 99mTc Sestamibi is injected when patient achieves 85% THR. 45 mins post injection scan is performed. Almost after 1hour 99mTc Sestamibi is again injected to the patient in the resting position (SOS post nitrate). 45 mins post injection scan is performed.",
     "indications": [
       "Diagnosis of coronary artery disease.",
       "Prognosis of known coronary artery disease.",
@@ -227,9 +381,9 @@
   {
     "id": "thyroid-scan",
     "title": "THYROID SCAN",
-    "prerequisites": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Determination of thyroid size, function and position.\", \"Evaluation of functional status of thyroid nodules.\", \"Differentiating Thyroiditis from Grave's disease.\", \"Evaluation of Thyroid and neck masses.\", \"Quantitative thyroid uptake.\", \"Detection of ectopic thyroid eg. Lingual thyroid.\", \"To detect retrosternal extension in MNG or large goiters.\" ]; return ( {/* Title */} THYROID SCAN {/* Prerequisites */} Prerequisites 2-4 days prior to test off Antithyroid medication. Fasting not required.",
-    "timeRequired": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Determination of thyroid size, function and position.\", \"Evaluation of functional status of thyroid nodules.\", \"Differentiating Thyroiditis from Grave's disease.\", \"Evaluation of Thyroid and neck masses.\", \"Quantitative thyroid uptake.\", \"Detection of ectopic thyroid eg. Lingual thyroid.\", \"To detect retrosternal extension in MNG or large goiters.\" ]; return ( {/* Title */} THYROID SCAN {/* Prerequisites */} Prerequisites 2-4 days prior to test off Antithyroid medication. Fasting not required.",
-    "procedure": "{ gsap.from(el, { scrollTrigger: { trigger: el, start: \"top 90%\" }, y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }); }); }); return () => ctx.revert(); }, []); const indications = [ \"Determination of thyroid size, function and position.\", \"Evaluation of functional status of thyroid nodules.\", \"Differentiating Thyroiditis from Grave's disease.\", \"Evaluation of Thyroid and neck masses.\", \"Quantitative thyroid uptake.\", \"Detection of ectopic thyroid eg. Lingual thyroid.\", \"To detect retrosternal extension in MNG or large goiters.\" ]; return ( {/* Title */} THYROID SCAN {/* Prerequisites */} Prerequisites 2-4 days prior to test off Antithyroid medication. Fasting not required.",
+    "prerequisites": "2-4 days prior to test off Antithyroid medication. Fasting not required.",
+    "timeRequired": "Total time: 1.5 Hours. Scanning Duration: 20 mins.",
+    "procedure": "Tc99m Pertechnetate is injected intravenously, blood flow, blood pool and after 20 minutes static images will be acquired for anterior neck.",
     "indications": [
       "Determination of thyroid size, function and position.",
       "Evaluation of functional status of thyroid nodules.",
@@ -243,9 +397,9 @@
   {
     "id": "wholebody-scan",
     "title": "I-131 WHOLE BODY SCAN",
-    "prerequisites": "{prerequisites.map((item, index) => ( {item} ))}",
+    "prerequisites": "3–4 weeks post total thyroidectomy. Off medication post surgery. Avoid Iodine intake 4–5 days prior to the scan.",
     "timeRequired": "Scan Time 30 – 45 minutes.",
-    "procedure": "{procedureSteps.map((step, index) => ( {index + 1} {step} ))}",
+    "procedure": "Day 1: I-131 solution is given orally. Day 2: I-131 Whole Body Scan is performed.",
     "indications": [
       "Detection of residual tissue in thyroid bed and local or distant thyroid mets after total thyroidectomy for Ca thyroid.",
       "Assessment of response to I-131 therapy for Ca thyroid."
