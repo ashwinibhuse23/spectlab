@@ -16,7 +16,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="order-2 lg:order-1"
           >
-            <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-bold mb-4 uppercase tracking-wider text-sm">
+            <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-bold mb-4 uppercase tracking-wider text-[13px]">
               <span className="w-8 h-px bg-[#3b7a24]" />
               About SPECT LAB
             </div>

@@ -45,14 +45,19 @@ export default function GalleryPage() {
       <PageHeader
         title="Our Gallery"
         subtitle="Explore Our Facilities and Equipment"
-        image="/Images/galleryHero.jpg"
+        image="/Images/galleryHero.png"
         breadcrumbs={[{ label: 'Gallery' }]}
+        pb="pb-4 sm:pb-5 lg:pb-6"
       />
 
-      <section className="pt-12 pb-24 bg-[#f3f1fb]">
+      <section className="pt-6 sm:pt-7 lg:pt-8 pb-20 lg:pb-24 bg-[#f3f1fb]">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
           <div className="text-center mb-16 fade-up">
-            <h4 className="text-[#3b7a24] font-bold tracking-wider text-sm mb-3 uppercase">VISUAL TOUR</h4>
+            <div className="inline-flex items-center justify-center gap-2 text-[#3b7a24] font-display font-semibold mb-3 text-xs sm:text-[13px] uppercase tracking-wider">
+              <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
+              Visual Tour
+              <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
+            </div>
             <h2 className="font-display font-extrabold text-navy text-4xl mb-6">Inside SpectLab</h2>
             <p className="text-navy/70 max-w-2xl mx-auto">
               Get a glimpse of our state-of-the-art facilities, advanced diagnostic equipment, and dedicated patient care environments.

@@ -485,7 +485,7 @@ export default function AppointmentPage() {
         title="Book Your Appointment"
         subtitle="Care Without the Wait"
         breadcrumbs={[{ label: 'Appointment' }]}
-        image="/Images/servicesHero.jpg"
+        image="/Images/servicesHero.png"
       />
 
       <section className="py-3 md:py-6 lg:py-10">

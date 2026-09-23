@@ -5,7 +5,7 @@ import Contact from '../components/Contact';
 export default function ContactPage() {
   return (
     <>
-      <PageHeader title="Get in Touch" subtitle="We'd Love to Hear from You" breadcrumbs={[{ label: 'Contact' }]} image="/Images/contactHero.jpg" />
+      <PageHeader title="Get in Touch" subtitle="We'd Love to Hear from You" breadcrumbs={[{ label: 'Contact' }]} image="/Images/contactHero.png" />
       <Contact />
       <section className="pb-24 bg-[#f3f1fb]">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8">

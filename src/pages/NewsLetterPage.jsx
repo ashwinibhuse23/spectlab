@@ -59,7 +59,7 @@ export default function NewsLetterPage() {
         title="Newsletter Library"
         subtitle="Stay Informed"
         breadcrumbs={[{ label: 'Newsletter' }]}
-        image="/Images/newsletterHero.jpg"
+        image="/Images/newsletterHero.png"
       />
 
       <div className="bg-[#f8faf9] min-h-screen pt-8 pb-16 lg:pt-10 lg:pb-24 relative overflow-hidden">

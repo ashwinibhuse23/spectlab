@@ -40,10 +40,12 @@ export default function AboutPage() {
         }
         image="/Images/aboutHero.png"
         bgPosition="center 40%"
+        titleClassName="text-[28px] sm:text-[34px] md:text-[44px] lg:text-[52px]"
+        pb="pb-4 sm:pb-6 lg:pb-7"
       />
 
       {/* Our Story Section */}
-      <section className="pt-11 pb-16 lg:pt-20 lg:pb-24 bg-white overflow-hidden">
+      <section className="pt-7 pb-8 sm:pt-8 sm:pb-10 lg:pt-12 lg:pb-12 bg-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -146,7 +148,7 @@ export default function AboutPage() {
           },
         ];
         return (
-          <section className="pt-2 pb-8 lg:pt-4 lg:pb-12 bg-[#f3f1fb] overflow-hidden">
+          <section className="pt-2 pb-6 lg:pt-4 lg:pb-8 bg-[#f3f1fb] overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
               {/* Header + toggle */}
               <motion.div
@@ -233,7 +235,7 @@ export default function AboutPage() {
     
 
       {/* ── Dr. Shrikant V. Solav – About Section ── */}
-      <section className="pt-14 sm:pt-18 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 bg-[#f3f1fb] overflow-hidden">
+      <section className="pt-7 sm:pt-8 lg:pt-10 pb-4 sm:pb-5 lg:pb-6 bg-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* ── Section header ── */}
@@ -242,7 +244,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-10"
+            className="text-center mb-5 sm:mb-6"
           >
             <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-2.5 text-xs sm:text-[13px] uppercase tracking-wider">
               <span className="w-6 sm:w-10 h-px bg-[#3b7a24]" />
@@ -266,7 +268,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full lg:w-[48%] shrink-0 flex justify-center lg:justify-start lg:mt-11 sm:mt-6"
+              className="relative w-full lg:w-[48%] shrink-0 flex justify-center lg:justify-start lg:mt-9 sm:mt-5"
             >
               <a 
                 href="https://www.youtube.com/watch?v=S1kDCbwG36s"
@@ -290,18 +292,14 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className="flex-1 flex flex-col lg:mt-6 sm:mt-4"
+              className="flex-1 flex flex-col lg:mt-2 sm:mt-1"
             >
               {/* Headline */}
               <h3 className="font-display font-extrabold text-[#0e1a6b] text-xl sm:text-[22px] lg:text-[25px] leading-tight mb-1.5">
                 Guided by Expertise, Driven by Care
               </h3>
 
-              {/* Green accent line */}
-              <div className="flex items-center gap-2 mb-3">
-                <div className="h-[3px] w-9 rounded-full bg-[#3b7a24]" />
-                <div className="h-[3px] w-3 rounded-full bg-[#0e1a6b]/30" />
-              </div>
+            
 
               {/* Sub-headline */}
               <p className="text-[#3b7a24] font-semibold text-[13.5px] sm:text-[14.5px] leading-snug mb-2">
@@ -316,11 +314,11 @@ export default function AboutPage() {
               </p>
 
               {/* ── 4 Pillars ── */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mb-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 mb-4">
                 {[
                   {
                     icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     ),
@@ -329,7 +327,7 @@ export default function AboutPage() {
                   },
                   {
                     icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.63 48.63 0 0112 20.904a48.63 48.63 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
                       </svg>
                     ),
@@ -338,7 +336,7 @@ export default function AboutPage() {
                   },
                   {
                     icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                       </svg>
                     ),
@@ -347,7 +345,7 @@ export default function AboutPage() {
                   },
                   {
                     icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={1.6} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                       </svg>
                     ),
@@ -357,13 +355,13 @@ export default function AboutPage() {
                 ].map((pillar, i) => (
                   <div
                     key={i}
-                    className="bg-white rounded-xl p-3 soft-shadow border border-[#0e1a6b]/06 flex flex-col gap-1.5 group hover:-translate-y-0.5 hover:border-[#3b7a24]/20 transition-all duration-300"
+                    className="bg-white rounded-lg p-2.5 soft-shadow border border-[#0e1a6b]/06 flex flex-col gap-1 group hover:-translate-y-0.5 hover:border-[#3b7a24]/20 transition-all duration-300"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-[#f3f9f1] text-[#3b7a24] group-hover:bg-[#3b7a24] group-hover:text-white transition-colors duration-300 flex items-center justify-center shrink-0">
+                    <div className="w-7 h-7 rounded-md bg-[#f3f9f1] text-[#3b7a24] group-hover:bg-[#3b7a24] group-hover:text-white transition-colors duration-300 flex items-center justify-center shrink-0">
                       {pillar.icon}
                     </div>
-                    <p className="font-display font-bold text-[#0e1a6b] text-[12.5px] sm:text-[13px]">{pillar.title}</p>
-                    <p className="text-[#0e1a6b]/60 text-[11.5px] sm:text-[12px] leading-tight">{pillar.desc}</p>
+                    <p className="font-display font-bold text-[#0e1a6b] text-[11.5px] sm:text-[12px]">{pillar.title}</p>
+                    <p className="text-[#0e1a6b]/60 text-[10.5px] sm:text-[11px] leading-tight">{pillar.desc}</p>
                   </div>
                 ))}
               </div>
@@ -416,7 +414,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Topline Management Section ── */}
-      <section className="pt-7 pb-4 sm:pt-9 sm:pb-6 lg:pt-12 lg:pb-8 bg-[#f0f4f8] overflow-hidden">
+      <section className="pt-3 pb-4 sm:pt-4 sm:pb-6 lg:pt-5 lg:pb-8 bg-[#f0f4f8] overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* ── Section Header ── */}
@@ -438,7 +436,6 @@ export default function AboutPage() {
             <p className="text-[#0e1a6b]/80 text-[13px] md:text-[14px] max-w-xl mx-auto leading-relaxed">
               A team of highly qualified and experienced radiologists committed to advanced imaging, accurate diagnosis and exceptional patient care.
             </p>
-            <div className="w-10 h-[3px] rounded-full bg-[#3b7a24] mx-auto mt-4" />
           </motion.div>
 
           {/* ── Two Doctor Cards ── */}
@@ -688,14 +685,14 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-12 lg:py-20 bg-[#f8f9fa] overflow-hidden">
+      <section className="py-8 sm:py-10 lg:py-14 bg-[#f8f9fa] overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto mb-10 lg:mb-14"
+            className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10"
           >
             <div className="inline-flex items-center justify-center gap-2 text-[#3b7a24] font-display font-bold mb-3 uppercase tracking-wider text-xs">
               <span className="w-6 sm:w-8 h-[2px] bg-[#3b7a24]" />
@@ -724,7 +721,7 @@ export default function AboutPage() {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="bg-white rounded-3xl p-6 lg:p-8 border border-gray-100 shadow-lg shadow-navy/[0.03] flex flex-col items-center text-center gap-5 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#3b7a24]/10 hover:border-[#3b7a24]/20 transition-all duration-300 group"
+                className="bg-white rounded-3xl p-5 sm:p-6 border border-gray-100 shadow-lg shadow-navy/[0.03] flex flex-col items-center text-center gap-5 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#3b7a24]/10 hover:border-[#3b7a24]/20 transition-all duration-300 group"
               >
                 <div className="w-16 h-16 rounded-2xl bg-[#f3f9f1] text-[#3b7a24] group-hover:bg-[#3b7a24] group-hover:text-white transition-colors duration-300 flex items-center justify-center shrink-0">
                   <item.icon className="w-7 h-7" strokeWidth={1.5} />

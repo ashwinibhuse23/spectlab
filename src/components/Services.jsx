@@ -29,9 +29,9 @@ const mainServices = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-10 lg:py-14 bg-[#f8f9fa]">
+    <section id="services" className="relative pt-6 sm:pt-8 lg:pt-10 pb-6 lg:pb-8 bg-[#f8f9fa]">
       <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
-        <div className="max-w-3xl mb-8 lg:mb-12">
+        <div className="max-w-4xl mb-8 lg:mb-12">
           <div className="inline-flex items-center gap-2 text-[#3b7a24] font-display font-semibold mb-3 text-xs sm:text-sm uppercase tracking-wider">
             <span className="w-8 h-px bg-[#3b7a24]" />
             Our Core Specialties
@@ -40,7 +40,7 @@ export default function Services() {
             className="font-display font-extrabold text-[#0e1a6b] text-3xl lg:text-4xl mb-5"
             style={{ lineHeight: '1.3' }}
           >
-            Advanced Diagnostic & <br className="hidden sm:block" /> Therapeutic Services
+            Advanced Diagnostic & Therapeutic Services
           </h2>
           <p className="text-[#0e1a6bbf] leading-relaxed text-base lg:text-lg">
             Expert Nuclear Medicine and Molecular Imaging focused on precision, innovation, and compassionate patient care.

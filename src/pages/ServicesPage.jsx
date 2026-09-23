@@ -562,11 +562,11 @@ export default function ServicesPage() {
       <PageHeader
         title="Our  Services"
         subtitle="We'll Help You Manage a Range of Conditions."
-        image="/Images/servicesHero.jpg"
+        image="/Images/servicesHero.png"
       />
 
       {/* ── Intro Section ── */}
-      <section className="py-14 lg:py-20 bg-white">
+      <section className="pt-10 sm:pt-12 lg:pt-16 pb-8 sm:pb-10 lg:pb-12 bg-white">
         <div className="max-w-[1100px] mx-auto px-4 lg:px-8">
 
           {/* Heading */}
@@ -606,7 +606,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Services Grid Section ── */}
-      <section id="services-grid" className="py-12 lg:py-16 bg-[#f3f1fb]">
+      <section id="services-grid" className="pt-8 sm:pt-9 lg:pt-11 pb-12 lg:pb-16 bg-[#f3f1fb]">
         <div className="max-w-[1300px] mx-auto px-4 lg:px-8">
 
           {/* Header */}

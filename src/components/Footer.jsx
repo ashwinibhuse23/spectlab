@@ -4,7 +4,7 @@ import { Facebook, Linkedin, Mail, MapPin, Phone, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-br from-[#0e1a6b] via-[#14267e] to-[#2542a1] text-white pt-20 pb-8 overflow-hidden">
+    <footer className="relative bg-gradient-to-br from-[#0e1a6b] via-[#14267e] to-[#2542a1] text-white pt-12 sm:pt-14 lg:pt-16 pb-8 overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
       <div className="relative max-w-[1400px] mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">

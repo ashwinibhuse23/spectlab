@@ -62,7 +62,7 @@ export default function ScansPage() {
       <PageHeader
         title="Nuclear Medicine Scans"
         subtitle="Explore our comprehensive range of specialized imaging and therapy services."
-        image="/Images/servicesHero.jpg"
+        image="/Images/servicesHero.png"
       />
 
       <div className="bg-[#f3f1fb] min-h-screen py-12 lg:py-16">

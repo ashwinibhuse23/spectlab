@@ -115,7 +115,7 @@ const publicationsData = [
 export default function PublicationsPage() {
   return (
     <>
-      <PageHeader title="Publications" subtitle="Real Stories, Real Outcomes" breadcrumbs={[{ label: 'Publications' }]} image="/Images/publicationHero.jpg" />
+      <PageHeader title="Publications" subtitle="Real Stories, Real Outcomes" breadcrumbs={[{ label: 'Publications' }]} image="/Images/publicationHero.png" />
 
       <section className="pt-10 pb-20 lg:pt-16 lg:pb-28 bg-[#f8f9fa]">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8">

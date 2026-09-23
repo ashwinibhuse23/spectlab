@@ -26,11 +26,11 @@ export default function Hero() {
   const slide = heroSlides[active];
 
   return (
-    <section id="home" className="relative pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-10 lg:pb-12 overflow-hidden bg-[#f3f1fb]">
+    <section id="home" className="relative z-20 pt-20 sm:pt-24 lg:pt-28 pb-6 sm:pb-8 lg:pb-10 bg-[#f3f1fb]">
       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       
       <div className="max-w-[1920px] mx-auto px-3 md:px-4 lg:px-5">
-        <div className="relative rounded-[20px] sm:rounded-[32px] min-h-[520px] sm:min-h-[580px] lg:min-h-[640px] bg-white flex flex-col justify-center">
+        <div className="relative rounded-[20px] sm:rounded-[32px] min-h-[480px] sm:min-h-[530px] lg:min-h-[580px] bg-white flex flex-col justify-center">
           {/* Background image */}
           <div className="absolute inset-0 rounded-[20px] sm:rounded-[32px] overflow-hidden pointer-events-none">
             {heroSlides.map((s, i) => (
@@ -41,12 +41,14 @@ export default function Hero() {
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ${i === 1 ? 'object-[center_55%]' : 'object-center'} ${i === active ? 'opacity-100' : 'opacity-0'}`}
               />
             ))}
+            {/* Subtle overlay */}
+            <div className="absolute inset-0 bg-black/20" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#172547]/75 via-[#172547]/45 to-transparent md:via-[#172547]/35 lg:via-[#172547]/15" />
             <div className="absolute -bottom-6 -right-6 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-mint/10 blur-2xl" />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16 pt-16 sm:pt-20 lg:pt-24 pb-28 sm:pb-32 lg:pb-36">
+          <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-16 pt-16 sm:pt-20 lg:pt-22 pb-16 sm:pb-20 lg:pb-22">
             <motion.div
               key={`content-${active}`}
               initial={{ opacity: 0, y: 30 }}
@@ -92,13 +94,16 @@ export default function Hero() {
                     </div>
                     
                     {isDropdownOpen && (
-                      <div className="absolute top-full left-0 mt-2.5 w-[310px] sm:w-[350px] bg-white rounded-2xl shadow-2xl border border-navy/10 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div 
+                        onMouseDown={(e) => e.preventDefault()}
+                        className="absolute top-full left-0 mt-2.5 w-[310px] sm:w-[360px] bg-white rounded-2xl shadow-2xl border border-navy/10 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+                      >
                         <div className="px-4 py-2 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
                           <span className="text-[11px] font-bold text-navy uppercase tracking-wider">Select or Search Scan</span>
                           <span className="text-[10px] text-slate-500 font-bold bg-slate-200/60 px-2 py-0.5 rounded-full">{filteredScans.length} Scans</span>
                         </div>
                         
-                        <ul className="max-h-[145px] overflow-y-auto py-1 divide-y divide-slate-100">
+                        <ul className="max-h-[175px] overflow-y-auto py-1 divide-y divide-slate-100 [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent">
                           {filteredScans.length > 0 ? (
                             filteredScans.map((scan, i) => {
                               const scanCleanName = scan.name.replace(/\n/g, ' ');
@@ -152,7 +157,7 @@ export default function Hero() {
           </div>
 
           {/* Slide controls */}
-          <div className="absolute right-5 sm:right-10 lg:right-16 bottom-6 sm:bottom-8 lg:bottom-10 z-10 flex items-center gap-1.5 sm:gap-2 w-max">
+          <div className="absolute right-5 sm:right-10 lg:right-16 bottom-5 sm:bottom-6 lg:bottom-7 z-10 flex items-center gap-1.5 sm:gap-2 w-max">
             <button
               onClick={() => setActive((a) => (a - 1 + heroSlides.length) % heroSlides.length)}
               className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-navy/20 hover:bg-navy hover:text-white text-navy flex items-center justify-center transition-colors bg-white/80"

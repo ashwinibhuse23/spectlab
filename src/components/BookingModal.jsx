@@ -259,7 +259,7 @@ export default function BookingModal({ isOpen, onClose }) {
       {/* Click outside to close */}
       <div className="absolute inset-0" onClick={onClose}></div>
       
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-white z-10 shrink-0">
           <div>
@@ -412,12 +412,12 @@ export default function BookingModal({ isOpen, onClose }) {
               <div className="flex justify-start">
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-2 bg-[#3b7a24] hover:bg-[#2d661b] text-white font-display font-bold pl-4 pr-1.5 py-2 rounded-full transition-colors"
+                  className="group inline-flex items-center gap-1.5 bg-[#3b7a24] hover:bg-[#2d661b] text-white font-display font-bold pl-3.5 pr-1 py-1.5 rounded-full transition-colors"
                 >
-                  <span className="text-xs">
+                  <span className="text-[11.5px]">
                     {done ? 'Request Sent!' : 'Book Appointment'}
                   </span>
-                  <span className="w-7 h-7 rounded-full bg-white text-[#3b7a24] flex items-center justify-center group-hover:rotate-45 transition-transform shrink-0">
+                  <span className="w-6 h-6 rounded-full bg-white text-[#3b7a24] flex items-center justify-center group-hover:rotate-45 transition-transform shrink-0">
                     {done ? <Check className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
                   </span>
                 </button>

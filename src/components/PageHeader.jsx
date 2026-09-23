@@ -8,10 +8,12 @@ export default function PageHeader({
   bgPosition = 'center', 
   bgSize = 'cover',
   maxWidth = 'max-w-[1650px]',
-  minHeight = 'min-h-[460px] sm:min-h-[520px] lg:min-h-[570px]'
+  minHeight = 'min-h-[460px] sm:min-h-[520px] lg:min-h-[570px]',
+  titleClassName = '',
+  pb = 'pb-6 sm:pb-8 lg:pb-10'
 }) {
   return (
-    <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-6 sm:pb-8 lg:pb-10 overflow-hidden bg-[#f3f1fb]">
+    <section className={`relative pt-20 sm:pt-24 lg:pt-28 ${pb} overflow-hidden bg-[#f3f1fb]`}>
       <div className={`${maxWidth} mx-auto px-3 sm:px-4 lg:px-6`}>
         <div className={`relative rounded-[24px] sm:rounded-[32px] overflow-hidden ${minHeight} bg-white flex flex-col justify-center`}>
           {/* Background Image */}
@@ -37,7 +39,7 @@ export default function PageHeader({
                 {subtitle}
               </div>
             )}
-            <h1 className="font-display font-extrabold text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] mb-4 sm:mb-5 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150 fill-mode-both">
+            <h1 className={`font-display font-extrabold text-white leading-[1.12] mb-4 sm:mb-5 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150 fill-mode-both ${titleClassName || 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl'}`}>
               {title}
             </h1>
             {description && (
