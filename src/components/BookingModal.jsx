@@ -255,11 +255,11 @@ export default function BookingModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-navy/60 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 pt-20 sm:pt-24 md:pt-28 pb-6 bg-navy/60 backdrop-blur-sm overflow-y-auto">
       {/* Click outside to close */}
-      <div className="absolute inset-0" onClick={onClose}></div>
+      <div className="fixed inset-0" onClick={onClose}></div>
       
-      <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <div className="relative w-full max-w-[520px] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[calc(100vh-6.5rem)] sm:max-h-[calc(100vh-8rem)] z-10">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-white z-10 shrink-0">
           <div>
