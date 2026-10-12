@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import { blogPosts } from '../mock';
 import { CalendarDays, Tag, Search, ArrowRight, User } from 'lucide-react';
@@ -14,6 +15,12 @@ export default function BlogPage() {
 
   return (
     <>
+      <SEO
+        title="Health Insights & Blog | Spect lab Nuclear Medicine Services"
+        description="Read educational healthcare articles and updates on nuclear medicine, molecular imaging, cancer diagnostics, and patient wellness from Spect lab Nuclear Medicine Services."
+        keywords="nuclear medicine blog, PET-CT articles, health insights, cancer diagnosis news, radiology articles, Spect lab Nuclear Medicine Services"
+        canonical="/blog"
+      />
       <PageHeader title="Health Insights & News" subtitle="From Our Blog" image="/blogback.jpg" breadcrumbs={[{ label: 'Blog' }]} />
 
       <section className="py-24 bg-[#f3f1fb]">

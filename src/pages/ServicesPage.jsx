@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import { ArrowRight, Activity, Zap, Phone, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -559,6 +560,12 @@ export default function ServicesPage() {
 
   return (
     <>
+      <SEO
+        title="Nuclear Medicine & PET-CT Services | Spect lab Nuclear Medicine Services"
+        description="Explore specialized diagnostic and therapeutic services at Spect lab Nuclear Medicine Services, including PET-CT imaging, thyroid scans, bone scans, renal scintigraphy, and targeted radionuclide therapies."
+        keywords="nuclear medicine services Pune, PET-CT scans, thyroid scan, renal scan, bone scan, radioiodine therapy, Spect lab Nuclear Medicine Services"
+        canonical="/services"
+      />
       <PageHeader
         title="Our  Services"
         subtitle="We'll Help You Manage a Range of Conditions."

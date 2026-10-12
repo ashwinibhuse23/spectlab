@@ -17,9 +17,9 @@ import AppointmentPage from './pages/AppointmentPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WhatsAppButton from './components/WhatsAppButton';
 import NabhBadge from './components/NabhBadge';
-
-
 import ScansPage from './pages/ScansPage';
+import BlogPage from './pages/BlogPage';
+import CaseStudiesPage from './pages/CaseStudiesPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,6 +65,8 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/appointment" element={<AppointmentPage />} />
           <Route path="/services/scans" element={<ScansPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

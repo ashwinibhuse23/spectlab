@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import AppointmentCTA from '../components/AppointmentCTA';
 import { Award, Heart, Microscope, ShieldCheck, Users, Clock, Check, Activity, Monitor } from 'lucide-react';
@@ -28,6 +29,12 @@ export default function AboutPage() {
   const [vmLang, setVmLang] = useState('en');
   return (
     <>
+      <SEO
+        title="About Us | Spect lab Nuclear Medicine Services"
+        description="Learn about Spect lab Nuclear Medicine Services, founded in 2001 by Dr. Shrikant Solav. Discover our legacy of clinical precision, NABH accreditation, advanced gamma cameras, and compassionate patient care in Pune."
+        keywords="about Spect lab Nuclear Medicine Services, Dr Shrikant Solav, nuclear medicine Pune, NABH accredited diagnostic center, PET-CT history Pune"
+        canonical="/about"
+      />
       <PageHeader
         title="About SPECT LAB"
         subtitle="Caring for You Starts with Who We Are"

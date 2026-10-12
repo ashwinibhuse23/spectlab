@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarDays, Download, Eye, Search, Mail, ChevronRight } from 'lucide-react';
+import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import { gsap } from 'gsap';
 
@@ -55,6 +56,12 @@ export default function NewsLetterPage() {
 
   return (
     <>
+      <SEO
+        title="Newsletter Library - Scintillations | Spect lab Nuclear Medicine Services"
+        description="Read and download Scintillations, the official newsletter of Spect lab Nuclear Medicine Services. Updates on cutting-edge clinical imaging developments and diagnostic insights."
+        keywords="Scintillations newsletter, nuclear medicine newsletter, clinical updates, radiology insights, Spect lab Nuclear Medicine Services"
+        canonical="/newsletter"
+      />
       <PageHeader
         title="Newsletter Library"
         subtitle="Stay Informed"

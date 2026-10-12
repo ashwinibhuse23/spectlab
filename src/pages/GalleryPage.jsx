@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import { ZoomIn, X } from 'lucide-react';
 import { gsap } from 'gsap';
@@ -42,6 +43,12 @@ export default function GalleryPage() {
 
   return (
     <>
+      <SEO
+        title="Facilities & Technology Gallery | Spect lab Nuclear Medicine Services"
+        description="Take a visual tour of Spect lab Nuclear Medicine Services. Explore our modern patient facilities, gamma camera suites, PET-CT scanners, and advanced nuclear medicine diagnostics center."
+        keywords="Spect lab Nuclear Medicine Services gallery, diagnostic center photos, gamma camera facility, PET CT machine Pune, nuclear imaging laboratory"
+        canonical="/gallery"
+      />
       <PageHeader
         title="Our Gallery"
         subtitle="Explore Our Facilities and Equipment"

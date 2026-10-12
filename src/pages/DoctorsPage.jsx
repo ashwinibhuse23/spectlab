@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import Doctors from '../components/Doctors';
 import AppointmentCTA from '../components/AppointmentCTA';
@@ -19,6 +20,12 @@ const all = [...doctors, ...extraDoctors];
 export default function DoctorsPage() {
   return (
     <>
+      <SEO
+        title="Our Medical Team & Specialists | Spect lab Nuclear Medicine Services"
+        description="Meet the experienced nuclear medicine physicians, radiologists, and healthcare professionals at Spect lab Nuclear Medicine Services dedicated to clinical diagnostic accuracy and patient well-being."
+        keywords="nuclear medicine doctors Pune, Dr Shrikant Solav, radiologists Pune, oncology specialists, medical team, Spect lab Nuclear Medicine Services"
+        canonical="/doctors"
+      />
       <PageHeader title="Meet Our Doctors" subtitle="Trusted Team" breadcrumbs={[{ label: 'Doctors' }]} />
 
       <section className="py-24 bg-[#f3f1fb]">

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
+import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import {
   ArrowRight, ChevronDown, Calendar, Clock, User, Mail,
@@ -481,6 +482,12 @@ export default function AppointmentPage() {
 
   return (
     <>
+      <SEO
+        title="Book an Appointment | Spect lab Nuclear Medicine Services"
+        description="Schedule your PET-CT or Nuclear Medicine scan online at Spect lab Nuclear Medicine Services. Convenient booking, transparent timings, and personalized patient assistance in Pune."
+        keywords="book nuclear scan Pune, schedule PET-CT appointment, Spect lab Nuclear Medicine Services appointment, online scan booking, PET CT booking Pune"
+        canonical="/appointment"
+      />
       <PageHeader
         title="Book Your Appointment"
         subtitle="Care Without the Wait"

@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function NotFoundPage() {
   return (
-    <section className="min-h-screen pt-32 pb-20 bg-[#f3f1fb] flex items-center">
+    <>
+      <SEO
+        title="Page Not Found (404) | Spect lab Nuclear Medicine Services"
+        description="The requested page could not be found. Return to Spect lab Nuclear Medicine Services homepage to find scans, services, doctor information, and appointments."
+        noindex={true}
+      />
+      <section className="min-h-screen pt-32 pb-20 bg-[#f3f1fb] flex items-center">
       <div className="max-w-[1400px] mx-auto px-4 lg:px-8 text-center">
         <div className="font-display font-extrabold text-mint text-[160px] lg:text-[220px] leading-none">404</div>
         <h1 className="font-display font-extrabold text-navy text-4xl lg:text-5xl mb-4">Page Not Found</h1>
@@ -17,5 +24,6 @@ export default function NotFoundPage() {
         </Link>
       </div>
     </section>
+    </>
   );
 }

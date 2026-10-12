@@ -1,5 +1,6 @@
 import React from 'react';
 import { Thermometer, Eye, TestTubes, HeartPulse, ScanSearch, Bone, Activity, Dna, FlaskConical, Droplets, Microscope, Library, ArrowUpRight } from 'lucide-react';
+import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 
 const publicationsData = [
@@ -115,6 +116,12 @@ const publicationsData = [
 export default function PublicationsPage() {
   return (
     <>
+      <SEO
+        title="Research & Publications | Spect lab Nuclear Medicine Services"
+        description="Browse published scientific research papers, clinical trials, and medical case reports in nuclear medicine and oncology by the specialists at Spect lab Nuclear Medicine Services."
+        keywords="nuclear medicine research, medical publications, Dr Solav papers, PET-CT case reports, clinical studies, Spect lab Nuclear Medicine Services"
+        canonical="/publications"
+      />
       <PageHeader title="Publications" subtitle="Real Stories, Real Outcomes" breadcrumbs={[{ label: 'Publications' }]} image="/Images/publicationHero.png" />
 
       <section className="pt-10 pb-20 lg:pt-16 lg:pb-28 bg-[#f8f9fa]">

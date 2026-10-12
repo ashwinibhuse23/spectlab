@@ -4,6 +4,7 @@ import { CheckCircle2, AlertCircle, Clock, Timer, Activity, Calendar } from 'luc
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { scansData } from '../data/scansData';
+import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -59,6 +60,12 @@ export default function ScansPage() {
 
   return (
     <>
+      <SEO
+        title="Diagnostic Scans & Procedures Guide | Spect lab Nuclear Medicine Services"
+        description="Comprehensive guide to nuclear medicine scans at Spect lab Nuclear Medicine Services. Detailed prerequisites, procedure duration, clinical indications, and preparation guidelines for patients."
+        keywords="nuclear scans Pune, scan preparations, DTPA scan, DMSA scan, bone scan procedure, PET scan preparation, Spect lab Nuclear Medicine Services"
+        canonical="/services/scans"
+      />
       <PageHeader
         title="Nuclear Medicine Scans"
         subtitle="Explore our comprehensive range of specialized imaging and therapy services."
