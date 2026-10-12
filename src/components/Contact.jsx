@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Clock, ArrowRight, ChevronDown } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Mail, MapPin, Clock, ArrowRight, ChevronDown, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', date: '', gender: '', age: '', scans: [], message: '', agree: false });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', date: '', gender: '', age: '', scan: '', message: '', agree: false });
   const [submitted, setSubmitted] = useState(false);
   const [isScanOpen, setIsScanOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const scanOptions = [
     "PET-CT IMAGING PROCEDURE(FDG)", "RADIO IODINE THERAPY", "GALLIUM-68 PSMA SCAN",
@@ -14,19 +15,30 @@ export default function Contact() {
     "MILK SCAN (GE REFLUX)", "THYROID SCAN"
   ];
 
-  const toggleScan = (scan) => {
-    if (form.scans.includes(scan)) {
-      setForm({ ...form, scans: form.scans.filter(s => s !== scan) });
-    } else {
-      setForm({ ...form, scans: [...form.scans, scan] });
-    }
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsScanOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleSelectScan = (scan) => {
+    setForm((prev) => ({ ...prev, scan }));
+    setIsScanOpen(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!form.scan) {
+      setIsScanOpen(true);
+      return;
+    }
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
-    setForm({ name: '', email: '', phone: '', date: '', gender: '', age: '', scans: [], message: '', agree: false });
+    setForm({ name: '', email: '', phone: '', date: '', gender: '', age: '', scan: '', message: '', agree: false });
   };
 
   return (
@@ -104,32 +116,48 @@ export default function Contact() {
               <input value={form.age} onChange={(e) => setForm({ ...form, age: e.target.value })} type="number" placeholder="Your Age *" required min="0" max="150" className="bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-sm text-navy placeholder:text-navy/50 outline-none focus:border-[#3b7a24] transition-colors" />
             </div>
 
-            <div className="mb-4 relative">
-              <label className="block text-navy font-bold text-xs mb-2">Select Scan(s) *</label>
+            <div className="mb-4 relative" ref={dropdownRef}>
+              <label className="block text-navy font-bold text-xs mb-2">Select Scan *</label>
               
               <div 
                 onClick={() => setIsScanOpen(!isScanOpen)}
-                className="w-full bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-sm text-navy flex justify-between items-center cursor-pointer transition-colors"
+                className="w-full bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-sm text-navy flex justify-between items-center cursor-pointer transition-colors hover:border-[#3b7a24]/50"
               >
-                <span className={form.scans.length === 0 ? "text-navy/50" : "text-navy"}>
-                  {form.scans.length === 0 ? "Select Scans..." : `${form.scans.length} selected`}
+                <span className={!form.scan ? "text-navy/50" : "text-navy font-medium"}>
+                  {form.scan || "Select Scans..."}
                 </span>
-                <ChevronDown className={`w-4 h-4 text-navy/50 transition-transform ${isScanOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-4 h-4 text-navy/50 transition-transform duration-200 ${isScanOpen ? 'rotate-180' : ''}`} />
               </div>
 
+              {/* Hidden required input for form validation */}
+              <input
+                type="text"
+                value={form.scan}
+                required
+                readOnly
+                tabIndex={-1}
+                className="sr-only opacity-0 absolute pointer-events-none"
+              />
+
               {isScanOpen && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl overflow-hidden z-10 border border-gray-100 max-h-48 overflow-y-auto">
-                  {scanOptions.map(scan => (
-                    <label key={scan} className="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-50 last:border-0">
-                      <input 
-                        type="checkbox" 
-                        checked={form.scans.includes(scan)}
-                        onChange={() => toggleScan(scan)}
-                        className="accent-[#3b7a24] w-3.5 h-3.5 shrink-0"
-                      />
-                      <span className="text-navy text-xs font-medium">{scan}</span>
-                    </label>
-                  ))}
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl overflow-hidden z-20 border border-gray-100 max-h-56 overflow-y-auto">
+                  {scanOptions.map(scan => {
+                    const isSelected = form.scan === scan;
+                    return (
+                      <div
+                        key={scan}
+                        onClick={() => handleSelectScan(scan)}
+                        className={`px-4 py-2.5 text-xs font-medium cursor-pointer transition-colors border-b border-gray-50 last:border-0 flex items-center justify-between ${
+                          isSelected ? 'bg-[#3b7a24]/10 text-[#3b7a24] font-bold' : 'text-navy hover:bg-gray-50'
+                        }`}
+                      >
+                        <span>{scan}</span>
+                        {isSelected && (
+                          <Check className="w-3.5 h-3.5 text-[#3b7a24] shrink-0" />
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
