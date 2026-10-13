@@ -47,11 +47,21 @@ const createTransporter = () => {
   });
 };
 
-const transporter = createTransporter();
+const sendMail = async (options) => {
+  const user = getSmtpUser();
+  const pass = getSmtpPass();
 
-// Verify connection on startup
+  if (!user || !pass) {
+    throw new Error('SMTP credentials missing. Please add SMTP_USER and SMTP_APP_PASSWORD to your Vercel Environment Variables.');
+  }
+
+  const activeTransporter = createTransporter();
+  return await activeTransporter.sendMail(options);
+};
+
+// Verify connection on startup (for local development)
 if (getSmtpUser() && getSmtpPass()) {
-  transporter.verify((error, success) => {
+  createTransporter().verify((error, success) => {
     if (error) {
       console.warn('⚠️ SMTP Transporter Warning:', error.message);
       console.warn('👉 Please update SMTP_USER and SMTP_APP_PASSWORD in your .env file with your Gmail address and 16-character App Password.');
@@ -145,7 +155,7 @@ app.post(['/api/contact', '/contact'], async (req, res) => {
       html: getEmailWrapper('New Contact Form Submission', emailContent),
     };
 
-    const info = await transporter.sendMail(mailOptions);
+    const info = await sendMail(mailOptions);
     console.log('📬 Contact email sent:', info.messageId);
 
     res.json({
@@ -198,7 +208,7 @@ app.post(['/api/appointment', '/appointment'], async (req, res) => {
       html: getEmailWrapper('New Appointment Request', emailContent),
     };
 
-    const info = await transporter.sendMail(mailOptions);
+    const info = await sendMail(mailOptions);
     console.log('📅 Appointment email sent:', info.messageId);
 
     res.json({

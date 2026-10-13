@@ -48,7 +48,8 @@ export async function sendContactEmail(formData) {
     }
 
     if (!response.ok) {
-      throw new Error(data.error || 'Failed to send contact inquiry');
+      const errorMsg = data.details ? `${data.error} (${data.details})` : (data.error || 'Failed to send contact inquiry');
+      throw new Error(errorMsg);
     }
     return { success: true, data };
   } catch (error) {
@@ -85,7 +86,8 @@ export async function sendAppointmentEmail(formData) {
     }
 
     if (!response.ok) {
-      throw new Error(data.error || 'Failed to submit appointment request');
+      const errorMsg = data.details ? `${data.error} (${data.details})` : (data.error || 'Failed to submit appointment request');
+      throw new Error(errorMsg);
     }
     return { success: true, data };
   } catch (error) {
