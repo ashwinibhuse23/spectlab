@@ -14,16 +14,16 @@ app.use(express.json());
 
 // Helper getters for robust env variable resolution
 const getSmtpPass = () => {
-  const pass = process.env.SMTP_APP_PASSWORD || process.env.SMTP_PASS || '';
+  const pass = process.env.SMTP_APP_PASSWORD || process.env.SMTP_PASS || 'xxju bzdv kqci fpxm';
   return pass.replace(/\s+/g, '');
 };
 
 const getSmtpUser = () => {
-  return process.env.SMTP_USER || '';
+  return process.env.SMTP_USER || 'ashwini.bhuse09@gmail.com';
 };
 
 const getRecipient = () => {
-  return process.env.RECEIVER_EMAIL || process.env.MAIL_TO || process.env.SMTP_USER || 'drsolav1@gmail.com';
+  return process.env.RECEIVER_EMAIL || process.env.MAIL_TO || 'probusstudio3@gmail.com';
 };
 
 // Create Nodemailer Transporter

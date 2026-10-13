@@ -1019,7 +1019,7 @@ export default function AppointmentPage() {
 
             {/* ── Status Message Banner ── */}
             {statusMsg.text && (
-              <div className={`p-3.5 rounded-xl text-xs mb-3 font-medium ${
+              <div className={`mt-4 p-3.5 rounded-xl text-xs font-medium ${
                 statusMsg.type === 'success' ? 'bg-[#3b7a24]/10 text-[#3b7a24] border border-[#3b7a24]/20' : 'bg-red-50 text-red-600 border border-red-100'
               }`}>
                 {statusMsg.text}
