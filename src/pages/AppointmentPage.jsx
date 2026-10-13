@@ -3,8 +3,9 @@ import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import {
   ArrowRight, ChevronDown, Calendar, Clock, User, Mail,
-  Phone as PhoneIcon, Check, Stethoscope, Building2, BadgeCheck, ScanLine, Info,
+  Phone as PhoneIcon, Check, Stethoscope, Building2, BadgeCheck, ScanLine, Info, Loader2
 } from 'lucide-react';
+import { sendAppointmentEmail } from '../lib/api';
 import { services, petServicesList, nuclearServicesList, therapyServicesList } from '../mock';
 
 // Auto-timing per test — displayed automatically when test is selected
@@ -377,6 +378,8 @@ export default function AppointmentPage() {
   const [date, setDate] = useState("");
   const [testTime, setTestTime] = useState("");
   const [textMessage, setTextMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [statusMsg, setStatusMsg] = useState({ type: '', text: '' });
   const [errors, setErrors] = useState({});
 
   const validateField = (field, val) => {
@@ -402,7 +405,7 @@ export default function AppointmentPage() {
     return err;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const nameErr = validateField('name', name);
@@ -430,8 +433,33 @@ export default function AppointmentPage() {
       return;
     }
 
-    setDone(true);
-    setTimeout(() => setDone(false), 3000);
+    setLoading(true);
+    setStatusMsg({ type: '', text: '' });
+
+    try {
+      const result = await sendAppointmentEmail({
+        name,
+        email,
+        phone,
+        date,
+        time: testTime || form.time,
+        tests: tests || form.Tests,
+        message: textMessage,
+        chargeType,
+      });
+
+      if (result.success) {
+        setDone(true);
+        setStatusMsg({ type: 'success', text: 'Appointment request emailed to our team!' });
+        setTimeout(() => setDone(false), 5000);
+      } else {
+        setStatusMsg({ type: 'error', text: result.error || 'Could not send email, but opening WhatsApp...' });
+      }
+    } catch (err) {
+      console.error('Error submitting appointment:', err);
+    } finally {
+      setLoading(false);
+    }
 
     const phoneNumber = "9527070000"; // Optimized for wa.me
     const message = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nTests: ${tests || form.Tests}\nDate: ${date}\nTime: ${testTime || form.time}\nMessage: ${textMessage}`;
@@ -545,7 +573,7 @@ export default function AppointmentPage() {
           </div>
 
           {/* ── Booking form ── */}
-          <form onSubmit={handleSubmit} noValidate className="col-span-1 lg:col-span-3 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-10 soft-shadow flex flex-col">
+          <form onSubmit={handleSubmit} noValidate className="col-span-1 lg:col-span-3 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-10 soft-shadow flex flex-col h-fit self-start">
             <h2 className="font-display font-extrabold text-navy text-xl sm:text-2xl lg:text-3xl mb-1">
               Patient information
             </h2>
@@ -989,14 +1017,26 @@ export default function AppointmentPage() {
               </div>
             )}
 
+            {/* ── Status Message Banner ── */}
+            {statusMsg.text && (
+              <div className={`p-3.5 rounded-xl text-xs mb-3 font-medium ${
+                statusMsg.type === 'success' ? 'bg-[#3b7a24]/10 text-[#3b7a24] border border-[#3b7a24]/20' : 'bg-red-50 text-red-600 border border-red-100'
+              }`}>
+                {statusMsg.text}
+              </div>
+            )}
+
             {/* ── Book Appointment button ── */}
-            <div className="flex justify-start mt-auto pt-4">
+            <div className="flex justify-start mt-6">
               <button
                 type="submit"
+                disabled={loading}
                 aria-label="Book Appointment"
-                className="group inline-flex items-center gap-3 font-display font-bold pl-6 pr-2 py-2 rounded-full bg-[#3b7a24] hover:bg-[#2e621c] text-white shadow-md shadow-[#3b7a24]/25 transition-all duration-200 cursor-pointer active:scale-95"
+                className="group inline-flex items-center gap-3 font-display font-bold pl-6 pr-2 py-2 rounded-full bg-[#3b7a24] hover:bg-[#2e621c] text-white shadow-md shadow-[#3b7a24]/25 transition-all duration-200 cursor-pointer active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {done ? (
+                {loading ? (
+                  <>Sending request...</>
+                ) : done ? (
                   <><Check className="w-4 h-4 text-white" /> Request Sent!</>
                 ) : (
                   <>Book Appointment</>
@@ -1004,7 +1044,7 @@ export default function AppointmentPage() {
                 <span
                   className="w-10 h-10 rounded-full flex items-center justify-center transition-transform bg-white text-[#3b7a24] group-hover:rotate-45 shadow-xs"
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
                 </span>
               </button>
             </div>

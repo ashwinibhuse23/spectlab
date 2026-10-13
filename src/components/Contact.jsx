@@ -1,44 +1,33 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Mail, MapPin, Clock, ArrowRight, ChevronDown, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, MapPin, Clock, ArrowRight, ChevronDown, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { sendContactEmail } from '../lib/api';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', date: '', gender: '', age: '', scan: '', message: '', agree: false });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', date: '', gender: '', age: '', message: '', agree: false });
   const [submitted, setSubmitted] = useState(false);
-  const [isScanOpen, setIsScanOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [statusMsg, setStatusMsg] = useState({ type: '', text: '' });
 
-  const scanOptions = [
-    "PET-CT IMAGING PROCEDURE(FDG)", "RADIO IODINE THERAPY", "GALLIUM-68 PSMA SCAN",
-    "DOTA SCAN", "THALLIUM SCAN", "BONE SCAN", "DTPA RENAL SCAN",
-    "CAPTOPRIL RENAL SCAN", "COLLOID LIVER SCAN", "MUGA SCAN",
-    "MILK SCAN (GE REFLUX)", "THYROID SCAN"
-  ];
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsScanOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const handleSelectScan = (scan) => {
-    setForm((prev) => ({ ...prev, scan }));
-    setIsScanOpen(false);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.scan) {
-      setIsScanOpen(true);
-      return;
+    setLoading(true);
+    setStatusMsg({ type: '', text: '' });
+
+    const result = await sendContactEmail(form);
+    setLoading(false);
+
+    if (result.success) {
+      setSubmitted(true);
+      setStatusMsg({ type: 'success', text: 'Inquiry sent successfully! Our team will reach out to you.' });
+      setForm({ name: '', email: '', phone: '', date: '', gender: '', age: '', message: '', agree: false });
+      setTimeout(() => {
+        setSubmitted(false);
+        setStatusMsg({ type: '', text: '' });
+      }, 5000);
+    } else {
+      setStatusMsg({ type: 'error', text: result.error || 'Failed to send email. Please check server configuration or try again.' });
     }
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setForm({ name: '', email: '', phone: '', date: '', gender: '', age: '', scan: '', message: '', agree: false });
   };
 
   return (
@@ -116,52 +105,6 @@ export default function Contact() {
               <input value={form.age} onChange={(e) => setForm({ ...form, age: e.target.value })} type="number" placeholder="Your Age *" required min="0" max="150" className="bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-sm text-navy placeholder:text-navy/50 outline-none focus:border-[#3b7a24] transition-colors" />
             </div>
 
-            <div className="mb-4 relative" ref={dropdownRef}>
-              <label className="block text-navy font-bold text-xs mb-2">Select Scan *</label>
-              
-              <div 
-                onClick={() => setIsScanOpen(!isScanOpen)}
-                className="w-full bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-sm text-navy flex justify-between items-center cursor-pointer transition-colors hover:border-[#3b7a24]/50"
-              >
-                <span className={!form.scan ? "text-navy/50" : "text-navy font-medium"}>
-                  {form.scan || "Select Scans..."}
-                </span>
-                <ChevronDown className={`w-4 h-4 text-navy/50 transition-transform duration-200 ${isScanOpen ? 'rotate-180' : ''}`} />
-              </div>
-
-              {/* Hidden required input for form validation */}
-              <input
-                type="text"
-                value={form.scan}
-                required
-                readOnly
-                tabIndex={-1}
-                className="sr-only opacity-0 absolute pointer-events-none"
-              />
-
-              {isScanOpen && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl overflow-hidden z-20 border border-gray-100 max-h-56 overflow-y-auto">
-                  {scanOptions.map(scan => {
-                    const isSelected = form.scan === scan;
-                    return (
-                      <div
-                        key={scan}
-                        onClick={() => handleSelectScan(scan)}
-                        className={`px-4 py-2.5 text-xs font-medium cursor-pointer transition-colors border-b border-gray-50 last:border-0 flex items-center justify-between ${
-                          isSelected ? 'bg-[#3b7a24]/10 text-[#3b7a24] font-bold' : 'text-navy hover:bg-gray-50'
-                        }`}
-                      >
-                        <span>{scan}</span>
-                        {isSelected && (
-                          <Check className="w-3.5 h-3.5 text-[#3b7a24] shrink-0" />
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
             <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Your Message..." rows={2} className="w-full bg-gray-50 border border-gray-200 rounded-[20px] px-4 py-3 text-sm text-navy placeholder:text-navy/50 outline-none focus:border-[#3b7a24] transition-colors mb-4 resize-none" />
             
             <label className="flex items-start gap-2 text-navy text-xs mb-6 cursor-pointer font-bold">
@@ -169,14 +112,26 @@ export default function Contact() {
               Procedure are done on FIRST COME FIRST SERVED BASIS
             </label>
             
-<div className='flex justify-center'>
-              <button type="submit" className="group inline-flex items-center gap-2 bg-[#3b7a24]  text-white font-display font-bold pl-5 pr-1.5 py-1.5 rounded transition-colors w-full sm:w-auto justify-center text-sm">
-              {submitted ? 'Submitted!' : 'SUBMIT'}
-              <span className="w-8 h-8 rounded-full bg-white text-[#3b7a24] flex items-center justify-center group-hover:rotate-45 transition-transform">
-                <ArrowRight className="w-3.5 h-3.5" />
-              </span>
-            </button>
-</div>
+            {statusMsg.text && (
+              <div className={`p-3 rounded-xl text-xs mb-4 text-center font-medium ${
+                statusMsg.type === 'success' ? 'bg-[#3b7a24]/10 text-[#3b7a24] border border-[#3b7a24]/20' : 'bg-red-50 text-red-600 border border-red-100'
+              }`}>
+                {statusMsg.text}
+              </div>
+            )}
+
+            <div className='flex justify-center'>
+              <button 
+                type="submit" 
+                disabled={loading}
+                className="group inline-flex items-center gap-2 bg-[#3b7a24] hover:bg-[#2d661b] text-white font-display font-bold pl-5 pr-1.5 py-1.5 rounded transition-colors w-full sm:w-auto justify-center text-sm disabled:opacity-70 disabled:cursor-not-allowed shadow-sm"
+              >
+                {loading ? 'Sending...' : submitted ? 'Inquiry Sent!' : 'SUBMIT'}
+                <span className="w-8 h-8 rounded-full bg-white text-[#3b7a24] flex items-center justify-center group-hover:rotate-45 transition-transform">
+                  {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <ArrowRight className="w-3.5 h-3.5" />}
+                </span>
+              </button>
+            </div>
           </motion.form>
         </div>
       </div>

@@ -1,8 +1,9 @@
 import React, { useState, useRef, useCallback } from 'react';
 import {
   X, ArrowRight, ChevronDown, Calendar, Clock, User, Mail,
-  Phone as PhoneIcon, Check, Info
+  Phone as PhoneIcon, Check, Info, Loader2
 } from 'lucide-react';
+import { sendAppointmentEmail } from '../lib/api';
 import { services } from '../mock';
 
 // Auto-timing per test
@@ -210,6 +211,8 @@ export default function BookingModal({ isOpen, onClose }) {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', date: '', time: '', Tests: '', message: '', agree: false,
   });
+  const [loading, setLoading] = useState(false);
+  const [statusMsg, setStatusMsg] = useState({ type: '', text: '' });
   const [done, setDone] = useState(false);
   const [showPolicy, setShowPolicy] = useState(false);
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
@@ -243,13 +246,38 @@ export default function BookingModal({ isOpen, onClose }) {
     setShowPolicy(false);
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    setDone(true);
-    setTimeout(() => {
-      setDone(false);
-      onClose(); // Close modal after success
-    }, 3000);
+    setLoading(true);
+    setStatusMsg({ type: '', text: '' });
+
+    try {
+      const result = await sendAppointmentEmail({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        date: form.date,
+        time: form.time,
+        tests: form.Tests,
+        message: form.message,
+      });
+
+      if (result.success) {
+        setDone(true);
+        setStatusMsg({ type: 'success', text: 'Appointment booked! Confirmation email sent.' });
+        setTimeout(() => {
+          setDone(false);
+          onClose();
+        }, 2500);
+      } else {
+        setStatusMsg({ type: 'error', text: result.error || 'Failed to submit appointment.' });
+      }
+    } catch (err) {
+      console.error('Booking error:', err);
+      setStatusMsg({ type: 'error', text: 'Server connection error. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -409,16 +437,25 @@ export default function BookingModal({ isOpen, onClose }) {
                 className="w-full bg-[#f3f1fb] rounded-xl px-4 py-2.5 outline-none text-xs focus:ring-2 focus:ring-[#3b7a24]/40 mb-4 resize-none"
               />
 
+              {statusMsg.text && (
+                <div className={`p-2.5 rounded-xl text-[11px] mb-3 font-medium text-center ${
+                  statusMsg.type === 'success' ? 'bg-[#3b7a24]/10 text-[#3b7a24] border border-[#3b7a24]/20' : 'bg-red-50 text-red-600 border border-red-100'
+                }`}>
+                  {statusMsg.text}
+                </div>
+              )}
+
               <div className="flex justify-start">
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-1.5 bg-[#3b7a24] hover:bg-[#2d661b] text-white font-display font-bold pl-3.5 pr-1 py-1.5 rounded-full transition-colors"
+                  disabled={loading}
+                  className="group inline-flex items-center gap-1.5 bg-[#3b7a24] hover:bg-[#2d661b] text-white font-display font-bold pl-3.5 pr-1 py-1.5 rounded-full transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   <span className="text-[11.5px]">
-                    {done ? 'Request Sent!' : 'Book Appointment'}
+                    {loading ? 'Sending...' : done ? 'Request Sent!' : 'Book Appointment'}
                   </span>
                   <span className="w-6 h-6 rounded-full bg-white text-[#3b7a24] flex items-center justify-center group-hover:rotate-45 transition-transform shrink-0">
-                    {done ? <Check className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
+                    {loading ? <Loader2 className="w-3 h-3 animate-spin" /> : done ? <Check className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
                   </span>
                 </button>
               </div>
