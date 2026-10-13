@@ -1,6 +1,16 @@
 const API_BASE_URL = process.env.REACT_APP_API_URL || '';
 
 const getApiUrl = (endpoint) => {
+  // If running in browser and NOT localhost, but API_BASE_URL points to localhost, use relative path
+  if (
+    typeof window !== 'undefined' &&
+    window.location.hostname !== 'localhost' &&
+    window.location.hostname !== '127.0.0.1' &&
+    API_BASE_URL.includes('localhost')
+  ) {
+    return endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  }
+
   if (API_BASE_URL) {
     // Trim trailing slash from base url and leading slash from endpoint
     const base = API_BASE_URL.replace(/\/+$/, '');

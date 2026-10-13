@@ -104,12 +104,12 @@ const getEmailWrapper = (title, content) => `
 `;
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
 // 1. Contact Form Endpoint
-app.post('/api/contact', async (req, res) => {
+app.post(['/api/contact', '/contact'], async (req, res) => {
   try {
     const { name, email, phone, date, gender, age, scan, message } = req.body;
 
@@ -162,7 +162,7 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // 2. Appointment Form Endpoint
-app.post('/api/appointment', async (req, res) => {
+app.post(['/api/appointment', '/appointment'], async (req, res) => {
   try {
     const { name, email, phone, date, time, tests, message, chargeType } = req.body;
 
