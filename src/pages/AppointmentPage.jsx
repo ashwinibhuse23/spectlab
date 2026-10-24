@@ -6,11 +6,45 @@ import {
   Phone as PhoneIcon, Check, Stethoscope, Building2, BadgeCheck, ScanLine, Info, Loader2
 } from 'lucide-react';
 import { sendAppointmentEmail } from '../lib/api';
-import { services, petServicesList, nuclearServicesList, therapyServicesList } from '../mock';
+import { services, petServicesList, nuclearServicesList, therapyServicesList, bookingTestsList } from '../mock';
 
 // Auto-timing per test — displayed automatically when test is selected
-// Auto-timing per test — displayed automatically when test is selected
 const testTimings = {
+  'THYROID SCAN': '10:00 AM – 03:00 PM',
+  'RADIO-IODINE ABLATION 10 mci': '10:00 AM – 03:00 PM',
+  'RADIO-IODINE ABLATION 15 mci': '10:00 AM – 03:00 PM',
+  'RADIO-IODINE ABLATION 100 mci': 'Admission for 1–3 days',
+  'THALLIUM SCAN': '11:00 AM – 05:00 PM',
+  'CAPTOPRIL RENAL SCAN and baseline': '08:00 AM – 12:00 PM',
+  'DTPA RENAL SCAN': '09:00 AM – 02:00 PM',
+  'EC RENAL SCAN': '09:00 AM – 02:00 PM',
+  'DMSA RENAL': '09:00 AM – 02:00 PM',
+  'VUR STUDY / MCU': '09:00 AM – 02:00 PM',
+  'BONE SCAN': '09:00 AM – 01:00 PM',
+  'LUNG PERFUSION SCAN': '10:00 AM – 04:00 PM',
+  'LUNG VENTILATION SCAN': '10:00 AM – 04:00 PM',
+  'LIVER COLLOID SCAN': '10:00 AM – 03:00 PM',
+  'HEPATOBILLARY SCAN (HIDA)': '10:00 AM – 03:00 PM',
+  "MECKEL'S SCAN": '09:00 AM – 01:00 PM',
+  'GI BLEED SCAN / RBC SCAN': '09:00 AM – 03:00 PM',
+  'BRAIN SPECT (EPILEPSY / ALZEIMERS)': '10:00 AM – 04:00 PM',
+  'GASTRIC EMPTING': '09:00 AM – 01:00 PM',
+  'G.E. REFLUX / MILK SCAN': '09:00 AM – 01:00 PM',
+  'TESTICULAR SCAN FOR TORSION': '10:00 AM – 04:00 PM',
+  'MUGA': '10:00 AM – 04:00 PM',
+  'PARATHYROID SCAN': '10:00 AM – 03:00 PM',
+  'IODINE SCAN': '10:00 AM – 03:00 PM',
+  'PHARMACOLOGICAL STRESS THALLIUM': '11:00 AM – 05:00 PM',
+  'LYMPHOSCINTIGRAPHY': '10:00 AM – 04:00 PM',
+  'DACROSCINTIGRAPHY': '10:00 AM – 04:00 PM',
+  'Colonic Transit Time': '09:00 AM – 01:00 PM',
+  'FAPI PET Scan': '07:00 AM – 07:00 PM',
+  'FDG Whole Body Pet': '07:00 AM – 07:00 PM',
+  'Cardiac Pet': '07:00 AM – 07:00 PM',
+  'Neurology Brain Pet': '07:00 AM – 07:00 PM',
+  'GA 68 Dota Scan (By Appointment)': '07:00 AM – 07:00 PM',
+  'GA 68 PSMA Scan': '07:00 AM – 07:00 PM',
+
   // PET Scans (07:00 AM – 07:00 PM)
   'PET-CT IMAGING (FDG)': '07:00 AM – 07:00 PM',
   'PET-CT Imaging Procedure (FDG)': '07:00 AM – 07:00 PM',
@@ -669,27 +703,11 @@ export default function AppointmentPage() {
                     }`}
                   >
                     <option value="">Select Test *</option>
-                    <optgroup label="PET-CT SCANS">
-                      {petServicesList.map((name) => (
-                        <option key={name} value={name}>
-                          {name}
-                        </option>
-                      ))}
-                    </optgroup>
-                    <optgroup label="NUCLEAR MEDICINE SCANS">
-                      {nuclearServicesList.map((name) => (
-                        <option key={name} value={name}>
-                          {name}
-                        </option>
-                      ))}
-                    </optgroup>
-                    <optgroup label="RADIONUCLIDE THERAPY">
-                      {therapyServicesList.map((name) => (
-                        <option key={name} value={name}>
-                          {name}
-                        </option>
-                      ))}
-                    </optgroup>
+                    {bookingTestsList.map((name) => (
+                      <option key={name} value={name}>
+                        {name}
+                      </option>
+                    ))}
                   </select>
                   <ChevronDown className="w-3.5 h-3.5 absolute right-4 top-1/2 -translate-y-1/2 text-navy/40 pointer-events-none" />
                 </div>

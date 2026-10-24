@@ -12,13 +12,13 @@ const nuclearServices = [
   {
     title: 'THYROID SCAN',
     description: 'Assessment of thyroid function, nodules, and conditions like hyperthyroidism.',
-    image: '/services/Thyroid Scans_result.jpg',
+    image: '/services/Thyroid Scans_result.png',
     link: '/services/scans#thyroid-scan',
   },
   {
     title: 'DTPA / EC (MAG-3) RENOGRAM SCAN',
     description: 'Evaluation of renal blood flow, glomerular function & tubular drainage to detect urinary obstruction.',
-    image: '/services/DTPA RENAL SCAN_result.jpg',
+    image: '/services/DTPA RENAL SCAN_result.png',
     link: '/services/scans#dtparenal-scan',
   },
   {
@@ -30,13 +30,13 @@ const nuclearServices = [
   {
     title: 'BONE SCAN',
     description: 'Detection of bone metastases, infections, fractures, and other bone abnormalities.',
-    image: '/services/Bone Scans_result.jpg',
+    image: '/services/Bone Scans_result.png',
     link: '/services/scans#bone-scan',
   },
   {
     title: 'THALLIUM SCAN',
     description: 'Diagnosis of coronary artery disease. Evaluation of blood flow to the heart muscle.',
-    image: '/services/THALLIUM SCAN_result.jpg',
+    image: '/services/THALLIUM SCAN_result.png',
     link: '/services/scans#thallium-scan',
   },
   {
@@ -210,14 +210,26 @@ const therapyServices = [
   {
     title: 'TARGETED RADIONUCLIDE THERAPY',
     description: 'Precision treatment delivering radiation directly to cancer cells while minimizing damage to healthy tissue.',
-    image: '/chemotherapy.jpg',
-    link: '#',
+    image: '/services/TARGETED RADIONUCLIDE.png',
+    link: '/services/scans#targeted-radionuclide-therapy',
   },
   {
-    title: 'PEPTIDE RECEPTOR RADIONUCLIDE THERAPY (PRRT)',
-    description: 'A highly targeted therapy used specifically to treat neuroendocrine tumors (NETs).',
-    image: '/chemotherapy.jpg',
-    link: '#',
+    title: 'MIBG THERAPY',
+    description: 'Targeted radionuclide therapy for neuroblastoma, advanced pheochromocytoma, paraganglioma, and carcinoid tumors.',
+    image: '/services/MIBG THERAPY.png',
+    link: '/services/scans#mibg-therapy',
+  },
+  {
+    title: 'LU-177 PSMA RADIOLIGAND THERAPY',
+    description: 'Precision radioligand therapy targeting PSMA for metastatic castration-resistant prostate cancer (mCRPC).',
+    image: '/services/LU-177 PSMA.png',
+    link: '/services/scans#lu177-psma-therapy',
+  },
+  {
+    title: 'LU-177 DOTATATE THERAPY (PRRT)',
+    description: 'Targeted peptide radio receptor therapy for gastroenteropancreatic neuroendocrine tumors (GEP-NETs).',
+    image: '/services/LU-177 DOTATATE.png',
+    link: '/services/scans#lu177-dotatate-therapy',
   },
 ];
 

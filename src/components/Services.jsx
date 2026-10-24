@@ -21,7 +21,7 @@ const mainServices = [
   {
     name: 'Therapy',
     desc: 'Targeted radionuclide therapies delivering precision treatment directly to cellular targets with minimal side effects.',
-    img: '/chemotherapy.jpg',
+    img: '/therapy.png',
     link: '/services',
     state: { targetTab: 'therapy' }
   }

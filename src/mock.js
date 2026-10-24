@@ -77,14 +77,53 @@ export const nuclearServicesList = [
 
 export const therapyServicesList = [
   'TARGETED RADIONUCLIDE THERAPY',
-  'PEPTIDE RECEPTOR RADIONUCLIDE THERAPY (PRRT)'
+  'MIBG THERAPY',
+  'LU-177 PSMA RADIOLIGAND THERAPY',
+  'LU-177 DOTATATE PEPTIDE RADIO RECEPTOR THERAPY (PRRT)'
 ];
 
-export const services = [
-  ...petServicesList.map(name => ({ name, icon: 'ScanSearch', desc: 'PET-CT Molecular Imaging' })),
-  ...nuclearServicesList.map(name => ({ name, icon: 'Activity', desc: 'Nuclear Medicine Scan' })),
-  ...therapyServicesList.map(name => ({ name, icon: 'Zap', desc: 'Targeted Radionuclide Therapy' }))
+export const bookingTestsList = [
+  'THYROID SCAN',
+  'RADIO-IODINE ABLATION 10 mci',
+  'RADIO-IODINE ABLATION 15 mci',
+  'RADIO-IODINE ABLATION 100 mci',
+  'THALLIUM SCAN',
+  'CAPTOPRIL RENAL SCAN and baseline',
+  'DTPA RENAL SCAN',
+  'EC RENAL SCAN',
+  'DMSA RENAL',
+  'VUR STUDY / MCU',
+  'BONE SCAN',
+  'LUNG PERFUSION SCAN',
+  'LUNG VENTILATION SCAN',
+  'LIVER COLLOID SCAN',
+  'HEPATOBILLARY SCAN (HIDA)',
+  "MECKEL'S SCAN",
+  'GI BLEED SCAN / RBC SCAN',
+  'BRAIN SPECT (EPILEPSY / ALZEIMERS)',
+  'GASTRIC EMPTING',
+  'G.E. REFLUX / MILK SCAN',
+  'TESTICULAR SCAN FOR TORSION',
+  'MUGA',
+  'PARATHYROID SCAN',
+  'IODINE SCAN',
+  'PHARMACOLOGICAL STRESS THALLIUM',
+  'LYMPHOSCINTIGRAPHY',
+  'DACROSCINTIGRAPHY',
+  'Colonic Transit Time',
+  'FAPI PET Scan',
+  'FDG Whole Body Pet',
+  'Cardiac Pet',
+  'Neurology Brain Pet',
+  'GA 68 Dota Scan (By Appointment)',
+  'GA 68 PSMA Scan'
 ];
+
+export const services = bookingTestsList.map(name => ({
+  name,
+  icon: (name.includes('PET') || name.includes('Pet')) ? 'ScanSearch' : (name.includes('ABLATION') || name.includes('THERAPY')) ? 'Zap' : 'Activity',
+  desc: (name.includes('PET') || name.includes('Pet')) ? 'PET-CT Molecular Imaging' : (name.includes('ABLATION') || name.includes('THERAPY')) ? 'Targeted Radionuclide Therapy' : 'Nuclear Medicine Scan'
+}));
 
 export const whyChooseTabs = [
   {

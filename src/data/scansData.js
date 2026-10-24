@@ -341,14 +341,68 @@ export const scansData = [
     ]
   },
   {
-    "id": "radioiodine-therapy",
-    "title": "RADIO IODINE THERAPY",
-    "prerequisites": "Patient should not eat or drink after midnight on the day of the procedure. If you have been taking anti-thyroid medications, you must stop at least three days before the therapy is given.",
-    "timeRequired": "Varies by dosage",
-    "procedure": "Radioactive Iodine I-131 therapy is administered for hyperthyroidism or thyroid cancer.",
+    "id": "high-dose-radioiodine-therapy",
+    "aliases": ["targeted-radionuclide-therapy", "radioiodine-therapy"],
+    "title": "HIGH DOSE RADIOIODINE THERAPY",
+    "prerequisites": "Low iodine diet three weeks before therapy.\nPatient should discontinue thyroid medication for 2-4 weeks before therapy.\nTSH and Thyroglobulin plain blood reports are required before therapy.",
+    "timeRequired": "Needs admission for 1-3 days duration depends on the amount of administered dose",
+    "procedure": "Oral administration of 50/100/150/200/250 mci as prescribed",
     "indications": [
-      "Hyperthyroidism treatment.",
-      "Thyroid cancer post-surgical ablation."
+      "Thyroid carcinoma",
+      "Ablation of residual functioning thyroid tissue after total or partial thyroidectomy"
+    ]
+  },
+  {
+    "id": "low-dose-radioiodine-therapy",
+    "title": "LOW DOSE RADIOIODINE THERAPY",
+    "prerequisites": "Thyroid related drugs: Patient should discontinue thyroid medication (neomercazole) for 5-10 days before therapy.",
+    "timeRequired": "Duration: 2-3 hours",
+    "procedure": "Oral administration of 10/12/15 mci as prescribed",
+    "indications": [
+      "Hyperthyroidism",
+      "Graves disease",
+      "Toxic multinodular goiter",
+      "Plummer’s disease",
+      "Toxic nodule (toxic adenoma)",
+      "Recurrent hyperthyroidism",
+      "Sub clinical hyper thyroidism"
+    ]
+  },
+  {
+    "id": "lu177-psma-therapy",
+    "aliases": ["lu177-psma", "lu-177-psma-radioligand-therapy"],
+    "title": "LU-177 PSMA RADIOLIGAND THERAPY",
+    "prerequisites": "Kidney Function: Serum creatinine and GFR.\nComplete Blood Counts (CBC).\nPSA level.",
+    "timeRequired": "OPD procedure: 7–8 hours",
+    "procedure": "Intravenous infusion",
+    "indications": [
+      "Metastatic Castration-Resistant Prostate Cancer (mCRPC)"
+    ]
+  },
+  {
+    "id": "lu177-dotatate-therapy",
+    "aliases": ["prrt-therapy", "prrt", "lu177-dotatate", "lu-177-dotatate-therapy"],
+    "title": "LU-177 DOTATATE PEPTIDE RADIO RECEPTOR THERAPY (PRRT)",
+    "prerequisites": "Kidney Function: Serum creatinine and GFR.\nBone Marrow Function: Complete Blood Counts (CBC).\nLiver Function: Liver Function Tests (LFTs).",
+    "timeRequired": "OPD procedure: 7–8 hours",
+    "procedure": "Intravenous infusion, 4 cycles, administered 8 weeks apart",
+    "indications": [
+      "Gastroenteropancreatic Neuroendocrine Tumors"
+    ]
+  },
+  {
+    "id": "mibg-therapy",
+    "aliases": ["i131-mibg-therapy", "i-131-mibg-therapy"],
+    "title": "MIBG THERAPY",
+    "prerequisites": "Patients must take a thyroid-blocking medication (like Lugol's solution or oral Potassium Iodide) starting 24 hours before the infusion and continuing for up to 3 to 7 days.\n\nA variety of drugs can block MIBG uptake and must be suspended well in advance under a doctor's guidance. These include certain blood pressure drugs (e.g., labetalol), tricyclic antidepressants, opioids, and over-the-counter cold medications.",
+    "timeRequired": "Admission for 1–3 days",
+    "procedure": "Intravenous infusion",
+    "indications": [
+      "High-risk, relapsed, or refractory neuroblastoma (primarily in children)",
+      "Advanced pheochromocytoma",
+      "Paraganglioma",
+      "Carcinoid tumors",
+      "Medullary thyroid carcinoma"
     ]
   },
   {

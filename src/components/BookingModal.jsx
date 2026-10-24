@@ -4,11 +4,46 @@ import {
   Phone as PhoneIcon, Check, Info, Loader2
 } from 'lucide-react';
 import { sendAppointmentEmail } from '../lib/api';
-import { services } from '../mock';
+import { services, bookingTestsList } from '../mock';
 
 // Auto-timing per test
 const testTimings = {
-  // PET Scans (07:00 AM – 07:00 PM)
+  'THYROID SCAN': '10:00 AM – 03:00 PM',
+  'RADIO-IODINE ABLATION 10 mci': '10:00 AM – 03:00 PM',
+  'RADIO-IODINE ABLATION 15 mci': '10:00 AM – 03:00 PM',
+  'RADIO-IODINE ABLATION 100 mci': 'Admission for 1–3 days',
+  'THALLIUM SCAN': '11:00 AM – 05:00 PM',
+  'CAPTOPRIL RENAL SCAN and baseline': '08:00 AM – 12:00 PM',
+  'DTPA RENAL SCAN': '09:00 AM – 02:00 PM',
+  'EC RENAL SCAN': '09:00 AM – 02:00 PM',
+  'DMSA RENAL': '09:00 AM – 02:00 PM',
+  'VUR STUDY / MCU': '09:00 AM – 02:00 PM',
+  'BONE SCAN': '09:00 AM – 01:00 PM',
+  'LUNG PERFUSION SCAN': '10:00 AM – 04:00 PM',
+  'LUNG VENTILATION SCAN': '10:00 AM – 04:00 PM',
+  'LIVER COLLOID SCAN': '10:00 AM – 03:00 PM',
+  'HEPATOBILLARY SCAN (HIDA)': '10:00 AM – 03:00 PM',
+  "MECKEL'S SCAN": '09:00 AM – 01:00 PM',
+  'GI BLEED SCAN / RBC SCAN': '09:00 AM – 03:00 PM',
+  'BRAIN SPECT (EPILEPSY / ALZEIMERS)': '10:00 AM – 04:00 PM',
+  'GASTRIC EMPTING': '09:00 AM – 01:00 PM',
+  'G.E. REFLUX / MILK SCAN': '09:00 AM – 01:00 PM',
+  'TESTICULAR SCAN FOR TORSION': '10:00 AM – 04:00 PM',
+  'MUGA': '10:00 AM – 04:00 PM',
+  'PARATHYROID SCAN': '10:00 AM – 03:00 PM',
+  'IODINE SCAN': '10:00 AM – 03:00 PM',
+  'PHARMACOLOGICAL STRESS THALLIUM': '11:00 AM – 05:00 PM',
+  'LYMPHOSCINTIGRAPHY': '10:00 AM – 04:00 PM',
+  'DACROSCINTIGRAPHY': '10:00 AM – 04:00 PM',
+  'Colonic Transit Time': '09:00 AM – 01:00 PM',
+  'FAPI PET Scan': '07:00 AM – 07:00 PM',
+  'FDG Whole Body Pet': '07:00 AM – 07:00 PM',
+  'Cardiac Pet': '07:00 AM – 07:00 PM',
+  'Neurology Brain Pet': '07:00 AM – 07:00 PM',
+  'GA 68 Dota Scan (By Appointment)': '07:00 AM – 07:00 PM',
+  'GA 68 PSMA Scan': '07:00 AM – 07:00 PM',
+
+  // PET Scans
   'PET-CT IMAGING (FDG)': '07:00 AM – 07:00 PM',
   'PET-CT Imaging Procedure (FDG)': '07:00 AM – 07:00 PM',
   'Gallium-68 PSMA Scan': '07:00 AM – 07:00 PM',
@@ -17,34 +52,10 @@ const testTimings = {
   'Ga68 PSMA PET CT Scan': '07:00 AM – 07:00 PM',
   'Ga68 DOTA PET CT Scan': '07:00 AM – 07:00 PM',
   'Cardiac PET Scan': '07:00 AM – 07:00 PM',
-  'FAPI PET CT Scan': '07:00 AM – 07:00 PM',
   'F-18 FDOPA PET CT Scan': '07:00 AM – 07:00 PM',
   'Trivehexin PET CT Scan': '07:00 AM – 07:00 PM',
-  'Exendine PET CT Scan': '07:00 AM – 07:00 PM',
   'Exendin PET CT Scan': '07:00 AM – 07:00 PM',
-  'Fusion- PET MRI': '07:00 AM – 07:00 PM',
   'Fusion PET MRI': '07:00 AM – 07:00 PM',
-
-  // Nuclear Medicine & Other Scans
-  'THALLIUM SCAN': '11:00 AM – 05:00 PM',
-  'Thallium Scan': '11:00 AM – 05:00 PM',
-  'BONE SCAN': '09:00 AM – 01:00 PM',
-  'Bone Scan': '09:00 AM – 01:00 PM',
-  'DTPA / EC (MAG-3) RENOGRAM SCAN': '09:00 AM – 02:00 PM',
-  'DTPA Renal Scan': '09:00 AM – 02:00 PM',
-  'DMSA RENAL SCAN (CORTICAL FUNCTION)': '09:00 AM – 02:00 PM',
-  'THYROID SCAN': '10:00 AM – 03:00 PM',
-  'Thyroid Scan': '10:00 AM – 03:00 PM',
-  'POST CAPTOPRIL RENOGRAM': '08:00 AM – 12:00 PM',
-  'Captopril Renal Scan': '08:00 AM – 12:00 PM',
-  'COLLOID LIVER SCAN': '10:00 AM – 03:00 PM',
-  'Colloid Liver Scan': '10:00 AM – 03:00 PM',
-  'MILK SCAN (GE REFLUX)': '09:00 AM – 01:00 PM',
-  'Milk Scan (GE Reflux)': '09:00 AM – 01:00 PM',
-  'MUGA SCAN': '10:00 AM – 04:00 PM',
-  'MUGA Scan': '10:00 AM – 04:00 PM',
-  'PARATHYROID SCAN': '10:00 AM – 03:00 PM',
-  'MIBG SCAN': '10:00 AM – 04:00 PM',
 };
 
 // Robust timing lookup helper
@@ -207,6 +218,31 @@ const testInstructionsMr = {
   ],
 };
 
+const getInstructionsForTest = (testName, language = 'en') => {
+  if (!testName) return null;
+  const dict = language === 'mr' ? testInstructionsMr : testInstructions;
+  if (dict[testName]) return dict[testName];
+  
+  const upper = testName.toUpperCase().trim();
+  for (const [k, v] of Object.entries(dict)) {
+    if (k.toUpperCase().trim() === upper) return v;
+  }
+  
+  for (const [k, v] of Object.entries(dict)) {
+    const kUpper = k.toUpperCase();
+    if (upper.includes('THYROID') && kUpper.includes('THYROID')) return v;
+    if (upper.includes('THALLIUM') && kUpper.includes('THALLIUM')) return v;
+    if (upper.includes('BONE') && kUpper.includes('BONE')) return v;
+    if (upper.includes('DTPA') && kUpper.includes('DTPA')) return v;
+    if (upper.includes('CAPTOPRIL') && kUpper.includes('CAPTOPRIL')) return v;
+    if (upper.includes('COLLOID') && kUpper.includes('COLLOID')) return v;
+    if ((upper.includes('MILK') || upper.includes('REFLUX')) && (kUpper.includes('MILK') || kUpper.includes('REFLUX'))) return v;
+    if (upper.includes('MUGA') && kUpper.includes('MUGA')) return v;
+    if ((upper.includes('FDG') || upper.includes('PET')) && kUpper.includes('FDG')) return v;
+  }
+  return null;
+};
+
 export default function BookingModal({ isOpen, onClose }) {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', date: '', time: '', Tests: '', message: '', agree: false,
@@ -355,9 +391,9 @@ export default function BookingModal({ isOpen, onClose }) {
                     className="appearance-none w-full bg-[#f3f1fb] rounded-full px-4 py-2.5 outline-none text-xs focus:ring-2 focus:ring-[#3b7a24]/40"
                   >
                     <option value="">Tests *</option>
-                    {services.map((s) => (
-                      <option key={s.name} value={s.name.replace(/\n/g, ' ')}>
-                        {s.name.replace(/\n/g, ' ')}
+                    {bookingTestsList.map((testName) => (
+                      <option key={testName} value={testName}>
+                        {testName}
                       </option>
                     ))}
                   </select>
@@ -392,7 +428,7 @@ export default function BookingModal({ isOpen, onClose }) {
               </div>
 
               {/* ── Per-test Instructions Panel ── */}
-              {form.Tests && testInstructions[form.Tests] && (
+              {form.Tests && getInstructionsForTest(form.Tests, lang) && (
                 <div className="mb-3 rounded-lg border border-slate-200 bg-white overflow-hidden">
                   <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-50 border-b border-slate-200">
                     <Info className="w-3 h-3 text-slate-400 shrink-0" />
@@ -417,7 +453,7 @@ export default function BookingModal({ isOpen, onClose }) {
                     </div>
                   </div>
                   <ul className="px-3 py-2 space-y-1.5">
-                    {(lang === 'en' ? testInstructions[form.Tests] : testInstructionsMr[form.Tests]).map((step, i) => (
+                    {getInstructionsForTest(form.Tests, lang).map((step, i) => (
                       <li key={i} className="flex items-start gap-2 text-slate-600 text-[11px] leading-snug">
                         <span className="mt-0.5 w-3.5 h-3.5 rounded-full border border-slate-300 bg-slate-100 text-slate-500 flex items-center justify-center text-[8px] font-semibold shrink-0">
                           {i + 1}
