@@ -61,12 +61,12 @@ export default function Header() {
         >
           <Logo />
 
-          <nav className="hidden lg:flex items-center gap-3.5 lg:gap-4.5 xl:gap-6 2xl:gap-7 shrink-0">
+          <nav className="hidden lg:flex items-center gap-5 lg:gap-6 xl:gap-8 2xl:gap-9 shrink-0">
             {navItems.map((item) => (
               <div key={item.label} className="relative group py-1">
                 <Link
                   to={item.to}
-                  className={`relative flex items-center gap-1 font-display font-semibold text-[11.5px] lg:text-[12px] xl:text-[13px] 2xl:text-[13.5px] whitespace-nowrap tracking-wide uppercase transition-colors duration-200 py-1
+                  className={`relative flex items-center gap-1 font-display font-semibold text-[12px] lg:text-[12.5px] xl:text-[13px] 2xl:text-[13.5px] whitespace-nowrap tracking-wider uppercase transition-colors duration-200 py-1.5
                     ${isActive(item.to) ? 'text-[#3b7a24]' : 'text-navy/85 hover:text-[#3b7a24]'}
                   `}
                 >
@@ -74,7 +74,7 @@ export default function Header() {
                   {item.children && <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />}
 
                   {/* Underline hover animation */}
-                  <span className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full bg-[#3b7a24] transition-all duration-300 
+                  <span className={`absolute -bottom-1 left-0 h-[2.5px] rounded-full bg-[#3b7a24] transition-all duration-300 
                     ${isActive(item.to) ? 'w-full' : 'w-0 group-hover:w-full'}
                   `} />
                 </Link>

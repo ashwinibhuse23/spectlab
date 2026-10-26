@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import AnniversaryModal from './AnniversaryModal';
 
 export default function Layout() {
   const location = useLocation();
@@ -13,6 +14,7 @@ export default function Layout() {
   return (
     <div className="App">
       <Header />
+      <AnniversaryModal />
       <main>
         <Outlet />
       </main>

@@ -5,6 +5,91 @@ import PageHeader from '../components/PageHeader';
 
 const publicationsData = [
   {
+    title: "Demystifying Cardiac Infections with Nuclear Medicine",
+    journal: "Indian Journal of Nuclear Medicine",
+    details: "Volume 41: Issue 1, January-February 2026 (Published: March 2026)",
+    icon: HeartPulse,
+    link: "/pdf/March 2026.pdf"
+  },
+  {
+    title: "Heterotopic Pancreas Masquerading as Omental Nodule on FAPI PET/CT",
+    journal: "Indian Journal of Nuclear Medicine",
+    details: "Volume 39: Issue 6, November-December 2024 (Published: March 2025)",
+    icon: ScanSearch,
+    link: "/pdf/March 2025.pdf"
+  },
+  {
+    title: "FDG PET Scan in Cutaneous Rosai–Dorfman–Destombes Disease",
+    journal: "Indian Journal of Nuclear Medicine",
+    details: "Volume 39: Issue 5, September-October 2024 (Published: January 2025)",
+    icon: Activity,
+    link: "/pdf/January 2025.pdf"
+  },
+  {
+    title: "An Atlas of Gallium-68-fibroblast Activation Protein Inhibitor (FAPI) in Oncology and Nononcology Imaging",
+    journal: "Indian Journal of Nuclear Medicine",
+    details: "Volume 39: Issue 5, September-October 2024 (Published: January 2025)",
+    icon: Microscope,
+    link: "/pdf/atlasgallium.pdf"
+  },
+  {
+    title: "Non-Hodgkin lymphoma of vocal cord causing “pseudo-palsy”",
+    journal: "International Journal of Otorhinolaryngology and Head and Neck Surgery",
+    details: "Vol 10: Issue 5, September-October 2024 (Published: September 2024)",
+    icon: Activity,
+    link: "/pdf/September 2024.pdf"
+  },
+  {
+    title: "Elevated prostate-specific antigen in Paget’s disease",
+    journal: "Indian Journal of Urology",
+    details: "Volume 39: Issue 4, October-December 2023 (Published: September 2023)",
+    icon: Bone,
+    link: "/pdf/September 2023.pdf"
+  },
+   {
+    title: "Localization of acute pyelonephritis in pyrexia of unknown origin using FDG PET/CT",
+    journal: "Nucl Med Biol",
+    details: "2020; 8(1)79-83. doi: 10.22038/aojnmb.2019.14242",
+    icon: Droplets
+  },
+   {
+    title: "Pericardial sarcoidosis presenting as PUO diagnosed on FDG PET CT scan",
+    journal: "Asia Ocean J Nucl Med Biol",
+    details: "2020; 8(1) 2019; 7(1)",
+    icon: HeartPulse
+  },
+
+  {
+    title: "Radionuclide Liver-Spleen Scan to Detect Splenosis",
+    journal: "Indian Journal of Surgery",
+    details: "Received: 30 January 2019 /Accepted: 20 June 2019",
+    icon: FlaskConical
+  },
+
+   {
+    title: "False-positive FDG PET CT Scan in Vertebral Hemangioma",
+    journal: "Asia Ocean J Nucl Med Biol",
+    details: "2019; 7(1)",
+    icon: ScanSearch,
+    link: "/pdf/15 False-positive FDG PET CT Scan in Vertebral Hemangioma.pdf"
+  },
+
+  {
+    title: "Mycotic pseudoaneurysm mimicking carotid body tumor",
+    journal: "International Journal of Otorhinolaryngology and Head and Neck Surgery",
+    details: "Vol 4:Issue 4, July-August 2018",
+    icon: Activity,
+    link: "/pdf/Mycotic pseudoaneurysm mimicking carotid body tumor.pdf"
+  },
+
+   {
+    title: "Skeletal Scintigraphy Manifestations Of Hematologic Disorders",
+    journal: "Indian Journal of Nuclear Medicine",
+    details: "Volume 27:Issue 1 April-June 2012",
+    icon: Bone,
+    link: "/pdf/7 Skeletal Scintigraphy Manifestations Of Hematologic Disorders.pdf"
+  },
+  {
     title: "FDG PET/CT in Evaluation of Pyrexia of Unknown Origin",
     journal: "Clinical Nuclear Medicine",
     details: "Volume 36, Number 8, August 2011",
@@ -38,13 +123,23 @@ const publicationsData = [
     icon: ScanSearch,
     link: "/pdf/4 Two Occult Primaries Discovered on PETCT in a Patient With Paraparesis.pdf"
   },
-  {
-    title: "Skeletal Scintigraphy Manifestations Of Hematologic Disorders",
-    journal: "Indian Journal of Nuclear Medicine",
-    details: "Volume 27:Issue 1 April-June 2012",
+
+   {
+    title: "Bone scintiscanning in Orthopedics",
+    journal: "Journal of Maharashtra Orthopaedic Association",
+    details: "Volume 7:Issue 2 2009",
     icon: Bone,
-    link: "/pdf/7 Skeletal Scintigraphy Manifestations Of Hematologic Disorders.pdf"
+    link: "/pdf/9 Bone scintiscanning in Orthopedics.pdf"
   },
+
+   {
+    title: "Correlative Imaging in Skeletal Tuberculosis with Special emphasis on Radionuclide Bone Scintigraphy: A Pictorial Essay",
+    journal: "World Journal of Nuclear Medicine",
+    details: "Volume 6, Number 1,January 2007",
+    icon: Microscope,
+    link: "/pdf/5 Correlative Imaging in Skeletal Tuberculosis with Special emphasis on Radionuclide Bone Scintigraphy A Pictorial Essay.pdf"
+  },
+ 
   {
     title: "Lack of hypervascularity on three phase bone scan : Osteoid osteoma revisited.",
     journal: "World Journal of Nuclear Medicine",
@@ -52,13 +147,7 @@ const publicationsData = [
     icon: Bone,
     link: "/pdf/8 Lack of hypervascularity on three phase bone scan  Osteoid osteoma revisited.pdf"
   },
-  {
-    title: "Bone scintiscanning in Orthopedics",
-    journal: "Journal of Maharashtra Orthopaedic Association",
-    details: "Volume 7:Issue 2 2009",
-    icon: Bone,
-    link: "/pdf/9 Bone scintiscanning in Orthopedics.pdf"
-  },
+ 
   {
     title: "Bone Scintiscanning in Osteolytic Lesions",
     journal: "Clinical Nuclear Medicine",
@@ -66,51 +155,18 @@ const publicationsData = [
     icon: Bone,
     link: "/pdf/11 Bone Scintiscanning in Osteolytic Lesions.pdf"
   },
-  {
-    title: "Mycotic pseudoaneurysm mimicking carotid body tumor",
-    journal: "International Journal of Otorhinolaryngology and Head and Neck Surgery",
-    details: "Vol 4:Issue 4, July-August 2018",
-    icon: Activity,
-    link: "/pdf/Mycotic pseudoaneurysm mimicking carotid body tumor.pdf"
-  },
-  {
-    title: "Correlative Imaging in Skeletal Tuberculosis with Special emphasis on Radionuclide Bone Scintigraphy: A Pictorial Essay",
-    journal: "World Journal of Nuclear Medicine",
-    details: "Volume 6, Number 1,January 2007",
-    icon: Microscope,
-    link: "/pdf/5 Correlative Imaging in Skeletal Tuberculosis with Special emphasis on Radionuclide Bone Scintigraphy A Pictorial Essay.pdf"
-  },
-  {
-    title: "False-positive FDG PET CT Scan in Vertebral Hemangioma",
-    journal: "Asia Ocean J Nucl Med Biol",
-    details: "2019; 7(1)",
-    icon: ScanSearch,
-    link: "/pdf/15 False-positive FDG PET CT Scan in Vertebral Hemangioma.pdf"
-  },
+  
+ 
+ 
   {
     title: "Scintigraphy in Functional Neuroendocrine Tumors with Review of Literature",
     journal: "J Neuroendocrinol Res, an open access journal",
     details: "Volume 1 • Issue 1 • 1000102",
     icon: Dna
   },
-  {
-    title: "Radionuclide Liver-Spleen Scan to Detect Splenosis",
-    journal: "Indian Journal of Surgery",
-    details: "Received: 30 January 2019 /Accepted: 20 June 2019",
-    icon: FlaskConical
-  },
-  {
-    title: "Pericardial sarcoidosis presenting as PUO diagnosed on FDG PET CT scan",
-    journal: "Asia Ocean J Nucl Med Biol",
-    details: "2020; 8(1) 2019; 7(1)",
-    icon: HeartPulse
-  },
-  {
-    title: "Localization of acute pyelonephritis in pyrexia of unknown origin using FDG PET/CT",
-    journal: "Nucl Med Biol",
-    details: "2020; 8(1)79-83. doi: 10.22038/aojnmb.2019.14242",
-    icon: Droplets
-  }
+  
+ 
+ 
 ];
 
 export default function PublicationsPage() {
