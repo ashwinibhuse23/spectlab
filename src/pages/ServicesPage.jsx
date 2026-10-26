@@ -60,7 +60,7 @@ const nuclearServices = [
   {
     title: 'MUGA SCAN',
     description: 'Evaluation of heart function and ejection fraction.',
-    image: '/services/MUGA SCAN_result.jpg',
+    image: '/services/MUGA SCAN_result.png',
     link: '/services/scans#muga-scan',
   },
   {
