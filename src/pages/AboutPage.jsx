@@ -40,9 +40,8 @@ export default function AboutPage() {
         subtitle="Caring for You Starts with Who We Are"
         description={
           <>
-            Delivering Excellence in Nuclear Medicine, PET-CT
-            <br />
-            and SPECT-CT Imaging Since 2001
+            25 Years of Services
+            with Care, Compassion and Conviction
           </>
         }
         image="/Images/aboutHero.png"
@@ -238,8 +237,8 @@ export default function AboutPage() {
       })()}
 
 
-     
-    
+
+
 
       {/* ── Dr. Shrikant V. Solav – About Section ── */}
       <section className="pt-7 sm:pt-8 lg:pt-10 pb-4 sm:pb-5 lg:pb-6 bg-white overflow-hidden">
@@ -277,14 +276,14 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative w-full lg:w-[48%] shrink-0 flex justify-center lg:justify-start lg:mt-9 sm:mt-5"
             >
-              <a 
+              <a
                 href="https://www.youtube.com/watch?v=S1kDCbwG36s"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block relative rounded-[1.5rem] overflow-hidden w-full max-w-[560px] shadow-[0_20px_50px_-20px_rgba(14,26,107,0.22)] border-[1.5px] border-[#0e1a6b]/10 group transition-transform duration-300 hover:scale-[1.02]"
               >
-                <img 
-                  src={process.env.PUBLIC_URL + '/aboutthumbnail.png'} 
+                <img
+                  src={process.env.PUBLIC_URL + '/aboutthumbnail.png'}
                   alt="About SPECT LAB"
                   className="w-full h-auto object-cover"
                 />
@@ -306,7 +305,7 @@ export default function AboutPage() {
                 Guided by Expertise, Driven by Care
               </h3>
 
-            
+
 
               {/* Sub-headline */}
               <p className="text-[#3b7a24] font-semibold text-[13.5px] sm:text-[14.5px] leading-snug mb-2">
@@ -475,7 +474,7 @@ export default function AboutPage() {
                     Kiran Ayre
                   </h3>
                   <p className="text-[#3b7a24] font-semibold text-[12px] leading-snug mb-3">
-                    Strategic Business Leader &amp; Sales Expert<br />23+ Years of Industry Experience
+                   CEO, Strategic Business Leader<br />25+ Years of Industry Experience
                   </p>
                   <div className="flex items-center gap-2 mb-3 pb-3 border-b border-[#0e1a6b]/08">
                     <div className="w-7 h-7 rounded-lg bg-[#f3f4fb] flex items-center justify-center shrink-0">
@@ -545,7 +544,7 @@ export default function AboutPage() {
                 <ul className="space-y-1.5">
                   {[
                     '17+ Years of Experience in Radiology',
-                    '8+ Years in PET-CT & PET-MRI Imaging',
+                    '10+ Years in PET-CT & PET-MRI Imaging',
                     'Expert in Hybrid Imaging, CT, MRI & Ultrasound',
                     'Author of 19+ Publications & Textbook Contributor',
                     'Member of National & International Radiology Societies',
@@ -721,7 +720,7 @@ export default function AboutPage() {
           >
             {[
               { icon: Microscope, title: 'Advanced Imaging', desc: 'Utilizing modern PET-CT and SPECT-CT systems for accurate diagnostic results.' },
-              { icon: Users, title: 'Expert Team', desc: 'Experienced nuclear medicine physicians and technologists dedicated to clinical excellence.' },
+              { icon: Users, title: 'Expert Team', desc: 'Experienced nuclear medicine physicians and technologists dedicated to clinical excellence. Reviews of each scan by our expert team and doctors.' },
               { icon: Heart, title: 'Patient-Centered', desc: 'Ensuring comfort, safety, and personalized attention throughout every diagnostic process.' },
               { icon: ShieldCheck, title: 'Trusted Excellence', desc: 'Providing dependable imaging services that support early disease detection and treatment.' }
             ].map((item, idx) => (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, ArrowRight, Award } from 'lucide-react';
+import { X } from 'lucide-react';
 
 export default function AnniversaryModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +10,7 @@ export default function AnniversaryModal() {
     // Show popup whenever the website is opened or refreshed
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, 600);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -32,8 +32,8 @@ export default function AnniversaryModal() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 md:p-6 overflow-y-auto">
-          {/* Backdrop with Frosted Deep Blur */}
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          {/* Backdrop with Frosted Deep Navy Blur */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -43,130 +43,81 @@ export default function AnniversaryModal() {
             className="fixed inset-0 bg-[#070e3d]/75 backdrop-blur-md"
           />
 
-          {/* Modal Container: Horizontal Landscape Orientation */}
+          {/* Modal Container: Compact, Elegant Warm Champagne Silk Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 25 }}
+            initial={{ opacity: 0, scale: 0.92, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 15 }}
+            exit={{ opacity: 0, scale: 0.94, y: 10 }}
             transition={{ type: 'spring', damping: 28, stiffness: 320 }}
-            className="relative w-full max-w-xl md:max-w-4xl lg:max-w-[940px] bg-white rounded-[28px] sm:rounded-[36px] shadow-2xl border border-emerald-500/20 overflow-hidden z-10 my-auto"
+            className="relative w-full max-w-lg md:max-w-xl lg:max-w-[660px] bg-[#fdfbf7] rounded-[24px] sm:rounded-[30px] shadow-2xl shadow-amber-950/25 border border-[#e8d7bb] overflow-hidden z-10 my-auto"
           >
-            {/* Top Close Button */}
-            <button
-              onClick={handleClose}
-              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-[#3b7a24] hover:text-white text-navy/70 flex items-center justify-center transition-all duration-200 z-30 shadow-md border border-slate-200/80 active:scale-95 cursor-pointer"
-              aria-label="Close celebration modal"
-            >
-              <X className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
+            {/* Ambient Golden Shimmer Background Glows */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-gradient-to-br from-amber-100/50 via-amber-50/20 to-transparent rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-gradient-to-tr from-amber-100/40 via-amber-50/15 to-transparent rounded-full blur-2xl pointer-events-none" />
 
-            {/* Main Horizontal Two-Column Layout */}
-            <div className="flex flex-col md:flex-row items-stretch">
-
-              {/* Left Column: PET-CT Scan Machine Showcase */}
-              <div className="relative w-full md:w-[44%] min-h-[240px] sm:min-h-[280px] md:min-h-[420px] overflow-hidden bg-slate-900 flex flex-col justify-between">
-                {/* PET-CT Machine Background Image */}
+            {/* Top Header: SPECT LAB Logo & Compact Close Button */}
+            <div className="relative z-20 flex items-center justify-between gap-3 px-5 sm:px-6 pt-3.5 sm:pt-4">
+              {/* Brand Logo & NABH Accredited Badge */}
+              <div className="flex items-center gap-2 sm:gap-2.5">
                 <img
-                  src="/petctscan.png"
-                  alt="Advanced PET-CT Scanner at SPECT LAB"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  src="/Spectlab-1.svg"
+                  alt="Dr. Solav's SPECT LAB Nuclear Medicine Services"
+                  className="h-9.5 sm:h-10.5 md:h-11 w-auto object-contain"
                 />
-
-                {/* Gentle ambient gradient overlay for sleek contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-transparent to-black/20 pointer-events-none" />
-
-                {/* Bottom Scanner Caption Tag */}
-                <div className="relative z-10 mt-auto p-4 sm:p-5 bg-gradient-to-t from-navy/95 via-navy/70 to-transparent">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#3b7a24]/90 text-white text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider mb-1 shadow-xs">
-                    Advanced Diagnostics
-                  </span>
-                  <p className="text-white text-xs sm:text-[13px] font-display font-bold leading-tight">
-                    State-of-the-Art PET-CT & SPECT-CT Suite
-                  </p>
-                  <p className="text-white/75 text-[10.5px] sm:text-[11px] font-medium tracking-wide mt-0.5">
-                    Pioneering precision molecular imaging in Pune
-                  </p>
+                <div className="h-6 sm:h-7 w-px bg-slate-300/70 shrink-0 mx-0.5" />
+                <div className="flex items-center gap-1.5 bg-white border border-slate-200/90 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-2xs shrink-0">
+                  <img
+                    src="/nabh.png"
+                    alt="NABH Accredited"
+                    className="h-5 w-5 sm:h-5.5 sm:w-5.5 object-contain shrink-0"
+                  />
+                  <div className="flex flex-col text-left leading-none pr-0.5">
+                    <span className="text-[9px] sm:text-[10px] font-extrabold tracking-wider text-navy uppercase">NABH</span>
+                    <span className="text-[7.5px] sm:text-[8.5px] text-[#3b7a24] font-bold tracking-wide uppercase mt-0.5">Accredited</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Right Column: Brand Header, 25-Year Medallion, Story & Action */}
-              <div className="w-full md:w-[56%] p-6 sm:p-7 lg:p-8 flex flex-col justify-between text-left relative bg-white">
-                <div>
-                  {/* Brand Header: Logo & Single-Line NABH Tag */}
-                  <div className="flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">
-                    <img
-                      src="/Spectlab-1.svg"
-                      alt="SPECT LAB"
-                      className="h-8 sm:h-8.5 w-auto object-contain"
-                    />
-                    <div className="h-5 w-px bg-slate-200" />
-                    <div className="flex items-center gap-1.5 bg-white border border-slate-200/90 px-2.5 sm:px-3 py-1 rounded-full shadow-2xs">
-                      <img
-                        src="/nabh.png"
-                        alt="NABH Accredited"
-                        className="h-5 w-5 sm:h-5.5 sm:w-5.5 object-contain shrink-0"
-                      />
-                      <span className="text-[10px] sm:text-[11px] font-extrabold tracking-wider text-navy uppercase whitespace-nowrap">
-                        NABH <span className="text-[#3b7a24]">Accredited</span>
-                      </span>
-                    </div>
-                  </div>
+              {/* Close Button */}
+              <button
+                onClick={handleClose}
+                className="w-7.5 h-7.5 sm:w-8 sm:h-8 rounded-full bg-white/90 hover:bg-white text-navy/70 hover:text-navy border border-slate-200/80 shadow-xs flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 shrink-0"
+                aria-label="Close on modal"
+              >
+                <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              </button>
+            </div>
 
-                  {/* Compact 25-Year Silver Jubilee Badge */}
-                  <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#f4fbf1] via-white to-[#f4fbf1] border border-emerald-500/25 shadow-2xs mb-3.5">
-                    {/* Small 25 Yrs Medallion */}
-                    <div className="relative w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full bg-gradient-to-br from-[#3b7a24] via-[#2f661c] to-[#1c4710] text-white flex flex-col items-center justify-center shrink-0 shadow-xs border border-emerald-300/40">
-                      <span className="font-display font-black text-xs leading-none">25</span>
-                      <span className="text-[6px] font-bold uppercase tracking-tight text-emerald-200 -mt-0.5">Yrs</span>
-                      <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-amber-400 border border-white flex items-center justify-center">
-                        <Sparkles className="w-1.5 h-1.5 text-white" />
-                      </span>
-                    </div>
+            {/* Center Visual: Complete 3D Golden Circle & Flowing Silk Ribbons */}
+            <div className="relative z-10 w-full flex justify-center -mt-1 sm:-mt-2">
+              <img
+                src="/anniversary-ribbon-seamless.png"
+                alt="25 Years of Services "
+                className="w-full max-h-[175px] sm:max-h-[200px] md:max-h-[220px] object-contain select-none pointer-events-none"
+              />
+            </div>
 
-                    {/* Milestone Titles */}
-                    <div className="flex flex-col text-left leading-tight pr-1">
-                      <div className="flex items-center gap-1 text-[9.5px] sm:text-[10px] font-extrabold text-[#3b7a24] uppercase tracking-wider">
-                        <Award className="w-3 h-3 text-[#3b7a24]" />
-                        <span>2001 – 2026 • Silver Jubilee</span>
-                      </div>
-                      <span className="text-[11px] sm:text-[11.5px] font-bold text-navy">
-                        A Quarter-Century of Clinical Trust
-                      </span>
-                    </div>
-                  </div>
+            {/* Headline & Subtitle Typography */}
+            <div className="relative z-20 text-center px-4 sm:px-6 mt-1.5 sm:mt-2.5">
+              <h2 className="font-['Minion_Pro',_Georgia,_'Times_New_Roman',_serif] italic font-bold text-xl sm:text-2xl md:text-[24px] lg:text-[26px] text-[#005932] tracking-tight leading-snug">
+                25 Years of Services
+                <br />
+                with Care, Compassion and Conviction
+              </h2>
+            </div>
 
-                  {/* Headline */}
-                  <h2 className="font-display font-extrabold text-xl sm:text-2xl text-navy tracking-tight leading-snug mb-2.5">
-                    Celebrating <span className="text-[#3b7a24]">25 Glorious Years</span> of Healing & Precision
-                  </h2>
-
-                  {/* Subtitle / Story */}
-                  <p className="text-navy/70 text-xs sm:text-[12.5px] leading-relaxed mb-5 font-normal">
-                    Founded in 2001 by <strong className="text-navy font-semibold">Dr. Shrikant Solav</strong>, SPECT LAB introduced the <strong className="text-navy font-semibold">1st PET-CT facility in Pune</strong> and has dedicated 25 years to advancing nuclear medicine, diagnostic precision, and compassionate patient care.
-                  </p>
-                </div>
-
-                {/* Primary & Secondary Action Buttons */}
-                <div className="pt-1 flex flex-col sm:flex-row items-center gap-3">
-                  <button
-                    onClick={handleClose}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-[#3b7a24] via-[#32691e] to-[#255417] text-white font-display font-bold text-[11px] sm:text-xs uppercase tracking-wider py-2 sm:py-2.5 px-4.5 sm:px-5 rounded-full hover:from-[#255417] hover:to-[#3b7a24] transition-all duration-300 shadow-sm shadow-[#3b7a24]/20 hover:scale-[1.01] active:scale-95 cursor-pointer"
-                  >
-                    <span>Continue to Website</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-
-                  <Link
-                    to="/about"
-                    onClick={handleClose}
-                    className="w-full sm:w-auto inline-flex items-center justify-center text-[11px] sm:text-xs text-[#3b7a24] hover:text-navy font-display font-bold uppercase tracking-wider transition-colors py-2 px-3 group"
-                  >
-                    <span>Read Our Story</span>
-                    <span className="transition-transform group-hover:translate-x-1">→</span>
-                  </Link>
-                </div>
-              </div>
-
+            {/* Bottom Action Row: Compact Read Our Story Link & Continue to Website Button */}
+            <div className="relative z-20 flex flex-col-reverse sm:flex-row items-center justify-between gap-3 sm:gap-4 px-5 sm:px-7 pb-4 sm:pb-5 pt-2.5 sm:pt-3">
+              {/* Read Our Story Link */}
+            
+              {/* Continue to Website Golden Pill Button */}
+              <button
+                onClick={handleClose}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-1 bg-gradient-to-r from-[#b37a1f] via-[#c68e2b] to-[#a36d19] text-white font-display font-bold text-[10px] sm:text-[11px] uppercase tracking-wider py-1 sm:py-1.5 px-3.5 sm:px-4 rounded-full hover:from-[#a36d19] hover:to-[#b37a1f] transition-all duration-300 shadow-sm shadow-amber-900/20 hover:scale-[1.02] active:scale-95 cursor-pointer"
+              >
+                <span>CONTINUE TO WEBSITE</span>
+                <span className="text-[11px] leading-none">→</span>
+              </button>
             </div>
           </motion.div>
         </div>
