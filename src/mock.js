@@ -84,10 +84,13 @@ export const therapyServicesList = [
 
 export const bookingTestsList = [
   'THYROID SCAN',
-  'RADIO-IODINE ABLATION 10 mci',
-  'RADIO-IODINE ABLATION 15 mci',
-  'RADIO-IODINE ABLATION 100 mci',
+  'RADIO-IODINE ABLATION 08 mCi',
+  'RADIO-IODINE ABLATION 10 mCi',
+  'RADIO-IODINE ABLATION 12 mCi',
+  'RADIO-IODINE ABLATION 100 mCi',
   'THALLIUM SCAN',
+  'CAPTOPRIL RENAL SCAN',
+  'BASELINE RENAL SCAN',
   'CAPTOPRIL RENAL SCAN and baseline',
   'DTPA RENAL SCAN',
   'EC RENAL SCAN',
@@ -100,7 +103,8 @@ export const bookingTestsList = [
   'HEPATOBILLARY SCAN (HIDA)',
   "MECKEL'S SCAN",
   'GI BLEED SCAN / RBC SCAN',
-  'BRAIN SPECT (EPILEPSY / ALZEIMERS)',
+  'MIBG (conditions apply)',
+  'BRAIN SPECT',
   'GASTRIC EMPTING',
   'G.E. REFLUX / MILK SCAN',
   'TESTICULAR SCAN FOR TORSION',
@@ -111,12 +115,17 @@ export const bookingTestsList = [
   'LYMPHOSCINTIGRAPHY',
   'DACROSCINTIGRAPHY',
   'Colonic Transit Time',
-  'FAPI PET Scan',
   'FDG Whole Body Pet',
   'Cardiac Pet',
   'Neurology Brain Pet',
   'GA 68 Dota Scan (By Appointment)',
-  'GA 68 PSMA Scan'
+  'GA 68 PSMA Scan',
+  'Anesthesiologist',
+  'FAPI PET Scan',
+  'FLUORODOPA',
+  'PENTIXAFOR PET SCAN',
+  'TRIVEHXEXIN',
+  'EXENDIN'
 ];
 
 export const services = bookingTestsList.map(name => ({

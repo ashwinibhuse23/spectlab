@@ -8,80 +8,190 @@ import {
 import { sendAppointmentEmail } from '../lib/api';
 import { services, petServicesList, nuclearServicesList, therapyServicesList, bookingTestsList } from '../mock';
 
-// Auto-timing per test — displayed automatically when test is selected
+// Auto-timing per test — displayed automatically when test is selected (from official schedule)
 const testTimings = {
-  'THYROID SCAN': '10:00 AM – 03:00 PM',
-  'RADIO-IODINE ABLATION 10 mci': '10:00 AM – 03:00 PM',
-  'RADIO-IODINE ABLATION 15 mci': '10:00 AM – 03:00 PM',
-  'RADIO-IODINE ABLATION 100 mci': 'Admission for 1–3 days',
-  'THALLIUM SCAN': '11:00 AM – 05:00 PM',
-  'CAPTOPRIL RENAL SCAN and baseline': '08:00 AM – 12:00 PM',
-  'DTPA RENAL SCAN': '09:00 AM – 02:00 PM',
-  'EC RENAL SCAN': '09:00 AM – 02:00 PM',
-  'DMSA RENAL': '09:00 AM – 02:00 PM',
-  'VUR STUDY / MCU': '09:00 AM – 02:00 PM',
-  'BONE SCAN': '09:00 AM – 01:00 PM',
-  'LUNG PERFUSION SCAN': '10:00 AM – 04:00 PM',
-  'LUNG VENTILATION SCAN': '10:00 AM – 04:00 PM',
-  'LIVER COLLOID SCAN': '10:00 AM – 03:00 PM',
-  'HEPATOBILLARY SCAN (HIDA)': '10:00 AM – 03:00 PM',
-  "MECKEL'S SCAN": '09:00 AM – 01:00 PM',
-  'GI BLEED SCAN / RBC SCAN': '09:00 AM – 03:00 PM',
-  'BRAIN SPECT (EPILEPSY / ALZEIMERS)': '10:00 AM – 04:00 PM',
-  'GASTRIC EMPTING': '09:00 AM – 01:00 PM',
-  'G.E. REFLUX / MILK SCAN': '09:00 AM – 01:00 PM',
-  'TESTICULAR SCAN FOR TORSION': '10:00 AM – 04:00 PM',
-  'MUGA': '10:00 AM – 04:00 PM',
-  'PARATHYROID SCAN': '10:00 AM – 03:00 PM',
-  'IODINE SCAN': '10:00 AM – 03:00 PM',
-  'PHARMACOLOGICAL STRESS THALLIUM': '11:00 AM – 05:00 PM',
-  'LYMPHOSCINTIGRAPHY': '10:00 AM – 04:00 PM',
-  'DACROSCINTIGRAPHY': '10:00 AM – 04:00 PM',
-  'Colonic Transit Time': '09:00 AM – 01:00 PM',
-  'FAPI PET Scan': '07:00 AM – 07:00 PM',
-  'FDG Whole Body Pet': '07:00 AM – 07:00 PM',
-  'Cardiac Pet': '07:00 AM – 07:00 PM',
-  'Neurology Brain Pet': '07:00 AM – 07:00 PM',
-  'GA 68 Dota Scan (By Appointment)': '07:00 AM – 07:00 PM',
-  'GA 68 PSMA Scan': '07:00 AM – 07:00 PM',
+  // #1 THYROID SCAN
+  'THYROID SCAN': '2 Hrs',
+  'Thyroid Scan': '2 Hrs',
 
-  // PET Scans (07:00 AM – 07:00 PM)
-  'PET-CT IMAGING (FDG)': '07:00 AM – 07:00 PM',
-  'PET-CT Imaging Procedure (FDG)': '07:00 AM – 07:00 PM',
-  'Gallium-68 PSMA Scan': '07:00 AM – 07:00 PM',
-  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': '07:00 AM – 07:00 PM',
-  'F-18 FDG PET CT Scan': '07:00 AM – 07:00 PM',
-  'Ga68 PSMA PET CT Scan': '07:00 AM – 07:00 PM',
-  'Ga68 DOTA PET CT Scan': '07:00 AM – 07:00 PM',
-  'Cardiac PET Scan': '07:00 AM – 07:00 PM',
-  'FAPI PET CT Scan': '07:00 AM – 07:00 PM',
-  'F-18 FDOPA PET CT Scan': '07:00 AM – 07:00 PM',
-  'Trivehexin PET CT Scan': '07:00 AM – 07:00 PM',
-  'Exendine PET CT Scan': '07:00 AM – 07:00 PM',
-  'Exendin PET CT Scan': '07:00 AM – 07:00 PM',
-  'Fusion- PET MRI': '07:00 AM – 07:00 PM',
-  'Fusion PET MRI': '07:00 AM – 07:00 PM',
+  // #2 RADIO-IODINE ABLATION 08 mCi
+  'RADIO-IODINE ABLATION 08 mCi': '1 day',
+  'RADIO-IODINE ABLATION 08 mci': '1 day',
 
-  // Nuclear Medicine & Other Scans
-  'THALLIUM SCAN': '11:00 AM – 05:00 PM',
-  'Thallium Scan': '11:00 AM – 05:00 PM',
-  'BONE SCAN': '09:00 AM – 01:00 PM',
-  'Bone Scan': '09:00 AM – 01:00 PM',
-  'DTPA / EC (MAG-3) RENOGRAM SCAN': '09:00 AM – 02:00 PM',
-  'DTPA Renal Scan': '09:00 AM – 02:00 PM',
-  'DMSA RENAL SCAN (CORTICAL FUNCTION)': '09:00 AM – 02:00 PM',
-  'THYROID SCAN': '10:00 AM – 03:00 PM',
-  'Thyroid Scan': '10:00 AM – 03:00 PM',
-  'POST CAPTOPRIL RENOGRAM': '08:00 AM – 12:00 PM',
-  'Captopril Renal Scan': '08:00 AM – 12:00 PM',
-  'COLLOID LIVER SCAN': '10:00 AM – 03:00 PM',
-  'Colloid Liver Scan': '10:00 AM – 03:00 PM',
-  'MILK SCAN (GE REFLUX)': '09:00 AM – 01:00 PM',
-  'Milk Scan (GE Reflux)': '09:00 AM – 01:00 PM',
-  'MUGA SCAN': '10:00 AM – 04:00 PM',
-  'MUGA Scan': '10:00 AM – 04:00 PM',
-  'PARATHYROID SCAN': '10:00 AM – 03:00 PM',
-  'MIBG SCAN': '10:00 AM – 04:00 PM',
+  // #3 RADIO-IODINE ABLATION 10 mCi
+  'RADIO-IODINE ABLATION 10 mCi': '1 day',
+  'RADIO-IODINE ABLATION 10 mci': '1 day',
+
+  // #4 RADIO-IODINE ABLATION 12 mCi
+  'RADIO-IODINE ABLATION 12 mCi': '1 day',
+  'RADIO-IODINE ABLATION 12 mci': '1 day',
+  'RADIO-IODINE ABLATION 15 mci': '1 day',
+
+  // #5 RADIO-IODINE ABLATION 100 mCi
+  'RADIO-IODINE ABLATION 100 mCi': '2 days',
+  'RADIO-IODINE ABLATION 100 mci': '2 days',
+
+  // #6 THALLIUM SCAN
+  'THALLIUM SCAN': '4–5 Hrs',
+  'Thallium Scan': '4–5 Hrs',
+
+  // #7 CAPTOPRIL RENAL SCAN
+  'CAPTOPRIL RENAL SCAN': '3 Hrs',
+  'Captopril Renal Scan': '3 Hrs',
+
+  // #9 baseline
+  'baseline': '2–3 Hrs',
+  'BASELINE RENAL SCAN': '2–3 Hrs',
+  'CAPTOPRIL RENAL SCAN and baseline': '3 Hrs',
+
+  // #10 DTPA RENAL SCAN
+  'DTPA RENAL SCAN': '3 Hrs',
+  'DTPA Renal Scan': '3 Hrs',
+  'DTPA / EC (MAG-3) RENOGRAM SCAN': '3 Hrs',
+
+  // #11 EC RENAL SCAN
+  'EC RENAL SCAN': '3 Hrs',
+  'EC Renal Scan': '3 Hrs',
+
+  // #12 DMSA RENAL
+  'DMSA RENAL': '3 Hrs',
+  'DMSA Renal Scan': '3 Hrs',
+  'DMSA RENAL SCAN (CORTICAL FUNCTION)': '3 Hrs',
+
+  // #13 VUR STUDY / MCU
+  'VUR STUDY / MCU': '2 Hrs',
+
+  // #14 BONE SCAN
+  'BONE SCAN': '5–6 Hrs',
+  'Bone Scan': '5–6 Hrs',
+
+  // #15 LUNG PERFUSION SCAN
+  'LUNG PERFUSION SCAN': '2 Hrs',
+
+  // #16 LUNG VENTILATION SCAN
+  'LUNG VENTILATION SCAN': '2 Hrs',
+
+  // #17 LIVER COLLOID SCAN
+  'LIVER COLLOID SCAN': '1 Hr',
+  'Colloid Liver Scan': '1 Hr',
+  'COLLOID LIVER SCAN': '1 Hr',
+
+  // #18 HEPATOBILLARY SCAN (HIDA)
+  'HEPATOBILLARY SCAN (HIDA)': '2 days',
+  'HIDA Scan': '2 days',
+
+  // #19 MECKEL'S SCAN
+  "MECKEL'S SCAN": '2 Hrs',
+  'Meckels Scan': '2 Hrs',
+
+  // #20 GI BLEED SCAN / RBC SCAN
+  'GI BLEED SCAN / RBC SCAN': '5–6 Hrs',
+  'GI Bleed Scan': '5–6 Hrs',
+
+  // #21 MIBG(conditions apply)
+  'MIBG (conditions apply)': '5–6 days',
+  'MIBG(conditions apply)': '5–6 days',
+  'MIBG SCAN': '5–6 days',
+
+  // #22 BRAIN SPECT
+  'BRAIN SPECT': '5–6 days',
+  'BRAIN SPECT (EPILEPSY / ALZEIMERS)': '5–6 days',
+
+  // #23 GASTRIC EMPTING
+  'GASTRIC EMPTING': '1–2 days',
+  'Gastric Emptying Scan': '1–2 days',
+
+  // #24 G.E. REFLUX / MILK SCAN
+  'G.E. REFLUX / MILK SCAN': '4–5 Hrs',
+  'MILK SCAN (GE REFLUX)': '4–5 Hrs',
+  'Milk Scan (GE Reflux)': '4–5 Hrs',
+
+  // #25 TESTICULAR SCAN FOR TORSION
+  'TESTICULAR SCAN FOR TORSION': '3–4 Hrs',
+
+  // #26 MUGA
+  'MUGA': '3–4 Hrs',
+  'MUGA SCAN': '3–4 Hrs',
+  'MUGA Scan': '3–4 Hrs',
+
+  // #27 PARATHYROID SCAN
+  'PARATHYROID SCAN': '4–5 Hrs',
+  'Parathyroid Scan': '4–5 Hrs',
+
+  // #28 IODINE SCAN
+  'IODINE SCAN': '2 days',
+  'Iodine Scan': '2 days',
+
+  // #29 PHARMACOLOGICAL STRESS THALLIUM
+  'PHARMACOLOGICAL STRESS THALLIUM': '4–5 Hrs',
+
+  // #30 LYMPHOSCINTIGRAPHY
+  'LYMPHOSCINTIGRAPHY': '5 Hrs',
+  'Lymphoscintigraphy': '5 Hrs',
+
+  // #31 DACROSCINTIGRAPHY
+  'DACROSCINTIGRAPHY': '4 Hrs',
+  'Dacroscintigraphy': '4 Hrs',
+
+  // #32 Colonic Transit Time
+  'Colonic Transit Time': '5–6 days',
+  'COLONIC TRANSIT TIME': '5–6 days',
+
+  // #33 FDG Whole Body Pet
+  'FDG Whole Body Pet': '3–4 Hrs',
+  'FDG Whole Body PET': '3–4 Hrs',
+  'PET-CT IMAGING (FDG)': '3–4 Hrs',
+  'PET-CT Imaging Procedure (FDG)': '3–4 Hrs',
+  'F-18 FDG PET CT Scan': '3–4 Hrs',
+
+  // #34 Cardiac Pet
+  'Cardiac Pet': '6–7 Hrs',
+  'Cardiac PET': '6–7 Hrs',
+  'Cardiac PET Scan': '6–7 Hrs',
+
+  // #35 Neurology Brain Pet
+  'Neurology Brain Pet': '3–4 Hrs',
+  'Neurology Brain PET': '3–4 Hrs',
+
+  // #36 GA 68 Dota Scan (By Appointment)
+  'GA 68 Dota Scan (By Appointment)': 'By Appointment (3 Hrs)',
+  'Ga68 DOTA PET CT Scan': 'By Appointment (3 Hrs)',
+  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': 'By Appointment (3 Hrs)',
+
+  // #37 GA 68 PSMA Scan
+  'GA 68 PSMA Scan': 'By Appointment (3 Hrs)',
+  'Ga68 PSMA PET CT Scan': 'By Appointment (3 Hrs)',
+  'Gallium-68 PSMA Scan': 'By Appointment (3 Hrs)',
+
+  // #38 Anesthesiologist
+  'Anesthesiologist': 'By Appointment',
+
+  // #39 fapi
+  'fapi': '3 Hrs',
+  'FAPI': '3 Hrs',
+  'FAPI PET Scan': '3 Hrs',
+  'FAPI PET CT Scan': '3 Hrs',
+
+  // #40 FLUORODOPA
+  'FLUORODOPA': '4–5 Hrs',
+  'F-18 FDOPA PET CT Scan': '4–5 Hrs',
+
+  // #41 PENTIXAFOR PET SCAN
+  'PENTIXAFOR PET SCAN': '2–3 Hrs',
+  'Pentixafor PET Scan': '2–3 Hrs',
+
+  // #42 TRIVEHXEXIN
+  'TRIVEHXEXIN': '2–3 Hrs',
+  'Trivehexin': '2–3 Hrs',
+  'Trivehexin PET CT Scan': '2–3 Hrs',
+
+  // #43 EXENDIN
+  'EXENDIN': '2–3 Hrs',
+  'Exendin': '2–3 Hrs',
+  'Exendine PET CT Scan': '2–3 Hrs',
+  'Exendin PET CT Scan': '2–3 Hrs',
+  'Fusion- PET MRI': '2–3 Hrs',
+  'Fusion PET MRI': '2–3 Hrs',
 };
 
 // Robust timing lookup helper
@@ -94,17 +204,26 @@ const getTestTiming = (testName) => {
     if (key.toUpperCase().trim() === upper) return val;
   }
 
-  if (upper.includes('PET') || upper.includes('FDG') || upper.includes('PSMA') || upper.includes('DOTA') || upper.includes('FAPI') || upper.includes('FDOPA') || upper.includes('EXENDIN') || upper.includes('TRIVEHEXIN') || upper.includes('GALLIUM')) return '07:00 AM – 07:00 PM';
-  if (upper.includes('THALLIUM')) return '11:00 AM – 05:00 PM';
-  if (upper.includes('BONE')) return '09:00 AM – 01:00 PM';
-  if (upper.includes('CAPTOPRIL')) return '08:00 AM – 12:00 PM';
-  if (upper.includes('DTPA') || upper.includes('DMSA') || upper.includes('RENOGRAM') || upper.includes('RENAL')) return '09:00 AM – 02:00 PM';
-  if (upper.includes('THYROID') || upper.includes('PARATHYROID')) return '10:00 AM – 03:00 PM';
-  if (upper.includes('COLLOID') || upper.includes('LIVER')) return '10:00 AM – 03:00 PM';
-  if (upper.includes('MILK') || upper.includes('REFLUX')) return '09:00 AM – 01:00 PM';
-  if (upper.includes('MUGA') || upper.includes('MIBG')) return '10:00 AM – 04:00 PM';
+  if (upper.includes('THYROID')) return '2 Hrs';
+  if (upper.includes('ABLATION 100')) return '2 days';
+  if (upper.includes('ABLATION')) return '1 day';
+  if (upper.includes('THALLIUM')) return '4–5 Hrs';
+  if (upper.includes('BONE')) return '5–6 Hrs';
+  if (upper.includes('CAPTOPRIL')) return '3 Hrs';
+  if (upper.includes('DTPA') || upper.includes('DMSA') || upper.includes('EC RENAL') || upper.includes('RENOGRAM')) return '3 Hrs';
+  if (upper.includes('CARDIAC PET')) return '6–7 Hrs';
+  if (upper.includes('BRAIN PET') || upper.includes('FDG') || upper.includes('WHOLE BODY PET')) return '3–4 Hrs';
+  if (upper.includes('DOTA') || upper.includes('PSMA')) return 'By Appointment (3 Hrs)';
+  if (upper.includes('ANESTHESIOLOGIST')) return 'By Appointment';
+  if (upper.includes('SPECT') || upper.includes('COLONIC') || upper.includes('MIBG')) return '5–6 days';
+  if (upper.includes('GASTRIC') || upper.includes('HIDA') || upper.includes('IODINE')) return '1–2 days';
+  if (upper.includes('MUGA') || upper.includes('TORSION')) return '3–4 Hrs';
+  if (upper.includes('LUNG') || upper.includes('MECKEL') || upper.includes('MCU') || upper.includes('VUR')) return '2 Hrs';
+  if (upper.includes('LIVER')) return '1 Hr';
+  if (upper.includes('PARATHYROID') || upper.includes('MILK') || upper.includes('REFLUX') || upper.includes('FLUORODOPA')) return '4–5 Hrs';
+  if (upper.includes('PET') || upper.includes('FAPI') || upper.includes('EXENDIN') || upper.includes('TRIVEH')) return '2–3 Hrs';
 
-  return '09:00 AM – 05:00 PM';
+  return '2–3 Hrs';
 };
 
 // Preparation instructions per test
@@ -344,40 +463,193 @@ const testInstructionsMr = {
   ],
 };
 
-const defaultPrice = { regular: 15000, extra: 18000, skip: 25000 };
+const defaultPrice = { regular: 6000, extra: 6000, skip: 8500 };
 
 const testPrices = {
-  'PET-CT IMAGING (FDG)': { regular: 14000, extra: 16000, skip: 21000 },
-  'PET-CT Imaging Procedure (FDG)': { regular: 15000, extra: 18000, skip: 25000 },
-  'Gallium-68 PSMA Scan': { regular: 18000, extra: 21000, skip: 28000 },
-  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': { regular: 18000, extra: 21000, skip: 28000 },
-  'F-18 FDG PET CT Scan': { regular: 15000, extra: 18000, skip: 25000 },
-  'Ga68 PSMA PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
-  'Ga68 DOTA PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
-  'Cardiac PET Scan': { regular: 16000, extra: 19000, skip: 26000 },
-  'FAPI PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
-  'F-18 FDOPA PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
-  'Trivehexin PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
-  'Exendine PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
-  'Exendin PET CT Scan': { regular: 18000, extra: 21000, skip: 28000 },
-  'Fusion- PET MRI': { regular: 22000, extra: 25000, skip: 32000 },
-  'Fusion PET MRI': { regular: 22000, extra: 25000, skip: 32000 },
-  'THALLIUM SCAN': { regular: 12000, extra: 15000, skip: 20000 },
-  'Thallium Scan': { regular: 12000, extra: 15000, skip: 20000 },
-  'BONE SCAN': { regular: 5000, extra: 7000, skip: 10000 },
-  'Bone Scan': { regular: 5000, extra: 7000, skip: 10000 },
-  'DTPA / EC (MAG-3) RENOGRAM SCAN': { regular: 8000, extra: 10000, skip: 15000 },
-  'DTPA Renal Scan': { regular: 8000, extra: 10000, skip: 15000 },
-  'THYROID SCAN': { regular: 3000, extra: 4500, skip: 7000 },
-  'Thyroid Scan': { regular: 3000, extra: 4500, skip: 7000 },
-  'POST CAPTOPRIL RENOGRAM': { regular: 9000, extra: 11000, skip: 16000 },
-  'Captopril Renal Scan': { regular: 9000, extra: 11000, skip: 16000 },
-  'COLLOID LIVER SCAN': { regular: 7500, extra: 9500, skip: 13000 },
-  'Colloid Liver Scan': { regular: 7500, extra: 9500, skip: 13000 },
-  'MILK SCAN (GE REFLUX)': { regular: 6000, extra: 8000, skip: 12000 },
-  'Milk Scan (GE Reflux)': { regular: 6000, extra: 8000, skip: 12000 },
-  'MUGA SCAN': { regular: 10000, extra: 12500, skip: 18000 },
-  'MUGA Scan': { regular: 10000, extra: 12500, skip: 18000 },
+  // #1 THYROID SCAN: 6,500
+  'THYROID SCAN': { regular: 6500, extra: 6500, skip: 9000 },
+  'Thyroid Scan': { regular: 6500, extra: 6500, skip: 9000 },
+
+  // #2 RADIO-IODINE ABLATION 08 mCi: 8,000
+  'RADIO-IODINE ABLATION 08 mCi': { regular: 8000, extra: 8000, skip: 11000 },
+  'RADIO-IODINE ABLATION 08 mci': { regular: 8000, extra: 8000, skip: 11000 },
+
+  // #3 RADIO-IODINE ABLATION 10 mCi: 10,000
+  'RADIO-IODINE ABLATION 10 mCi': { regular: 10000, extra: 10000, skip: 14000 },
+  'RADIO-IODINE ABLATION 10 mci': { regular: 10000, extra: 10000, skip: 14000 },
+
+  // #4 RADIO-IODINE ABLATION 12 mCi: 12,000
+  'RADIO-IODINE ABLATION 12 mCi': { regular: 12000, extra: 12000, skip: 16000 },
+  'RADIO-IODINE ABLATION 12 mci': { regular: 12000, extra: 12000, skip: 16000 },
+  'RADIO-IODINE ABLATION 15 mci': { regular: 12000, extra: 12000, skip: 16000 },
+
+  // #5 RADIO-IODINE ABLATION 100 mCi: 55,000
+  'RADIO-IODINE ABLATION 100 mCi': { regular: 55000, extra: 55000, skip: 65000 },
+  'RADIO-IODINE ABLATION 100 mci': { regular: 55000, extra: 55000, skip: 65000 },
+
+  // #6 THALLIUM SCAN: 14,000
+  'THALLIUM SCAN': { regular: 14000, extra: 14000, skip: 19000 },
+  'Thallium Scan': { regular: 14000, extra: 14000, skip: 19000 },
+
+  // #7 CAPTOPRIL RENAL SCAN: 5,500
+  'CAPTOPRIL RENAL SCAN': { regular: 5500, extra: 5500, skip: 7500 },
+  'Captopril Renal Scan': { regular: 5500, extra: 5500, skip: 7500 },
+
+  // #9 baseline: 5,500
+  'baseline': { regular: 5500, extra: 5500, skip: 7500 },
+  'BASELINE RENAL SCAN': { regular: 5500, extra: 5500, skip: 7500 },
+  'CAPTOPRIL RENAL SCAN and baseline': { regular: 11000, extra: 11000, skip: 15000 },
+
+  // #10 DTPA RENAL SCAN: 6,000
+  'DTPA RENAL SCAN': { regular: 6000, extra: 6000, skip: 8500 },
+  'DTPA Renal Scan': { regular: 6000, extra: 6000, skip: 8500 },
+  'DTPA / EC (MAG-3) RENOGRAM SCAN': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #11 EC RENAL SCAN: 6,000
+  'EC RENAL SCAN': { regular: 6000, extra: 6000, skip: 8500 },
+  'EC Renal Scan': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #12 DMSA RENAL: 6,000
+  'DMSA RENAL': { regular: 6000, extra: 6000, skip: 8500 },
+  'DMSA Renal Scan': { regular: 6000, extra: 6000, skip: 8500 },
+  'DMSA RENAL SCAN (CORTICAL FUNCTION)': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #13 VUR STUDY / MCU: 6,000
+  'VUR STUDY / MCU': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #14 BONE SCAN: 7,000
+  'BONE SCAN': { regular: 7000, extra: 7000, skip: 9500 },
+  'Bone Scan': { regular: 7000, extra: 7000, skip: 9500 },
+
+  // #15 LUNG PERFUSION SCAN: 4,000
+  'LUNG PERFUSION SCAN': { regular: 4000, extra: 4000, skip: 5500 },
+
+  // #16 LUNG VENTILATION SCAN: 4,000
+  'LUNG VENTILATION SCAN': { regular: 4000, extra: 4000, skip: 5500 },
+
+  // #17 LIVER COLLOID SCAN: 6,000
+  'LIVER COLLOID SCAN': { regular: 6000, extra: 6000, skip: 8500 },
+  'Colloid Liver Scan': { regular: 6000, extra: 6000, skip: 8500 },
+  'COLLOID LIVER SCAN': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #18 HEPATOBILLARY SCAN (HIDA): 6,000
+  'HEPATOBILLARY SCAN (HIDA)': { regular: 6000, extra: 6000, skip: 8500 },
+  'HIDA Scan': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #19 MECKEL'S SCAN: 6,000
+  "MECKEL'S SCAN": { regular: 6000, extra: 6000, skip: 8500 },
+  'Meckels Scan': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #20 GI BLEED SCAN / RBC SCAN: 10,000
+  'GI BLEED SCAN / RBC SCAN': { regular: 10000, extra: 10000, skip: 14000 },
+  'GI Bleed Scan': { regular: 10000, extra: 10000, skip: 14000 },
+
+  // #21 MIBG(conditions apply): 25,000
+  'MIBG (conditions apply)': { regular: 25000, extra: 25000, skip: 30000 },
+  'MIBG(conditions apply)': { regular: 25000, extra: 25000, skip: 30000 },
+  'MIBG SCAN': { regular: 25000, extra: 25000, skip: 30000 },
+
+  // #22 BRAIN SPECT: 5,000
+  'BRAIN SPECT': { regular: 5000, extra: 5000, skip: 7000 },
+  'BRAIN SPECT (EPILEPSY / ALZEIMERS)': { regular: 5000, extra: 5000, skip: 7000 },
+
+  // #23 GASTRIC EMPTING: 6,000
+  'GASTRIC EMPTING': { regular: 6000, extra: 6000, skip: 8500 },
+  'Gastric Emptying Scan': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #24 G.E. REFLUX / MILK SCAN: 6,000
+  'G.E. REFLUX / MILK SCAN': { regular: 6000, extra: 6000, skip: 8500 },
+  'MILK SCAN (GE REFLUX)': { regular: 6000, extra: 6000, skip: 8500 },
+  'Milk Scan (GE Reflux)': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #25 TESTICULAR SCAN FOR TORSION: 6,000
+  'TESTICULAR SCAN FOR TORSION': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #26 MUGA: 6,000
+  'MUGA': { regular: 6000, extra: 6000, skip: 8500 },
+  'MUGA SCAN': { regular: 6000, extra: 6000, skip: 8500 },
+  'MUGA Scan': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #27 PARATHYROID SCAN: 10,000
+  'PARATHYROID SCAN': { regular: 10000, extra: 10000, skip: 14000 },
+  'Parathyroid Scan': { regular: 10000, extra: 10000, skip: 14000 },
+
+  // #28 IODINE SCAN: 7,000
+  'IODINE SCAN': { regular: 7000, extra: 7000, skip: 9500 },
+  'Iodine Scan': { regular: 7000, extra: 7000, skip: 9500 },
+
+  // #29 PHARMACOLOGICAL STRESS THALLIUM: 15,000
+  'PHARMACOLOGICAL STRESS THALLIUM': { regular: 15000, extra: 15000, skip: 20000 },
+
+  // #30 LYMPHOSCINTIGRAPHY: 10,000
+  'LYMPHOSCINTIGRAPHY': { regular: 10000, extra: 10000, skip: 14000 },
+  'Lymphoscintigraphy': { regular: 10000, extra: 10000, skip: 14000 },
+
+  // #31 DACROSCINTIGRAPHY: 6,000
+  'DACROSCINTIGRAPHY': { regular: 6000, extra: 6000, skip: 8500 },
+  'Dacroscintigraphy': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #32 Colonic Transit Time: 10,000
+  'Colonic Transit Time': { regular: 10000, extra: 10000, skip: 14000 },
+  'COLONIC TRANSIT TIME': { regular: 10000, extra: 10000, skip: 14000 },
+
+  // #33 FDG Whole Body Pet: 16000 - 21000
+  'FDG Whole Body Pet': { regular: 16000, extra: 16000, skip: 21000 },
+  'FDG Whole Body PET': { regular: 16000, extra: 16000, skip: 21000 },
+  'PET-CT IMAGING (FDG)': { regular: 16000, extra: 16000, skip: 21000 },
+  'PET-CT Imaging Procedure (FDG)': { regular: 16000, extra: 16000, skip: 21000 },
+  'F-18 FDG PET CT Scan': { regular: 16000, extra: 16000, skip: 21000 },
+
+  // #34 Cardiac Pet: 17,000
+  'Cardiac Pet': { regular: 17000, extra: 17000, skip: 22000 },
+  'Cardiac PET': { regular: 17000, extra: 17000, skip: 22000 },
+  'Cardiac PET Scan': { regular: 17000, extra: 17000, skip: 22000 },
+
+  // #35 Neurology Brain Pet: 16,000
+  'Neurology Brain Pet': { regular: 16000, extra: 16000, skip: 21000 },
+  'Neurology Brain PET': { regular: 16000, extra: 16000, skip: 21000 },
+
+  // #36 GA 68 Dota Scan (By Appointment): 25,000
+  'GA 68 Dota Scan (By Appointment)': { regular: 25000, extra: 25000, skip: 30000 },
+  'Ga68 DOTA PET CT Scan': { regular: 25000, extra: 25000, skip: 30000 },
+  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': { regular: 25000, extra: 25000, skip: 30000 },
+
+  // #37 GA 68 PSMA Scan: 25,000
+  'GA 68 PSMA Scan': { regular: 25000, extra: 25000, skip: 30000 },
+  'Ga68 PSMA PET CT Scan': { regular: 25000, extra: 25000, skip: 30000 },
+  'Gallium-68 PSMA Scan': { regular: 25000, extra: 25000, skip: 30000 },
+
+  // #38 Anesthesiologist: 6,000
+  'Anesthesiologist': { regular: 6000, extra: 6000, skip: 8500 },
+
+  // #39 fapi / FAPI PET Scan: 25,000
+  'fapi': { regular: 25000, extra: 25000, skip: 30000 },
+  'FAPI': { regular: 25000, extra: 25000, skip: 30000 },
+  'FAPI PET Scan': { regular: 25000, extra: 25000, skip: 30000 },
+  'FAPI PET CT Scan': { regular: 25000, extra: 25000, skip: 30000 },
+
+  // #40 FLUORODOPA: 25,000
+  'FLUORODOPA': { regular: 25000, extra: 25000, skip: 30000 },
+  'F-18 FDOPA PET CT Scan': { regular: 25000, extra: 25000, skip: 30000 },
+
+  // #41 PENTIXAFOR PET SCAN: 25,000
+  'PENTIXAFOR PET SCAN': { regular: 25000, extra: 25000, skip: 30000 },
+  'Pentixafor PET Scan': { regular: 25000, extra: 25000, skip: 30000 },
+
+  // #42 TRIVEHXEXIN: 25,000
+  'TRIVEHXEXIN': { regular: 25000, extra: 25000, skip: 30000 },
+  'Trivehexin': { regular: 25000, extra: 25000, skip: 30000 },
+  'Trivehexin PET CT Scan': { regular: 25000, extra: 25000, skip: 30000 },
+
+  // #43 EXENDIN: 25,000
+  'EXENDIN': { regular: 25000, extra: 25000, skip: 30000 },
+  'Exendin': { regular: 25000, extra: 25000, skip: 30000 },
+  'Exendine PET CT Scan': { regular: 25000, extra: 25000, skip: 30000 },
+  'Exendin PET CT Scan': { regular: 25000, extra: 25000, skip: 30000 },
+
+  // Additional PET
+  'Fusion- PET MRI': { regular: 25000, extra: 25000, skip: 32000 },
+  'Fusion PET MRI': { regular: 25000, extra: 25000, skip: 32000 },
 };
 
 const getTestPrice = (testName) => {
@@ -388,6 +660,27 @@ const getTestPrice = (testName) => {
   for (const [key, val] of Object.entries(testPrices)) {
     if (key.toUpperCase().trim() === upper) return val;
   }
+
+  // Fallbacks by keywords
+  if (upper.includes('THYROID')) return { regular: 6500, extra: 6500, skip: 9000 };
+  if (upper.includes('ABLATION 100')) return { regular: 55000, extra: 55000, skip: 65000 };
+  if (upper.includes('ABLATION 12') || upper.includes('ABLATION 15')) return { regular: 12000, extra: 12000, skip: 16000 };
+  if (upper.includes('ABLATION 10')) return { regular: 10000, extra: 10000, skip: 14000 };
+  if (upper.includes('ABLATION 08') || upper.includes('ABLATION 8')) return { regular: 8000, extra: 8000, skip: 11000 };
+  if (upper.includes('THALLIUM') && upper.includes('STRESS')) return { regular: 15000, extra: 15000, skip: 20000 };
+  if (upper.includes('THALLIUM')) return { regular: 14000, extra: 14000, skip: 19000 };
+  if (upper.includes('BONE')) return { regular: 7000, extra: 7000, skip: 9500 };
+  if (upper.includes('CAPTOPRIL')) return { regular: 5500, extra: 5500, skip: 7500 };
+  if (upper.includes('DTPA') || upper.includes('DMSA') || upper.includes('EC RENAL') || upper.includes('MCU') || upper.includes('VUR')) return { regular: 6000, extra: 6000, skip: 8500 };
+  if (upper.includes('CARDIAC PET')) return { regular: 17000, extra: 17000, skip: 22000 };
+  if (upper.includes('BRAIN PET') || upper.includes('FDG') || upper.includes('WHOLE BODY PET')) return { regular: 16000, extra: 16000, skip: 21000 };
+  if (upper.includes('DOTA') || upper.includes('PSMA') || upper.includes('FAPI') || upper.includes('FLUORODOPA') || upper.includes('PENTIXAFOR') || upper.includes('TRIVEH') || upper.includes('EXENDIN')) return { regular: 25000, extra: 25000, skip: 30000 };
+  if (upper.includes('ANESTHESIOLOGIST')) return { regular: 6000, extra: 6000, skip: 8500 };
+  if (upper.includes('BRAIN SPECT')) return { regular: 5000, extra: 5000, skip: 7000 };
+  if (upper.includes('MIBG')) return { regular: 25000, extra: 25000, skip: 30000 };
+  if (upper.includes('PARATHYROID') || upper.includes('LYMPHO') || upper.includes('COLONIC') || upper.includes('GI BLEED')) return { regular: 10000, extra: 10000, skip: 14000 };
+  if (upper.includes('IODINE')) return { regular: 7000, extra: 7000, skip: 9500 };
+  if (upper.includes('LUNG')) return { regular: 4000, extra: 4000, skip: 5500 };
 
   return defaultPrice;
 };
@@ -479,7 +772,7 @@ export default function AppointmentPage() {
         time: testTime || form.time,
         tests: tests || form.Tests,
         message: textMessage,
-        chargeType,
+        chargeType: form.chargeType === 'skip' ? 'Skip the Queue' : form.chargeType === 'extra' ? 'Regular' : (form.chargeType || chargeType),
       });
 
       if (result.success) {
@@ -754,19 +1047,13 @@ export default function AppointmentPage() {
             {(form.Tests || tests) && (
               <div className="mb-5">
                 <label className="font-display font-semibold text-navy text-sm mb-3 block">Select Charge Type *</label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <button
                     type="button"
-                    onClick={() => setForm({ ...form, chargeType: 'regular' })}
-                    className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-200 ${form.chargeType === 'regular' ? 'border-[#3b7a24] bg-white ring-1 ring-[#3b7a24] shadow-sm' : 'border-slate-200 bg-[#f3f1fb] hover:border-[#3b7a24]/40 hover:bg-white'}`}
-                  >
-                    <span className={`font-display font-bold text-sm mb-1 ${form.chargeType === 'regular' ? 'text-[#0e1a6b]' : 'text-navy/70'}`}>Economy</span>
-                    <span className={`font-bold ${form.chargeType === 'regular' ? 'text-[#3b7a24]' : 'text-navy'}`}>₹{getTestPrice(form.Tests || tests).regular.toLocaleString()}</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setForm({ ...form, chargeType: 'extra' })}
+                    onClick={() => {
+                      setChargeType('extra');
+                      setForm({ ...form, chargeType: 'extra' });
+                    }}
                     className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-200 ${form.chargeType === 'extra' ? 'border-[#3b7a24] bg-white ring-1 ring-[#3b7a24] shadow-sm' : 'border-slate-200 bg-[#f3f1fb] hover:border-[#3b7a24]/40 hover:bg-white'}`}
                   >
                     <span className={`font-display font-bold text-sm mb-1 ${form.chargeType === 'extra' ? 'text-[#0e1a6b]' : 'text-navy/70'}`}>Regular</span>
@@ -798,17 +1085,13 @@ export default function AppointmentPage() {
                   className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0
       ${form.chargeType === "skip"
                       ? "bg-green-100 text-green-600"
-                      : form.chargeType === "extra"
-                        ? "bg-blue-100 text-blue-600"
-                        : "bg-orange-100 text-orange-600"
+                      : "bg-blue-100 text-blue-600"
                     }`}
                 >
                   <span className="text-lg">
                     {form.chargeType === "skip"
                       ? "⚡"
-                      : form.chargeType === "extra"
-                        ? "🕕"
-                        : "📅"}
+                      : "🕕"}
                   </span>
                 </div>
 
@@ -817,9 +1100,7 @@ export default function AppointmentPage() {
                   <h4 className="text-[15px] font-semibold text-[#0e1a6b]">
                     {form.chargeType === "skip"
                       ? "Skip the Queue"
-                      : form.chargeType === "extra"
-                        ? "Regular"
-                        : "Economy"}
+                      : "Regular"}
                   </h4>
 
                   <p className="mt-1 text-[13px] text-gray-600">
@@ -840,18 +1121,6 @@ export default function AppointmentPage() {
                         Same day between
                         <span className="font-semibold text-[#0e1a6b]">
                           {" "}6:00 PM – 7:00 PM
-                        </span>.
-                      </>
-                    )}
-
-                    {form.chargeType === "regular" && (
-                      <>
-                        <span className="font-semibold text-gray-800">
-                          Report Delivery:
-                        </span>{" "}
-                        Available on the
-                        <span className="font-semibold text-[#0e1a6b]">
-                          {" "}next day
                         </span>.
                       </>
                     )}

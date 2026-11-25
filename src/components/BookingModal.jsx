@@ -8,54 +8,188 @@ import { services, bookingTestsList } from '../mock';
 
 // Auto-timing per test
 const testTimings = {
-  'THYROID SCAN': '10:00 AM – 03:00 PM',
-  'RADIO-IODINE ABLATION 10 mci': '10:00 AM – 03:00 PM',
-  'RADIO-IODINE ABLATION 15 mci': '10:00 AM – 03:00 PM',
-  'RADIO-IODINE ABLATION 100 mci': 'Admission for 1–3 days',
-  'THALLIUM SCAN': '11:00 AM – 05:00 PM',
-  'CAPTOPRIL RENAL SCAN and baseline': '08:00 AM – 12:00 PM',
-  'DTPA RENAL SCAN': '09:00 AM – 02:00 PM',
-  'EC RENAL SCAN': '09:00 AM – 02:00 PM',
-  'DMSA RENAL': '09:00 AM – 02:00 PM',
-  'VUR STUDY / MCU': '09:00 AM – 02:00 PM',
-  'BONE SCAN': '09:00 AM – 01:00 PM',
-  'LUNG PERFUSION SCAN': '10:00 AM – 04:00 PM',
-  'LUNG VENTILATION SCAN': '10:00 AM – 04:00 PM',
-  'LIVER COLLOID SCAN': '10:00 AM – 03:00 PM',
-  'HEPATOBILLARY SCAN (HIDA)': '10:00 AM – 03:00 PM',
-  "MECKEL'S SCAN": '09:00 AM – 01:00 PM',
-  'GI BLEED SCAN / RBC SCAN': '09:00 AM – 03:00 PM',
-  'BRAIN SPECT (EPILEPSY / ALZEIMERS)': '10:00 AM – 04:00 PM',
-  'GASTRIC EMPTING': '09:00 AM – 01:00 PM',
-  'G.E. REFLUX / MILK SCAN': '09:00 AM – 01:00 PM',
-  'TESTICULAR SCAN FOR TORSION': '10:00 AM – 04:00 PM',
-  'MUGA': '10:00 AM – 04:00 PM',
-  'PARATHYROID SCAN': '10:00 AM – 03:00 PM',
-  'IODINE SCAN': '10:00 AM – 03:00 PM',
-  'PHARMACOLOGICAL STRESS THALLIUM': '11:00 AM – 05:00 PM',
-  'LYMPHOSCINTIGRAPHY': '10:00 AM – 04:00 PM',
-  'DACROSCINTIGRAPHY': '10:00 AM – 04:00 PM',
-  'Colonic Transit Time': '09:00 AM – 01:00 PM',
-  'FAPI PET Scan': '07:00 AM – 07:00 PM',
-  'FDG Whole Body Pet': '07:00 AM – 07:00 PM',
-  'Cardiac Pet': '07:00 AM – 07:00 PM',
-  'Neurology Brain Pet': '07:00 AM – 07:00 PM',
-  'GA 68 Dota Scan (By Appointment)': '07:00 AM – 07:00 PM',
-  'GA 68 PSMA Scan': '07:00 AM – 07:00 PM',
+  // #1 THYROID SCAN
+  'THYROID SCAN': '2 Hrs',
+  'Thyroid Scan': '2 Hrs',
 
-  // PET Scans
-  'PET-CT IMAGING (FDG)': '07:00 AM – 07:00 PM',
-  'PET-CT Imaging Procedure (FDG)': '07:00 AM – 07:00 PM',
-  'Gallium-68 PSMA Scan': '07:00 AM – 07:00 PM',
-  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': '07:00 AM – 07:00 PM',
-  'F-18 FDG PET CT Scan': '07:00 AM – 07:00 PM',
-  'Ga68 PSMA PET CT Scan': '07:00 AM – 07:00 PM',
-  'Ga68 DOTA PET CT Scan': '07:00 AM – 07:00 PM',
-  'Cardiac PET Scan': '07:00 AM – 07:00 PM',
-  'F-18 FDOPA PET CT Scan': '07:00 AM – 07:00 PM',
-  'Trivehexin PET CT Scan': '07:00 AM – 07:00 PM',
-  'Exendin PET CT Scan': '07:00 AM – 07:00 PM',
-  'Fusion PET MRI': '07:00 AM – 07:00 PM',
+  // #2 RADIO-IODINE ABLATION 08 mCi
+  'RADIO-IODINE ABLATION 08 mCi': '1 day',
+  'RADIO-IODINE ABLATION 08 mci': '1 day',
+
+  // #3 RADIO-IODINE ABLATION 10 mCi
+  'RADIO-IODINE ABLATION 10 mCi': '1 day',
+  'RADIO-IODINE ABLATION 10 mci': '1 day',
+
+  // #4 RADIO-IODINE ABLATION 12 mCi
+  'RADIO-IODINE ABLATION 12 mCi': '1 day',
+  'RADIO-IODINE ABLATION 12 mci': '1 day',
+  'RADIO-IODINE ABLATION 15 mci': '1 day',
+
+  // #5 RADIO-IODINE ABLATION 100 mCi
+  'RADIO-IODINE ABLATION 100 mCi': '2 days',
+  'RADIO-IODINE ABLATION 100 mci': '2 days',
+
+  // #6 THALLIUM SCAN
+  'THALLIUM SCAN': '4–5 Hrs',
+  'Thallium Scan': '4–5 Hrs',
+
+  // #7 CAPTOPRIL RENAL SCAN
+  'CAPTOPRIL RENAL SCAN': '3 Hrs',
+  'Captopril Renal Scan': '3 Hrs',
+
+  // #9 baseline
+  'baseline': '2–3 Hrs',
+  'BASELINE RENAL SCAN': '2–3 Hrs',
+  'CAPTOPRIL RENAL SCAN and baseline': '3 Hrs',
+
+  // #10 DTPA RENAL SCAN
+  'DTPA RENAL SCAN': '3 Hrs',
+  'DTPA Renal Scan': '3 Hrs',
+  'DTPA / EC (MAG-3) RENOGRAM SCAN': '3 Hrs',
+
+  // #11 EC RENAL SCAN
+  'EC RENAL SCAN': '3 Hrs',
+  'EC Renal Scan': '3 Hrs',
+
+  // #12 DMSA RENAL
+  'DMSA RENAL': '3 Hrs',
+  'DMSA Renal Scan': '3 Hrs',
+  'DMSA RENAL SCAN (CORTICAL FUNCTION)': '3 Hrs',
+
+  // #13 VUR STUDY / MCU
+  'VUR STUDY / MCU': '2 Hrs',
+
+  // #14 BONE SCAN
+  'BONE SCAN': '5–6 Hrs',
+  'Bone Scan': '5–6 Hrs',
+
+  // #15 LUNG PERFUSION SCAN
+  'LUNG PERFUSION SCAN': '2 Hrs',
+
+  // #16 LUNG VENTILATION SCAN
+  'LUNG VENTILATION SCAN': '2 Hrs',
+
+  // #17 LIVER COLLOID SCAN
+  'LIVER COLLOID SCAN': '1 Hr',
+  'Colloid Liver Scan': '1 Hr',
+  'COLLOID LIVER SCAN': '1 Hr',
+
+  // #18 HEPATOBILLARY SCAN (HIDA)
+  'HEPATOBILLARY SCAN (HIDA)': '2 days',
+  'HIDA Scan': '2 days',
+
+  // #19 MECKEL'S SCAN
+  "MECKEL'S SCAN": '2 Hrs',
+  'Meckels Scan': '2 Hrs',
+
+  // #20 GI BLEED SCAN / RBC SCAN
+  'GI BLEED SCAN / RBC SCAN': '5–6 Hrs',
+  'GI Bleed Scan': '5–6 Hrs',
+
+  // #21 MIBG(conditions apply)
+  'MIBG (conditions apply)': '5–6 days',
+  'MIBG(conditions apply)': '5–6 days',
+  'MIBG SCAN': '5–6 days',
+
+  // #22 BRAIN SPECT
+  'BRAIN SPECT': '5–6 days',
+  'BRAIN SPECT (EPILEPSY / ALZEIMERS)': '5–6 days',
+
+  // #23 GASTRIC EMPTING
+  'GASTRIC EMPTING': '1–2 days',
+  'Gastric Emptying Scan': '1–2 days',
+
+  // #24 G.E. REFLUX / MILK SCAN
+  'G.E. REFLUX / MILK SCAN': '4–5 Hrs',
+  'MILK SCAN (GE REFLUX)': '4–5 Hrs',
+  'Milk Scan (GE Reflux)': '4–5 Hrs',
+
+  // #25 TESTICULAR SCAN FOR TORSION
+  'TESTICULAR SCAN FOR TORSION': '3–4 Hrs',
+
+  // #26 MUGA
+  'MUGA': '3–4 Hrs',
+  'MUGA SCAN': '3–4 Hrs',
+  'MUGA Scan': '3–4 Hrs',
+
+  // #27 PARATHYROID SCAN
+  'PARATHYROID SCAN': '4–5 Hrs',
+  'Parathyroid Scan': '4–5 Hrs',
+
+  // #28 IODINE SCAN
+  'IODINE SCAN': '2 days',
+  'Iodine Scan': '2 days',
+
+  // #29 PHARMACOLOGICAL STRESS THALLIUM
+  'PHARMACOLOGICAL STRESS THALLIUM': '4–5 Hrs',
+
+  // #30 LYMPHOSCINTIGRAPHY
+  'LYMPHOSCINTIGRAPHY': '5 Hrs',
+  'Lymphoscintigraphy': '5 Hrs',
+
+  // #31 DACROSCINTIGRAPHY
+  'DACROSCINTIGRAPHY': '4 Hrs',
+  'Dacroscintigraphy': '4 Hrs',
+
+  // #32 Colonic Transit Time
+  'Colonic Transit Time': '5–6 days',
+  'COLONIC TRANSIT TIME': '5–6 days',
+
+  // #33 FDG Whole Body Pet
+  'FDG Whole Body Pet': '3–4 Hrs',
+  'FDG Whole Body PET': '3–4 Hrs',
+  'PET-CT IMAGING (FDG)': '3–4 Hrs',
+  'PET-CT Imaging Procedure (FDG)': '3–4 Hrs',
+  'F-18 FDG PET CT Scan': '3–4 Hrs',
+
+  // #34 Cardiac Pet
+  'Cardiac Pet': '6–7 Hrs',
+  'Cardiac PET': '6–7 Hrs',
+  'Cardiac PET Scan': '6–7 Hrs',
+
+  // #35 Neurology Brain Pet
+  'Neurology Brain Pet': '3–4 Hrs',
+  'Neurology Brain PET': '3–4 Hrs',
+
+  // #36 GA 68 Dota Scan (By Appointment)
+  'GA 68 Dota Scan (By Appointment)': 'By Appointment (3 Hrs)',
+  'Ga68 DOTA PET CT Scan': 'By Appointment (3 Hrs)',
+  'Gallium-68 OCTREOTIDE /DOTA/SOMATOSTATIN Scan': 'By Appointment (3 Hrs)',
+
+  // #37 GA 68 PSMA Scan
+  'GA 68 PSMA Scan': 'By Appointment (3 Hrs)',
+  'Ga68 PSMA PET CT Scan': 'By Appointment (3 Hrs)',
+  'Gallium-68 PSMA Scan': 'By Appointment (3 Hrs)',
+
+  // #38 Anesthesiologist
+  'Anesthesiologist': 'By Appointment',
+
+  // #39 fapi
+  'fapi': '3 Hrs',
+  'FAPI': '3 Hrs',
+  'FAPI PET Scan': '3 Hrs',
+  'FAPI PET CT Scan': '3 Hrs',
+
+  // #40 FLUORODOPA
+  'FLUORODOPA': '4–5 Hrs',
+  'F-18 FDOPA PET CT Scan': '4–5 Hrs',
+
+  // #41 PENTIXAFOR PET SCAN
+  'PENTIXAFOR PET SCAN': '2–3 Hrs',
+  'Pentixafor PET Scan': '2–3 Hrs',
+
+  // #42 TRIVEHXEXIN
+  'TRIVEHXEXIN': '2–3 Hrs',
+  'Trivehexin': '2–3 Hrs',
+  'Trivehexin PET CT Scan': '2–3 Hrs',
+
+  // #43 EXENDIN
+  'EXENDIN': '2–3 Hrs',
+  'Exendin': '2–3 Hrs',
+  'Exendine PET CT Scan': '2–3 Hrs',
+  'Exendin PET CT Scan': '2–3 Hrs',
+  'Fusion- PET MRI': '2–3 Hrs',
+  'Fusion PET MRI': '2–3 Hrs',
 };
 
 // Robust timing lookup helper
@@ -68,17 +202,26 @@ const getTestTiming = (testName) => {
     if (key.toUpperCase().trim() === upper) return val;
   }
 
-  if (upper.includes('PET') || upper.includes('FDG') || upper.includes('PSMA') || upper.includes('DOTA') || upper.includes('FAPI') || upper.includes('FDOPA') || upper.includes('EXENDIN') || upper.includes('TRIVEHEXIN') || upper.includes('GALLIUM')) return '07:00 AM – 07:00 PM';
-  if (upper.includes('THALLIUM')) return '11:00 AM – 05:00 PM';
-  if (upper.includes('BONE')) return '09:00 AM – 01:00 PM';
-  if (upper.includes('CAPTOPRIL')) return '08:00 AM – 12:00 PM';
-  if (upper.includes('DTPA') || upper.includes('DMSA') || upper.includes('RENOGRAM') || upper.includes('RENAL')) return '09:00 AM – 02:00 PM';
-  if (upper.includes('THYROID') || upper.includes('PARATHYROID')) return '10:00 AM – 03:00 PM';
-  if (upper.includes('COLLOID') || upper.includes('LIVER')) return '10:00 AM – 03:00 PM';
-  if (upper.includes('MILK') || upper.includes('REFLUX')) return '09:00 AM – 01:00 PM';
-  if (upper.includes('MUGA') || upper.includes('MIBG')) return '10:00 AM – 04:00 PM';
+  if (upper.includes('THYROID')) return '2 Hrs';
+  if (upper.includes('ABLATION 100')) return '2 days';
+  if (upper.includes('ABLATION')) return '1 day';
+  if (upper.includes('THALLIUM')) return '4–5 Hrs';
+  if (upper.includes('BONE')) return '5–6 Hrs';
+  if (upper.includes('CAPTOPRIL')) return '3 Hrs';
+  if (upper.includes('DTPA') || upper.includes('DMSA') || upper.includes('EC RENAL') || upper.includes('RENOGRAM')) return '3 Hrs';
+  if (upper.includes('CARDIAC PET')) return '6–7 Hrs';
+  if (upper.includes('BRAIN PET') || upper.includes('FDG') || upper.includes('WHOLE BODY PET')) return '3–4 Hrs';
+  if (upper.includes('DOTA') || upper.includes('PSMA')) return 'By Appointment (3 Hrs)';
+  if (upper.includes('ANESTHESIOLOGIST')) return 'By Appointment';
+  if (upper.includes('SPECT') || upper.includes('COLONIC') || upper.includes('MIBG')) return '5–6 days';
+  if (upper.includes('GASTRIC') || upper.includes('HIDA') || upper.includes('IODINE')) return '1–2 days';
+  if (upper.includes('MUGA') || upper.includes('TORSION')) return '3–4 Hrs';
+  if (upper.includes('LUNG') || upper.includes('MECKEL') || upper.includes('MCU') || upper.includes('VUR')) return '2 Hrs';
+  if (upper.includes('LIVER')) return '1 Hr';
+  if (upper.includes('PARATHYROID') || upper.includes('MILK') || upper.includes('REFLUX') || upper.includes('FLUORODOPA')) return '4–5 Hrs';
+  if (upper.includes('PET') || upper.includes('FAPI') || upper.includes('EXENDIN') || upper.includes('TRIVEH')) return '2–3 Hrs';
 
-  return '09:00 AM – 05:00 PM';
+  return '2–3 Hrs';
 };
 
 // Preparation instructions
